@@ -1197,10 +1197,14 @@
     </main>
 </body>
 
-<script>
+<script type="text/worker">
+
+    //TODO: Make the attribute manipulation easier?
+
+    ///BUTTON CLICKS
 
     const rollPower = () => {
-        
+
     }
 
     const rollHeart = () => {
@@ -1220,6 +1224,10 @@
     }
     
     const rollShinpi = () => {
+
+    }
+
+    const rollFate = () => {
 
     }
 
@@ -1243,7 +1251,168 @@
 
     }
 
+    ///BUTTON CLICKS - END
 
 
+    ///AUTOMATIC VALUE ADJUSTMENTS
+
+    on("change:heart", () => {
+        calcMaxHp();
+        calcMove();
+        calcResolve();
+    });
+
+    on("change:presence", () => {
+        calcResolve();
+    });
+
+    on("change:reflex", () => {
+        calcMove();
+        calcDefence();
+    });
+
+    on("change:savvy", () => {
+        calcInitiative();
+    });
+
+    on("change:power", () => {
+        calcDefence();
+    });
+
+    ///AUTOMATIC VALUE ADJUSTMENTS - END
+
+
+    ///UTIL FNS
+
+    const calcMaxHp = () => {
+        console.log("calculating max HP....");
+        getAttrs(["heart", "hp_multiplier"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.heart || !values.hp_multiplier) return;
+
+            const heart = parseInt(values.heart);
+            const hp_multiplier = parseInt(values.hp_multiplier);
+
+            //if either value is NaN, return
+            if(!heart || !hp_multiplier) return;
+            
+
+            const max_hp = roundUp(heart * hp_multiplier);
+
+            setAttrs({
+                "max_hp": max_hp
+            });
+
+        });
+        console.log("max HP calculation done.");
+    }
+
+    const calcResolve = () => {
+        console.log("calculating resolve....");
+        getAttrs(["heart", "presence"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.heart || !values.presence) return;
+
+            const heart = parseInt(values.heart);
+            const presence = parseInt(values.presence);
+
+            //if either value is NaN, return
+            if(!heart || !presence) return;
+            
+
+            const resolve = roundUp((heart + presence) * 0.4);
+
+            setAttrs({
+                "resolve": resolve
+            });
+
+        });
+        console.log("resolve calculation done.");
+    }
+
+    const calcInitiative = () => {
+        console.log("calculating initiative....");
+        getAttrs(["reflex", "savvy"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.reflex || !values.savvy) return;
+
+            const reflex = parseInt(values.reflex);
+            const savvy = parseInt(values.savvy);
+
+            //if either value is NaN, return
+            if(!reflex || !savvy) return;
+            
+
+            const initiative = roundUp(reflex + savvy);
+
+            setAttrs({
+                "initiative": initiative
+            });
+
+        });
+        console.log("initiative calculation done.");
+    }
+
+    const calcDefence = () => {
+        console.log("calculating defence....");
+        getAttrs(["power", "reflex"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.reflex || !values.power) return;
+
+            const reflex = parseInt(values.reflex);
+            const power = parseInt(values.power);
+
+            //if either value is NaN, return
+            if(!reflex || !power) return;
+            
+
+            const defence = roundUp((reflex + power) * 0.4);
+
+            setAttrs({
+                "initiative": defence
+            });
+
+        });
+        console.log("defence calculation done.");
+    }
+
+    const calcMove = () => {
+        console.log("calculating move....");
+        getAttrs(["reflex", "heart", "size"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.heart || !values.presence || !values.size) return;
+
+            const heart = parseInt(values.heart);
+            const presence = parseInt(values.presence);
+            const size = parseInt(values.size);
+
+            //if either value is NaN, return
+            if(!heart || !presence || !size) return;            
+
+            const move = roundUp((reflex + heart) / size);
+
+            setAttrs({
+                "move": move
+            });
+
+        });
+        console.log("move calculation done.");
+    }
+
+    //TODO - Extend prototype?
+    const roundUp = (float) => {
+        return Math.ceil(float);
+    }
+
+    const getTraitRoll = (score) => {
+        return score / 10;
+    }
+
+    ///UTIL FNS - END
 </script>
 </html>
