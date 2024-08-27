@@ -89,7 +89,7 @@
                             <h5>Power:</h5>
                             <span>
                                 <input id="power" type="text" class="w-75" name="attr_power" placeholder="10" value="10">  
-                                <button id="roll_power" name="roll_power" type="roll" class="m-0">
+                                <button id="roll_power" name="act_roll_power" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
                             </span>
 
                                 
@@ -98,7 +98,7 @@
                         <div>
                             <h5>Reflex:</h5>
                             <input id="reflex" type="text" class="w-75" name="attr_reflex" placeholder="10" value="10">
-                            <button id="roll_reflex" name="roll_reflex" type="roll" class="m-0"></button>
+                            <button id="roll_reflex" name="act_roll_reflex" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
                         </div>
         
                     </div>  
@@ -106,25 +106,25 @@
                         <div>
                             <h5>Heart:</h5>
                             <input id="heart" type="text" class="w-75" name="attr_heart" placeholder="10" value="10">
-                            <button id="roll_heart" name="roll_heart" type="roll" class="m-0">    
+                            <button id="roll_heart" name="act_roll_heart" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>  
                         </div>
                         <div>
                             <h5>Savvy:</h5>
                             <input id="savvy" type="text" class="w-75" name="attr_savvy" placeholder="10" value="10">
-                            <button id="roll_savvy" name="roll_savvy" type="roll" class="m-0">
+                            <button id="roll_savvy" name="act_roll_savvy" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
                         </div>
         
                     </div>   
                     <div  class="column-3" >
                         <div>
-                            <h5>Perception:</h5>
-                            <input id="perception" type="text" class="w-75" name="attr_perception" placeholder="10" value="10"> 
-                            <button id="roll_power" name="roll_power" type="roll" class="m-0">   
+                            <h5>Presence:</h5>
+                            <input id="presence" type="text" class="w-75" name="attr_presence" placeholder="10" value="10"> 
+                            <button id="roll_presence" name="act_roll_presence" type="action" class="m-0 roll-button">   <span style="font-family:dicefontd20;">t</span></button>
                         </div>
                         <div>
                             <h5>Shinpi:</h5>
                             <input id="shinpi" type="text" class="w-75" name="attr_shinpi" placeholder="0" >
-                            <button id="roll_power" name="roll_power" type="roll" class="m-0">
+                            <button id="roll_shinpi" name="act_roll_shinpi" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
                         </div>
         
                     </div>  
@@ -1197,59 +1197,262 @@
     </main>
 </body>
 
+<rolltemplate class="sheet-rolltemplate-trait">
+    <div class="contianer">
+        <h3>{{characterName}} rolls {{traitName}}</h3>
+        <div class="">
+            <h4>{{roll}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
 <script type="text/worker">
 
     //TODO: Make the attribute manipulation easier?
 
     ///BUTTON CLICKS
 
+    on("clicked:roll_power", (info) => {
+        console.log("POWAAAAAAA! -LeMillion");
+        console.log("rolling power....");
+        getAttrs(["power", "character_name"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.power) return;
+
+            const power = parseInt(values.power);
+            const charName = !values.character_name ? "" : values.character_name;
+
+            //if either value is NaN, return
+            if(power === NaN) return;
+            
+            const d10s = getTraitRollD10s(power);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Power}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("power roll done.");
+    });
+
+    on("clicked:roll_reflex", (info) => {
+
+        console.log("rolling reflex....");
+        getAttrs(["reflex", "character_name"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.reflex) return;
+
+            const reflex = parseInt(values.reflex);
+            const charName = !values.character_name ? "" : values.character_name;
+
+            //if either value is NaN, return
+            if(reflex === NaN) return;
+            
+            const d10s = getTraitRollD10s(reflex);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Reflex}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("reflex roll done.");
+    });
+
+    on("clicked:roll_heart", (info) => {
+
+        console.log("rolling heart....");
+        getAttrs(["heart", "character_name"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.heart) return;
+
+            const heart = parseInt(values.heart);
+            const charName = !values.character_name ? "" : values.character_name;
+
+            //if either value is NaN, return
+            if(heart === NaN) return;
+            
+            const d10s = getTraitRollD10s(heart);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Heart}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("heart roll done.");
+    });
+
+
+    on("clicked:roll_savvy", (info) => {
+
+        console.log("rolling savvy....");
+        getAttrs(["savvy", "character_name"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.savvy) return;
+
+            const savvy = parseInt(values.savvy);
+            const charName = !values.character_name ? "" : values.character_name;
+
+            //if either value is NaN, return
+            if(savvy === NaN) return;
+            
+            const d10s = getTraitRollD10s(savvy);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Savvy}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("savvy roll done.");
+    });
+
+    on("clicked:roll_presence", (info) => {
+
+        console.log("rolling presence....");
+        getAttrs(["presence", "character_name"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.presence) return;
+
+            const presence = parseInt(values.presence);
+            const charName = !values.character_name ? "" : values.character_name;
+
+            //if either value is NaN, return
+            if(presence === NaN) return;
+            
+            const d10s = getTraitRollD10s(presence);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Presence}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("presence roll done.");
+    });
+
+    on("clicked:roll_shinpi", (info) => {
+
+        console.log("rolling shinpi....");
+        getAttrs(["shinpi", "character_name"], (values) => {
+
+            //if either value is not populated, do nothing.
+            if(!values.shinpi) return;
+
+            const shinpi = parseInt(values.shinpi);
+            const charName = !values.character_name ? "" : values.character_name;
+
+            //if either value is NaN, return
+            if(shinpi === NaN) return;
+            
+            const d10s = getTraitRollD10s(shinpi);
+            console.log(d10s);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Shinpi}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("shinpi roll done.");
+    });
+
     const rollPower = () => {
 
-    }
+    };
 
     const rollHeart = () => {
 
-    }
+    };
 
-    const rollPerception = () => {
+    const rollPresence = () => {
 
-    }
+    };
 
     const rollReflex = () => {
 
-    }
+    };
 
     const rollSavvy = () => {
 
-    }
+    };
     
     const rollShinpi = () => {
 
-    }
+    };
 
     const rollFate = () => {
 
-    }
+    };
 
     const rollCombat = (combatNum) => {
 
-    }
+    };
 
     const rollSkill = (skillNum) => {
         
-    }
+    };
 
     const rollRote = (roteNum) => {
 
-    }
+    };
 
     const rollBackground = (backgroundType) => {
 
-    }
+    };
 
     const rollWeaponAttack = (weaponNum) => {
 
-    }
+    };
 
     ///BUTTON CLICKS - END
 
@@ -1260,6 +1463,10 @@
         calcMaxHp();
         calcMove();
         calcResolve();
+    });
+
+    on("change:hp_multiplier", () => {
+        calcMaxHp();
     });
 
     on("change:presence", () => {
@@ -1292,10 +1499,10 @@
             if(!values.heart || !values.hp_multiplier) return;
 
             const heart = parseInt(values.heart);
-            const hp_multiplier = parseInt(values.hp_multiplier);
+            const hp_multiplier = parseFloat(values.hp_multiplier);
 
             //if either value is NaN, return
-            if(!heart || !hp_multiplier) return;
+            if(heart === NaN || hp_multiplier === NaN) return;
             
 
             const max_hp = roundUp(heart * hp_multiplier);
@@ -1319,13 +1526,13 @@
             const presence = parseInt(values.presence);
 
             //if either value is NaN, return
-            if(!heart || !presence) return;
+            if(heart === NaN || presence === NaN) return;
             
 
             const resolve = roundUp((heart + presence) * 0.4);
 
             setAttrs({
-                "resolve": resolve
+                "resolve_base": resolve
             });
 
         });
@@ -1343,13 +1550,13 @@
             const savvy = parseInt(values.savvy);
 
             //if either value is NaN, return
-            if(!reflex || !savvy) return;
+            if(reflex === NaN || savvy === NaN) return;
             
 
             const initiative = roundUp(reflex + savvy);
 
             setAttrs({
-                "initiative": initiative
+                "initiative_base": initiative
             });
 
         });
@@ -1367,13 +1574,12 @@
             const power = parseInt(values.power);
 
             //if either value is NaN, return
-            if(!reflex || !power) return;
-            
+            if(reflex === NaN || power === NaN) return;
 
             const defence = roundUp((reflex + power) * 0.4);
 
             setAttrs({
-                "initiative": defence
+                "defence_base": defence
             });
 
         });
@@ -1385,19 +1591,19 @@
         getAttrs(["reflex", "heart", "size"], (values) => {
 
             //if either value is not populated, do nothing.
-            if(!values.heart || !values.presence || !values.size) return;
+            if(!values.heart || !values.reflex || !values.size) return;
 
+            const reflex = parseInt(values.reflex);
             const heart = parseInt(values.heart);
-            const presence = parseInt(values.presence);
             const size = parseInt(values.size);
 
             //if either value is NaN, return
-            if(!heart || !presence || !size) return;            
+            if(heart === NaN || reflex === NaN || size === NaN) return;            
 
             const move = roundUp((reflex + heart) / size);
 
             setAttrs({
-                "move": move
+                "move_base": move
             });
 
         });
@@ -1409,8 +1615,9 @@
         return Math.ceil(float);
     }
 
-    const getTraitRoll = (score) => {
-        return score / 10;
+    const getTraitRollD10s = (score) => {
+        if (score < 10) return 1;
+        return Math.floor(score / 10);
     }
 
     ///UTIL FNS - END

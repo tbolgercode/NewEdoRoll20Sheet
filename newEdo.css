@@ -23,6 +23,18 @@ main {
     margin: 0 auto;
 }
 
+.roll-button {
+    color: #3a3a3a;
+    background: #e2e2e2;
+    border: solid 2px rgba(53, 53, 53, 0.836);
+    border-radius: 15%;
+    font-weight: bolder;
+}
+
+.roll-button {
+    transform: scale(0.9) !important;
+}
+
 section {
     margin-bottom: 10px;
     padding: 5px;
@@ -249,6 +261,13 @@ h2 {
 
 .border-bottom-thin {
     border-bottom: solid 1px black;
+}
+
+.sheet-rolltemplate-trait div,
+.sheet-rolltemplate-trait {
+    border: solid 2px #202020;
+    background: #34163a;
+
 }
 
 
