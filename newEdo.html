@@ -1460,7 +1460,11 @@
             const max_hp = roundUp(heart * hp_multiplier);
 
             setAttrs({
-                "max_hp": max_hp
+                "max_hp": max_hp,
+                "grazed": Math.floor(max_hp * 0.9),
+                "flesh_wound": Math.floor(max_hp * 0.75),
+                "banged_up": Math.floor(max_hp * 0.25),
+                "hurt_bad": Math.floor(max_hp * 0.1)
             });
 
         });
