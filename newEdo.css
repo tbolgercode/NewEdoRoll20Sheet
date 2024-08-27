@@ -271,5 +271,53 @@ h2 {
     padding: 1rem;
 }
 
+.sheet-rolltemplate-fate,
+.sheet-rolltemplate-fate {
+    border: solid 2px #202020;
+    background: #34163a;
+    text-align: center;
+    padding: 1rem;
+}
+
+.sheet-rolltemplate-skills,
+.sheet-rolltemplate-skills {
+    border: solid 2px #202020;
+    background: #34163a;
+    text-align: center;
+    padding: 1rem;
+}
+
+.sheet-rolltemplate-rotes,
+.sheet-rolltemplate-rotes {
+    border: solid 2px #202020;
+    background: #34163a;
+    text-align: center;
+    padding: 1rem;
+}
+
+.sheet-rolltemplate-backgrounds,
+.sheet-rolltemplate-backgrounds {
+    border: solid 2px #202020;
+    background: #34163a;
+    text-align: center;
+    padding: 1rem;
+}
+
+.sheet-rolltemplate-attack,
+.sheet-rolltemplate-attack {
+    border: solid 2px #202020;
+    background: #34163a;
+    text-align: center;
+    padding: 1rem;
+}
+
+.sheet-rolltemplate-weapon,
+.sheet-rolltemplate-weapon {
+    border: solid 2px #202020;
+    background: #34163a;
+    text-align: center;
+    padding: 1rem;
+}
+
 
   
