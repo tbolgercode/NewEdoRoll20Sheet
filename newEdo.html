@@ -227,7 +227,7 @@
             <div class="w-100 mb-1 p-2px border-thin bg-black" style="padding:2px;">
                 <span>
                     <h4>Fate Card</h4>
-                    <button id="roll_fate" name="roll_fate" type="roll" class="m-0"></button><br>
+                    <button id="roll_fate" name="act_roll_fate" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button><br>
     
                 </span>
                 <table class="w-100" style="text-align: center;">
@@ -1198,10 +1198,25 @@
 </body>
 
 <rolltemplate class="sheet-rolltemplate-trait">
-    <div class="contianer">
-        <h3>{{characterName}} rolls {{traitName}}</h3>
+    <div class="container">
+        <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{traitName}}:</h3>
         <div class="">
             <h4>{{roll}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-fate">
+    <div class="container">
+        <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls Fate:</h3>
+        <div class="">
+            <div style="margin-bottom: 0.3rem;">
+                <h4>{{roll}}</h4>
+            </div>
+            <h4>Effect:</h4>
+            <p style="color: #e4e4e4;">
+                {{effect}}
+            </p>
         </div>
     </div>
 </rolltemplate>
@@ -1211,6 +1226,38 @@
     //TODO: Make the attribute manipulation easier?
 
     ///BUTTON CLICKS
+
+    on("clicked:roll_fate", (info) => {
+        console.log("rolling fate....");
+
+        const fateAttrs = getFateAttrArray();
+        fateAttrs.push("character_name");
+
+        getAttrs(fateAttrs, (values) => {
+            console.log(values);
+
+            const charName = !values.character_name ? "" : values.character_name;
+            
+
+            const roll = Math.floor(Math.random() * 100) + 1;
+            
+            const effect = (roll >= 1 && roll <= 3) ? "BOTCH!" : getFateEffect(roll, values);
+
+            startRoll(`&{template:fate} {{characterName=${charName}}} {{roll=[[${roll}]]}} {{effect=${effect}}}`, (results) => {
+                const total = results.results.roll.result
+
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+        });
+        console.log("fate roll done.");
+    });
 
     on("clicked:roll_power", (info) => {
         console.log("POWAAAAAAA! -LeMillion");
@@ -1574,6 +1621,36 @@
     const getTraitRollD10s = (score) => {
         if (score < 10) return 1;
         return Math.floor(score / 10);
+    }
+
+    const getFateAttrArray = () => {
+        const columns = [];
+        for(let i = 1; i <= 12; i++){
+            columns.push(`fate${i}_minpercent`);
+            columns.push(`fate${i}_maxpercent`);
+            columns.push(`fate${i}_desc`);
+        };
+
+        return columns;
+    }
+
+    const getFateEffect = (roll, values) => {
+        let effect = "None";
+        const effectMap = new Map(Object.entries(values));
+        console.log(effectMap);
+
+        for (let i = 1; i <= 12; i++){
+            if(parseInt(effectMap.get(`fate${i}_minpercent`)) !== NaN && 
+            parseInt(effectMap.get(`fate${i}_maxpercent`)) !== NaN &&
+            effectMap.get(`fate${i}_desc`) &&
+            parseInt(effectMap.get(`fate${i}_minpercent`)) <= roll &&
+            parseInt(effectMap.get(`fate${i}_maxpercent`)) >= roll)
+
+            return effectMap.get(`fate${i}_desc`);
+
+        }
+
+        return effect;
     }
 
     ///UTIL FNS - END
