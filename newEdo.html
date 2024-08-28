@@ -2189,11 +2189,17 @@
 <rolltemplate class="sheet-rolltemplate-rote">
     <div class="container">
         <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{roteName}}:</h3>
-        <div class="">
+        <div style="margin-bottom: 0.3rem;" class="">
             <h4>{{roll}}</h4>
         </div>
         <div class="">
-            <h4>{{computed::hitMiss}}</h4>
+            <h4>TN: {{tn}}</h4>
+        </div>
+        <div class="sheet-rolltemplate-rote-details">
+            <h4>Effect:</h4>
+            <p>
+                {{roteDetails}}
+            </p>
         </div>
     </div>
 </rolltemplate>
@@ -2276,10 +2282,10 @@
             console.log(roll);
 
             //add focus
-
+            
             //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
             if(parseInt(skillId) === 0){
-                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}}`, (results) => {
+                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${valueMap.get(`rote${roteNum}_details`)}}}`, (results) => {
                     const total = results.results.roll.result
 
                     finishRoll(
@@ -2312,7 +2318,7 @@
 
             //check results and declare hit/miss
 
-            startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}}`, (results) => {
+            startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${valueMap.get(`rote${roteNum}_details`)}}}`, (results) => {
                 const total = results.results.roll.result
 
                 finishRoll(
@@ -2891,7 +2897,7 @@
         skillAttrNames.push(`shinpi`);
         skillAttrNames.push(`character_name`);
         skillAttrNames.push(`rote${roteNum}_name`);
-        skillAttrNames.push(`rote${roteNum}tn`);
+        skillAttrNames.push(`rote${roteNum}_tn`);
         skillAttrNames.push(`rote${roteNum}_casting_skill`);
         skillAttrNames.push(`rote${roteNum}_details`);
 

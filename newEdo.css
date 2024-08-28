@@ -318,6 +318,13 @@ h2 {
     padding: 1rem;
 }
 
+.sheet-rolltemplate-rote-details {
+    color: #eeeeee;
+    border: solid 2px #eeeeee;
+    background: #2a2249;
+    padding: 1rem;
+}
+
 .sheet-rolltemplate-background,
 .sheet-rolltemplate-background {
     border: solid 2px #202020;
