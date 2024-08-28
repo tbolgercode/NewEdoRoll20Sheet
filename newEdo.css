@@ -23,6 +23,15 @@ main {
     margin: 0 auto;
 }
 
+select {
+    background-color: #f7f7f7;
+
+}
+
+option {
+    background-color: #f7f7f7;
+}
+
 .roll-button {
     color: #3a3a3a;
     background: #e2e2e2;
@@ -46,6 +55,8 @@ main {
     align-items: center;
     align-content: center;
 }
+
+
 
 section {
     margin-bottom: 10px;
