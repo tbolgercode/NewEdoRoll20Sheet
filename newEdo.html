@@ -87,7 +87,7 @@
                     <div class="column-3" >
                         <div>
                             <h5>Power:</h5>
-                            <span>
+                            <span class="roll-button-container">
                                 <input id="power" type="text" class="w-75" name="attr_power" placeholder="10" value="10">  
                                 <button id="roll_power" name="act_roll_power" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
                             </span>
@@ -97,34 +97,44 @@
                         </div>
                         <div>
                             <h5>Reflex:</h5>
-                            <input id="reflex" type="text" class="w-75" name="attr_reflex" placeholder="10" value="10">
-                            <button id="roll_reflex" name="act_roll_reflex" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            <span class="roll-button-container">
+                                <input id="reflex" type="text" class="w-75" name="attr_reflex" placeholder="10" value="10">
+                                <button id="roll_reflex" name="act_roll_reflex" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
                         </div>
         
                     </div>  
                     <div  class="column-3" >
                         <div>
                             <h5>Heart:</h5>
-                            <input id="heart" type="text" class="w-75" name="attr_heart" placeholder="10" value="10">
-                            <button id="roll_heart" name="act_roll_heart" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>  
+                            <span class="roll-button-container">
+                                <input id="heart" type="text" class="w-75" name="attr_heart" placeholder="10" value="10">
+                                <button id="roll_heart" name="act_roll_heart" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>
+                            </span>
                         </div>
                         <div>
                             <h5>Savvy:</h5>
-                            <input id="savvy" type="text" class="w-75" name="attr_savvy" placeholder="10" value="10">
-                            <button id="roll_savvy" name="act_roll_savvy" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            <span class="roll-button-container">
+                                <input id="savvy" type="text" class="w-75" name="attr_savvy" placeholder="10" value="10">
+                                <button id="roll_savvy" name="act_roll_savvy" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
                         </div>
         
                     </div>   
                     <div  class="column-3" >
                         <div>
                             <h5>Presence:</h5>
-                            <input id="presence" type="text" class="w-75" name="attr_presence" placeholder="10" value="10"> 
-                            <button id="roll_presence" name="act_roll_presence" type="action" class="m-0 roll-button">   <span style="font-family:dicefontd20;">t</span></button>
+                            <span class="roll-button-container">
+                                <input id="presence" type="text" class="w-75" name="attr_presence" placeholder="10" value="10"> 
+                                <button id="roll_presence" name="act_roll_presence" type="action" class="m-0 roll-button">   <span style="font-family:dicefontd20;">t</span></button>
+                            </span>
                         </div>
                         <div>
                             <h5>Shinpi:</h5>
-                            <input id="shinpi" type="text" class="w-75" name="attr_shinpi" placeholder="0" >
-                            <button id="roll_shinpi" name="act_roll_shinpi" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            <span class="roll-button-container">
+                                <input id="shinpi" type="text" class="w-75" name="attr_shinpi" placeholder="0" >
+                                <button id="roll_shinpi" name="act_roll_shinpi" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
                         </div>
         
                     </div>  
@@ -225,11 +235,11 @@
 
         <div id="section2 w-100">
             <div class="w-100 mb-1 p-2px border-thin bg-black" style="padding:2px;">
-                <span>
+                <div class="mb-1">
                     <h4>Fate Card</h4>
-                    <button id="roll_fate" name="act_roll_fate" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button><br>
+                    <button id="roll_fate" name="act_roll_fate" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
     
-                </span>
+                </div>
                 <table class="w-100" style="text-align: center;">
                     <tr style="font-size:12px;">
                         <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate1_minpercent"> 
@@ -309,7 +319,7 @@
                          <input type="text" class="w-6" name="attr_weapon1_burst_roll">
                          <input type="text" class="w-6" name="attr_weapon1_burst_ammo">
                          <input type="text" class="w-6" name="attr_weapon1_mags">
-                         <button id="roll_weapon1_damage" name="roll_weapon1_damage" type="roll" class="m-0"></button>
+                         <button id="roll_weapon1_damage" name="roll_weapon1_damage" type="action" class="m-0"></button>
                     </div>
                     <div>
                           <input type="text" class="w-15" name="attr_weapon2">
@@ -321,7 +331,7 @@
                          <input type="text" class="w-6" name="attr_weapon2_burst_roll">
                          <input type="text" class="w-6" name="attr_weapon2_burst_ammo">
                          <input type="text" class="w-6" name="attr_weapon2_mags">
-                        <button id="roll_weapon2_damage" name="roll_weapon2_damage" type="roll" class="m-0"></button>
+                        <button id="roll_weapon2_damage" name="roll_weapon2_damage" type="action" class="m-0"></button>
                     </div>
                     <div>
                           <input type="text" class="w-15" name="attr_weapon3">
@@ -333,7 +343,7 @@
                          <input type="text" class="w-6" name="attr_weapon3_burst_roll">
                          <input type="text" class="w-6" name="attr_weapon3_burst_ammo">
                          <input type="text" class="w-6" name="attr_weapon3_mags">
-                        <button id="roll_weapon3_damage" name="roll_weapon3_damage" type="roll" class="m-0"></button>
+                        <button id="roll_weapon3_damage" name="roll_weapon3_damage" type="action" class="m-0"></button>
                     </div>
                     <div style="margin-bottom: 1px;">
                           <input type="text" class="w-15" name="attr_weapon4">
@@ -345,7 +355,7 @@
                          <input type="text" class="w-6" name="attr_weapon4_burst_roll">
                          <input type="text" class="w-6" name="attr_weapon4_burst_ammo">
                          <input type="text" class="w-6" name="attr_weapon4_mags">
-                        <button id="roll_weapon4_damage" name="roll_weapon4_damage" type="roll" class="m-0"></button>
+                        <button id="roll_weapon4_damage" name="roll_weapon4_damage" type="action" class="m-0"></button>
                     </div>
                     <div>
                           <input type="text" class="w-15" name="attr_weapon5">
@@ -357,7 +367,7 @@
                          <input type="text" class="w-6" name="attr_weapon5_burst_roll">
                          <input type="text" class="w-6" name="attr_weapon5_burst_ammo">
                          <input type="text" class="w-6" name="attr_weapon5_mags">
-                        <button id="roll_weapon5_damage" name="roll_weapon5_damage" type="roll" class="m-0"></button>
+                        <button id="roll_weapon5_damage" name="roll_weapon5_damage" type="action" class="m-0"></button>
                     </div>
         
                 </div>
@@ -376,7 +386,42 @@
                             <div class="w-6"></div>
                         </div>
                         <div class="w-100 multi-column">
-                            <div class="w-20"><input type="text" class="w-100" name="attr_skill1_name"></div>
+                            <div class="w-20">                                
+                              <select name="attr_skill1_name" id="skill1_name" class="w-100" style="margin-bottom: 0px;" >
+                                <option value="crafting">Crafting</option> 
+                                <option value="meditation">Meditation</option> 
+                                <option value="rally">Rally</option> 
+                                <option value="survival">Survival</option> 
+                                <option value="athletics">Athletics</option> 
+                                <option value="heavy_melee">Heavy Melee</option> 
+                                <option value="light melee">Light Melee</option> 
+                                <option value="thrown">Thrown</option> 
+                                <option value="unarmed">Unarmed</option> 
+                                <option value="banter">Banter</option> 
+                                <option value="dodge">Dodge</option> 
+                                <option value="drive">Drive</option> 
+                                <option value="sleight_of_hand">Sleight of Hand</option> 
+                                <option value="stealth">Stealth</option> 
+                                <option value="deception">Deception</option>
+                                <option value="eloquence">Eloquence</option>
+                                <option value="intimidation">Intimidation</option>
+                                <option value="performance">Performance</option>
+                                <option value="seduction">Seduction</option>
+                                <option value="archery">Archery</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="gunnery">Gunnery</option>
+                                <option value="intuition">Intuition</option>
+                                <option value="investigation">Investigation</option>
+                                <option value="small_arms">Small Arms</option>
+                                <option value="arcana">Arcana</option>
+                                <option value="computers">Computers</option>
+                                <option value="deception">Deception</option>
+                                <option value="deception">Deception</option>
+                                <option value="deception">Deception</option>
+
+                                                       
+                              </select> 
+                            </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill1_focus1">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill1_focus2">
@@ -386,9 +431,20 @@
                                 <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
                                 
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill1_trait"></div>
+                            <div class="w-15">
+                                <select name="attr_skill1_trait" id="skill1_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>
                             <div class="w-29"><input type="text" class="w-100" name="attr_skill1_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-6 roll-button-container">
+                                <button id="roll_skill_1" name="act_roll_skill" type="action" class="roll-button">
+                                    <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill2_name"></div>
@@ -398,11 +454,21 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill2_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill2_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill2_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill2_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill2_trait"></div>
+                            <div class="w-15">
+                                <select name="attr_skill2_trait" id="skill2_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>
                             <div class="w-29"><input type="text" class="w-100" name="attr_skill2_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_2" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill3_name"></div>
@@ -412,11 +478,21 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill3_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill3_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill3_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill3_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill3_trait"></div>
+                            <div class="w-15">
+                                <select name="attr_skill3_trait" id="skill3_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>
                             <div class="w-29"><input type="text" class="w-100" name="attr_skill3_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_3" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill4_name"></div>
@@ -426,11 +502,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill4_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill4_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill4_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill4_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill4_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill4_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill4_trait" id="skill4_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill4_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_4" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill5_name"></div>
@@ -440,11 +525,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill5_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill5_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill5_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill5_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill5_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill5_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill5_trait" id="skill5_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill5_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_5" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill6_name"></div>
@@ -454,11 +548,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill6_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill6_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill6_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill6_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill6_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill6_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill6_trait" id="skill6_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill6_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_6" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill7_name"></div>
@@ -468,11 +571,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill7_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill7_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill7_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill7_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill7_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill7_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill7_trait" id="skill7_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill7_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_7" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill8_name"></div>
@@ -482,11 +594,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill8_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill8_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill8_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill8_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill8_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill8_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill8_trait" id="skill8_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill8_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_8" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill9_name"></div>
@@ -496,11 +617,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill9_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill9_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill9_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill9_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill9_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill9_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill9_trait" id="skill9_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill9_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_9" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill10_name"></div>
@@ -510,11 +640,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill10_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill10_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill10_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill10_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill10_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill10_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill10_trait" id="skill10_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill10_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_10" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill11_name"></div>
@@ -524,11 +663,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill11_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill11_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill11_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill11_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill11_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill11_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill11_trait" id="skill11_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill11_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_11" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
                         <div class="w-100 multi-column">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill12_name"></div>
@@ -538,11 +686,20 @@
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill12_focus3">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill12_focus4">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill12_focus5">
-                                <input type="text" class="w-15" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill12_mod">
                             </div>
-                            <div class="w-15"><input type="text" class="w-100" name="attr_skill12_trait"></div>
-                            <div class="w-29"><input type="text" class="w-100" name="attr_skill12_note"></div>
-                            <div class="w-6"><button id="roll_skill1" name="roll_skill1" type="roll" class="m-0"></button></div>
+                            <div class="w-15">
+                                <select name="attr_skill12_trait" id="skill12_trait" class="w-100" style="margin-bottom: 0px;" >
+                                  <option value="power">Power</option>
+                                  <option value="reflex">Reflex</option>
+                                  <option value="heart">Heart</option>
+                                  <option value="savvy">Savvy</option>
+                                  <option value="presence">Presence</option>
+                                  <option value="shinpi">Shinpi</option>                                  
+                                </select> 
+                            </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill12_note"></div>
+                            <div class="w-6 roll-button-container"><button id="roll_skill_12" name="act_roll_skill" type="action" class="m-0 roll-button">
+                                <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
     
 
@@ -666,7 +823,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote1_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote1_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote1_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote1" name="roll_rote1" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote1" name="roll_rote1" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote1_details" placeholder="Rote Details"></td>
@@ -695,7 +852,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote2_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote2_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote2_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote2" name="roll_rote2" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote2" name="roll_rote2" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote2_details" placeholder="Rote Details"></td>
@@ -724,7 +881,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote3_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote3_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote3_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote3" name="roll_rote3" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote3" name="roll_rote3" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote3_details" placeholder="Rote Details"></td>
@@ -752,7 +909,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote4_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote4_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote4_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote4" name="roll_rote4" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote4" name="roll_rote4" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote4_details" placeholder="Rote Details"></td>
@@ -780,7 +937,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote5_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote5_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote5_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote5" name="roll_rote5" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote5" name="roll_rote5" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote5_details" placeholder="Rote Details"></td>
@@ -808,7 +965,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote6_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote6_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote6_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote6" name="roll_rote6" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote6" name="roll_rote6" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote6_details" placeholder="Rote Details"></td>
@@ -836,7 +993,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote7_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote7_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote7_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote7" name="roll_rote7" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote7" name="roll_rote7" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote7_details" placeholder="Rote Details"></td>
@@ -864,7 +1021,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote8_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote8_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote8_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote8" name="roll_rote8" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote8" name="roll_rote8" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote8_details" placeholder="Rote Details"></td>
@@ -892,7 +1049,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote9_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote9_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote9_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote9" name="roll_rote9" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote9" name="roll_rote9" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote9_details" placeholder="Rote Details"></td>
@@ -920,7 +1077,7 @@
                                 <td  class="w-9"><input type="text" class="w-100" name="attr_rote9_range"></td>
                                 <td class="w-14"><input type="text" class="w-100" name="attr_rote9_duration"></td>
                                 <td class="w-20"><input type="text" class="w-100" name="attr_rote9_casting_skill"></td>
-                                <td class="w-6"><button id="roll_rote9" name="roll_rote9" type="roll" class="m-0"></button></td>
+                                <td class="w-6"><button id="roll_rote9" name="roll_rote9" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
                         <input type="text" class="w-100" name="attr_rote9_details" placeholder="Rote Details"></td>
@@ -947,31 +1104,31 @@
                                 <td class="w-20"><strong>Contacts:</strong></td>
                                 <td class="w-10"><input class="w-100" type="text" name="attr_contacts_score"></td>
                                 <td class="w-60"><input class="w-100" type="text" name="attr_contacts_description"></td>
-                                <td class="w-10"><button id="roll_contacts" name="roll_contacts" type="roll" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_contacts" name="roll_contacts" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Followers:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_followers_score"></td>
                                 <td class="w-60"><input class="w-100" type="text" name="attr_followers_description"></td>
-                                <td class="w-10"><button id="roll_followers" name="roll_followers" type="roll" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_followers" name="roll_followers" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Soul:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_soul_score"></td>
                                 <td class="w-50"><input class="w-100" type="text" name="attr_soul_description"></td>
-                                <td class="w-10"><button id="roll_soul" name="roll_soul" type="roll" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_soul" name="roll_soul" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Status:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_status_score"></td>
                                 <td class="w-50"><input class="w-100" type="text" name="attr_status_description"></td>
-                                <td class="w-10"><button id="roll_status" name="roll_status" type="roll" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_status" name="roll_status" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Wealth:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_wealth_score"></td>
                                 <td class="w-50"><input class="w-100" type="text" name="attr_wealth_description"></td>
-                                <td class="w-10"><button id="roll_wealth" name="roll_wealth" type="roll" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_wealth" name="roll_wealth" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
         
@@ -1047,7 +1204,7 @@
                                 <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
                                 <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
                                 <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                <td colspan="1"><button id="roll_wep1" name="roll_wep1" type="roll" class="m-0"></button></td>
+                                <td colspan="1"><button id="roll_wep1" name="roll_wep1" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td colspan="11"> 
@@ -1127,7 +1284,7 @@
                                 <td colspan="2"><input class="w-100" type="text" name="attr_wep2_tier"></td>
                                 <td colspan="2"><input class="w-100" type="text" name="attr_wep2_attack_bonus"></td>
                                 <td colspan="2"><input class="w-100" type="text" name="attr_wep2_damage_bonus"></td>
-                                <td colspan="1"><button id="roll_wep2" name="roll_wep2" type="roll" class="m-0"></button></td>
+                                <td colspan="1"><button id="roll_wep2" name="roll_wep2" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td colspan="11"> 
@@ -1206,6 +1363,15 @@
     </div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-skill">
+    <div class="container">
+        <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{skillName}}:</h3>
+        <div class="">
+            <h4>{{roll}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-fate">
     <div class="container">
         <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls Fate:</h3>
@@ -1221,11 +1387,85 @@
     </div>
 </rolltemplate>
 
+
 <script type="text/worker">
 
     //TODO: Make the attribute manipulation easier?
 
     ///BUTTON CLICKS
+
+
+
+
+
+    on("clicked:roll_skill", (info) => {
+        console.log("rolling skill....");
+        console.log(info);
+
+        const traitNum = info.htmlAttributes.id.split("roll_skill_")[1];
+
+        const focusCount = [1,2,3,4,5];
+
+        getAttrs([`skill${traitNum}_trait`, `skill${traitNum}_name`, "character_name",
+        `skill${traitNum}_focus1`, `skill${traitNum}_focus2`, `skill${traitNum}_focus3`, `skill${traitNum}_focus4`, `skill${traitNum}_focus5`, 
+        `skill${traitNum}_mod`, "power", "reflex", "heart", "savvy", "presence", "shinpi"], (values) => {
+
+
+            const valueMap = new Map(Object.entries(values));
+
+            //error check
+            if(!valueMap.get(`skill${traitNum}_trait`)) return;
+
+            //get traitname
+            const traitName = valueMap.get(`skill${traitNum}_trait`);
+            
+            //usee traitName to get value of corresponding trait
+            const traitValue = valueMap.get(traitName);
+            //parse the trait
+            const traitValNum = parseInt(traitValue);
+            //calculate d10s
+            const traitRoll = getTraitRollD10s(traitValNum);
+
+            let roll = `${traitRoll}d10!`;
+
+            console.log(roll);
+
+            //add focus
+            for(let i = 1; i <= 5; i++){
+                const diceToAdd = valueMap.get(`skill${traitNum}_focus${i}`);
+                if(diceToAdd) {
+                    roll = roll + ' + ' + diceToAdd;
+                    console.log(roll);
+                }
+            }
+
+            //add mod
+            const diceToAdd = valueMap.get(`skill${traitNum}_mod`);
+            if(diceToAdd) {
+                roll = roll + ' + ' + diceToAdd;
+            }
+
+            console.log(roll);
+
+            const skillName = valueMap.get(`skill${traitNum}_name`);
+
+            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName}}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+
+            console.log("skill roll done.");
+        });
+
+
+    });
 
     on("clicked:roll_fate", (info) => {
         console.log("rolling fate....");
@@ -1653,6 +1893,30 @@
         return effect;
     }
 
+    const getSkillValue = (skillNum) => {
+        return document.getElementById(`skill${skillNum}_trait`).value;
+    }
+
+    const buildTraitMap = (values) => {
+        const traits = new Map();
+        traits.set("heart", values.heart);
+        traits.set("power", values.power);
+        traits.set("reflex", values.reflex);
+        traits.set("savvy", values.savvy);
+        traits.set("presence", values.presence);
+        traits.set("shinpi", values.shinpi);
+        return traits;
+    }
+
+
+
     ///UTIL FNS - END
+
+    //TODO LIST:
+    //Skills
+    //Combat
+    //Equipment/Weapons
+    //Background
+    
 </script>
 </html>

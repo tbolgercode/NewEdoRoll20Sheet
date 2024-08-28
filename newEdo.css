@@ -29,10 +29,22 @@ main {
     border: solid 2px rgba(53, 53, 53, 0.836);
     border-radius: 15%;
     font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
-.roll-button {
-    transform: scale(0.9) !important;
+.roll-button:active {
+    transform: scale(0.95) !important;
+}
+
+.roll-button-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 section {
@@ -279,24 +291,24 @@ h2 {
     padding: 1rem;
 }
 
-.sheet-rolltemplate-skills,
-.sheet-rolltemplate-skills {
+.sheet-rolltemplate-skill,
+.sheet-rolltemplate-skill {
     border: solid 2px #202020;
     background: #34163a;
     text-align: center;
     padding: 1rem;
 }
 
-.sheet-rolltemplate-rotes,
-.sheet-rolltemplate-rotes {
+.sheet-rolltemplate-rote,
+.sheet-rolltemplate-rote {
     border: solid 2px #202020;
     background: #34163a;
     text-align: center;
     padding: 1rem;
 }
 
-.sheet-rolltemplate-backgrounds,
-.sheet-rolltemplate-backgrounds {
+.sheet-rolltemplate-background,
+.sheet-rolltemplate-background {
     border: solid 2px #202020;
     background: #34163a;
     text-align: center;
