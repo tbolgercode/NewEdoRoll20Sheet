@@ -2229,90 +2229,6 @@
 
     ///BUTTON CLICKS
 
-    const buildRoteAttrDependencyNames = (roteNum) => {
-        const skillAttrNames = [];
-        for(let i = 1; i <= 12; i++){
-            skillAttrNames.push(`skill${i}_trait`);
-            skillAttrNames.push(`skill${i}_name`);
-            skillAttrNames.push(`skill${i}_focus1`);
-            skillAttrNames.push(`skill${i}_focus2`);
-            skillAttrNames.push(`skill${i}_focus3`);
-            skillAttrNames.push(`skill${i}_focus4`);
-            skillAttrNames.push(`skill${i}_focus5`);
-            skillAttrNames.push(`skill${i}_mod`);
-            skillAttrNames.push(`skill${i}_trait`);
-        };
-        skillAttrNames.push("power");
-        skillAttrNames.push(`reflex`);
-        skillAttrNames.push(`heart`);
-        skillAttrNames.push(`savvy`);
-        skillAttrNames.push(`presence`);
-        skillAttrNames.push(`perception`);
-        skillAttrNames.push(`shinpi`);
-        skillAttrNames.push(`character_name`);
-        skillAttrNames.push(`rote${roteNum}_name`);
-        skillAttrNames.push(`rote${roteNum}tn`);
-        skillAttrNames.push(`rote${roteNum}_casting_skill`);
-        skillAttrNames.push(`rote${roteNum}_details`);
-
-
-        return skillAttrNames;
-    }
-
-    const getSkillDefault = (nameToFind) => {
-        const map = new Map();
-        map.set("crafting", "heart");
-        map.set("meditation", "heart");
-        map.set("rally", "heart");
-        map.set("survival", "heart");
-        map.set("athletics", "power");
-        map.set("heavy_melee", "power");
-        map.set("light_melee", "power");
-        map.set("thrown", "power");
-        map.set("unarmed", "power");
-        map.set("banter", "reflex");
-        map.set("dodge", "reflex");
-        map.set("drive", "reflex");
-        map.set("sleight_of_hand", "reflex");
-        map.set("stealth", "reflex");
-        map.set("deception", "presence");
-        map.set("eloquence", "presence");
-        map.set("intimidation", "presence");
-        map.set("performance", "presence");
-        map.set("seduction", "presence");
-        map.set("archery", "perception");
-        map.set("commerce", "perception");
-        map.set("gunnery", "perception");
-        map.set("intuition", "perception");
-        map.set("investigation", "perception");
-        map.set("small_arms", "perception");
-        map.set("arcana", "savvy");
-        map.set("computers", "savvy");
-        map.set("gambling", "savvy");
-        map.set("hardware", "savvy");
-        map.set("medicine", "savvy");
-        map.set("security", "savvy");
-        map.set("streetwise", "savvy");
-        map.set("study", "savvy");
-        map.set("surveillance", "savvy");
-        map.set("tactics", "savvy");
-        map.set("toxicology", "savvy");
-        map.set("wetware", "savvy");
-
-        return map.get(nameToFind);
-    }
-
-
-    const findSkillInValues = (valueMap, nameToFind) => {
-        console.log(nameToFind);
-        for(let i = 1; i <= 12; i++){
-            console.log("comparing map and " + nameToFind);
-            if(valueMap.get(`skill${i}_name`) === nameToFind) return i;
-        };
-        console.log("Not found, returning default...");
-        
-        return 0;
-    }
 
 
     on("clicked:roll_rote", (info) => {
@@ -2953,7 +2869,90 @@
         return traits;
     }
 
+    const buildRoteAttrDependencyNames = (roteNum) => {
+        const skillAttrNames = [];
+        for(let i = 1; i <= 12; i++){
+            skillAttrNames.push(`skill${i}_trait`);
+            skillAttrNames.push(`skill${i}_name`);
+            skillAttrNames.push(`skill${i}_focus1`);
+            skillAttrNames.push(`skill${i}_focus2`);
+            skillAttrNames.push(`skill${i}_focus3`);
+            skillAttrNames.push(`skill${i}_focus4`);
+            skillAttrNames.push(`skill${i}_focus5`);
+            skillAttrNames.push(`skill${i}_mod`);
+            skillAttrNames.push(`skill${i}_trait`);
+        };
+        skillAttrNames.push("power");
+        skillAttrNames.push(`reflex`);
+        skillAttrNames.push(`heart`);
+        skillAttrNames.push(`savvy`);
+        skillAttrNames.push(`presence`);
+        skillAttrNames.push(`perception`);
+        skillAttrNames.push(`shinpi`);
+        skillAttrNames.push(`character_name`);
+        skillAttrNames.push(`rote${roteNum}_name`);
+        skillAttrNames.push(`rote${roteNum}tn`);
+        skillAttrNames.push(`rote${roteNum}_casting_skill`);
+        skillAttrNames.push(`rote${roteNum}_details`);
 
+
+        return skillAttrNames;
+    }
+
+    const getSkillDefault = (nameToFind) => {
+        const map = new Map();
+        map.set("crafting", "heart");
+        map.set("meditation", "heart");
+        map.set("rally", "heart");
+        map.set("survival", "heart");
+        map.set("athletics", "power");
+        map.set("heavy_melee", "power");
+        map.set("light_melee", "power");
+        map.set("thrown", "power");
+        map.set("unarmed", "power");
+        map.set("banter", "reflex");
+        map.set("dodge", "reflex");
+        map.set("drive", "reflex");
+        map.set("sleight_of_hand", "reflex");
+        map.set("stealth", "reflex");
+        map.set("deception", "presence");
+        map.set("eloquence", "presence");
+        map.set("intimidation", "presence");
+        map.set("performance", "presence");
+        map.set("seduction", "presence");
+        map.set("archery", "perception");
+        map.set("commerce", "perception");
+        map.set("gunnery", "perception");
+        map.set("intuition", "perception");
+        map.set("investigation", "perception");
+        map.set("small_arms", "perception");
+        map.set("arcana", "savvy");
+        map.set("computers", "savvy");
+        map.set("gambling", "savvy");
+        map.set("hardware", "savvy");
+        map.set("medicine", "savvy");
+        map.set("security", "savvy");
+        map.set("streetwise", "savvy");
+        map.set("study", "savvy");
+        map.set("surveillance", "savvy");
+        map.set("tactics", "savvy");
+        map.set("toxicology", "savvy");
+        map.set("wetware", "savvy");
+
+        return map.get(nameToFind);
+    }
+
+
+    const findSkillInValues = (valueMap, nameToFind) => {
+        console.log(nameToFind);
+        for(let i = 1; i <= 12; i++){
+            console.log("comparing map and " + nameToFind);
+            if(valueMap.get(`skill${i}_name`) === nameToFind) return i;
+        };
+        console.log("Not found, returning default...");
+        
+        return 0;
+    }
 
     ///UTIL FNS - END
 
