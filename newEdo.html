@@ -1927,31 +1927,31 @@
                                 <td class="w-20"><strong>Contacts:</strong></td>
                                 <td class="w-10"><input class="w-100" type="text" name="attr_contacts_score"></td>
                                 <td class="w-60"><input class="w-100" type="text" name="attr_contacts_description"></td>
-                                <td class="w-10"><button id="roll_contacts" name="roll_contacts" type="action" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_contacts" name="act_roll_contacts" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Followers:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_followers_score"></td>
                                 <td class="w-60"><input class="w-100" type="text" name="attr_followers_description"></td>
-                                <td class="w-10"><button id="roll_followers" name="roll_followers" type="action" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_followers" name="act_roll_followers" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Soul:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_soul_score"></td>
                                 <td class="w-50"><input class="w-100" type="text" name="attr_soul_description"></td>
-                                <td class="w-10"><button id="roll_soul" name="roll_soul" type="action" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_soul" name="act_roll_soul" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Status:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_status_score"></td>
                                 <td class="w-50"><input class="w-100" type="text" name="attr_status_description"></td>
-                                <td class="w-10"><button id="roll_status" name="roll_status" type="action" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_status" name="act_roll_status" type="action" class="m-0"></button></td>
                             </tr> 
                             <tr>
                                 <td class="w-20"><strong>Wealth:</strong></td>
                                 <td class="w-9"><input class="w-100" type="text" name="attr_wealth_score"></td>
                                 <td class="w-50"><input class="w-100" type="text" name="attr_wealth_description"></td>
-                                <td class="w-10"><button id="roll_wealth" name="roll_wealth" type="action" class="m-0"></button></td>
+                                <td class="w-10"><button id="roll_wealth" name="act_roll_wealth" type="action" class="m-0"></button></td>
                             </tr>            
                         </table>
         
@@ -2235,6 +2235,131 @@
 
     ///BUTTON CLICKS
 
+
+    //TODO: Change background rolls to use the map method
+    on("clicked:roll_contacts", (info) => {
+        console.log("rolling contacts....");
+
+        getAttrs(["contacts_score", "character_name"], (values) => {
+
+            const roll = getTraitRollD10s(parseInt(values.contacts_score));
+
+            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Contacts}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+            console.log("contacts roll done.");
+        });
+
+
+    });
+    
+    on("clicked:roll_followers", (info) => {
+        console.log("rolling followers....");
+
+        getAttrs(["followers_score", "character_name"], (values) => {
+
+            const roll = getTraitRollD10s(parseInt(values.followers_score));
+
+            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Followers}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+
+            console.log("followers roll done.");
+        });
+
+
+    });    
+
+    on("clicked:roll_soul", (info) => {
+        console.log("rolling soul....");
+
+        getAttrs(["soul_score", "character_name"], (values) => {
+
+            const roll = getTraitRollD10s(parseInt(values.soul_score));
+
+            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Soul}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+
+            console.log("soul roll done.");
+        });
+
+
+    });   
+
+    on("clicked:roll_status", (info) => {
+        console.log("rolling status....");
+
+        getAttrs(["status_score", "character_name"], (values) => {
+
+            const roll = getTraitRollD10s(parseInt(values.status_score));
+
+            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Status}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+
+            console.log("status roll done.");
+        });
+
+
+    }); 
+
+    on("clicked:roll_wealth", (info) => {
+        console.log("rolling wealth....");
+
+        getAttrs(["wealth_score", "character_name"], (values) => {
+
+            const roll = getTraitRollD10s(parseInt(values.wealth_score));
+
+            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{skillName=Wealth}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+
+            console.log("wealth roll done.");
+        });
+
+
+    });
 
 
     on("clicked:roll_rote", (info) => {
