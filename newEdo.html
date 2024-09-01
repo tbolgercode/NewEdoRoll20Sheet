@@ -297,9 +297,10 @@
                             <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate12_desc">
                         </tr>
                     </table>
+                    <small>(Botch is already included 01-03)</small>
                 </div>
 
-                <small>(Botch is already included 01-03)</small>
+
         
             </div> 
 
@@ -1706,24 +1707,29 @@
         </div>
 
 
-        <div id="section3" class="two-column">
-            <div class="column mb-1 p-2px border-thin bg-purple">
-                <h4>Magic</h4>
-                <div class="w-100">
-                    <div class="w-100" style="float: left;">
+        <div id="section3" class="mb-1 p-2px border-thin bg-purple">
+            <input type="checkbox" class="hider"> 
+            <span class="header-4">Magic</span>   
+
+            <div class="can-hide-block">
+                <div class="w-100 two-column">
+                    <div class="column">
                         Mikata Kami and bonus:
-                        <input class="w-100" type="text" name="attr_mikata_and_bonus">
+                        <input class="w-100" type="text" name="attr_mikata_and_bonus">    
                     </div>
-                    <div class="w-100" style="float: left;">
+                    <div class="column">
                         Accessed Kami:
                         <input class="w-100" type="text" name="attr_accessed_kami">
                     </div>
-                    <br>
-                    <br>
-                    <h5>Rotes</h5>
-                    <div class="margin-bottom">
-                        <table class="w-100" style="text-align: center;">
 
+                </div>
+
+
+                <h5 class="w-100">Rotes</h5>
+                <div class="w-100 two-column">
+                    <div class="margin-bottom column">
+                        <table class="w-100" style="text-align: center;">
+    
                             <tr style="font-size:12px;">
                                 <td class="w-20">Name</td>
                                 <td class="w-9">Action</td>
@@ -1781,16 +1787,17 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>                                <td class="w-6"><button id="roll_rote_1" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>                                
+                                <td class="w-6"><button id="roll_rote_1" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote1_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
     
                     </div>
-
-                    <div class="margin-bottom">
+    
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
-
+    
                             <tr style="font-size:12px;">
                                 <td class="w-20">Name</td>
                                 <td class="w-9">Action</td>
@@ -1848,17 +1855,18 @@
                                         <option value="thrown">Thrown</option>
                                         <option value="unarmed">Unarmed</option>
                                         <option value="wetware">Wetware</option>
-                                  </select></td>
+                                    </select></td>
                                 <td class="w-6"><button id="roll_rote_2" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote2_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
     
                     </div>
-
-                    <div class="margin-bottom">
+                </div>
+                <div class="w-100 two-column">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
-
+    
                             <tr style="font-size:12px;">
                                 <td class="w-20">Name</td>
                                 <td class="w-9">Action</td>
@@ -1916,17 +1924,17 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>                                
-                              <td class="w-6">
+                                </select></td>                                
+                                <td class="w-6">
                                 <button id="roll_rote_3" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote3_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
     
                     </div>
-                    <div class="margin-bottom">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
-
+    
                             <tr style="font-size:12px;">
                                 <td class="w-20">Name</td>
                                 <td class="w-9">Action</td>
@@ -1984,16 +1992,18 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>
-                              <td class="w-6"><button id="roll_rote_4" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>
+                                <td class="w-6"><button id="roll_rote_4" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote4_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
     
                     </div>
-                    <div class="margin-bottom">
+                </div>
+                <div class="w-100 two-column">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
-
+    
                             <tr style="font-size:12px;">
                                 <td class="w-20">Name</td>
                                 <td class="w-9">Action</td>
@@ -2051,15 +2061,15 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>                                <td class="w-6"><button id="roll_rote_5" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>                                <td class="w-6"><button id="roll_rote_5" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote5_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
     
                     </div>
-                    <div class="margin-bottom">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
-
+    
                             <tr style="font-size:12px;">
                                 <td class="w-20">Name</td>
                                 <td class="w-9">Action</td>
@@ -2117,14 +2127,17 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>
-                              <td class="w-6"><button id="roll_rote_6" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>
+                                <td class="w-6"><button id="roll_rote_6" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote6_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
     
                     </div>
-                    <div class="margin-bottom">
+                </div>
+
+                <div class="w-100 two-column">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
                     
                             <tr style="font-size:12px;">
@@ -2184,14 +2197,14 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>
-                              <td class="w-6"><button id="roll_rote_7" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>
+                                <td class="w-6"><button id="roll_rote_7" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote7_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
                     
                     </div>
-                    <div class="margin-bottom">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
                     
                             <tr style="font-size:12px;">
@@ -2251,14 +2264,17 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>
-                              <td class="w-6"><button id="roll_rote_8" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>
+                                <td class="w-6"><button id="roll_rote_8" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote8_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
                     
                     </div>
-                    <div class="margin-bottom">
+                </div>
+
+                <div class="w-100 two-column">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
                     
                             <tr style="font-size:12px;">
@@ -2318,14 +2334,14 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>
-                              <td class="w-6"><button id="roll_rote_9" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>
+                                <td class="w-6"><button id="roll_rote_9" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="w-100" name="attr_rote9_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
                     
                     </div>
-                    <div class="margin-bottom">
+                    <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
                     
                             <tr style="font-size:12px;">
@@ -2385,75 +2401,85 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                              </select></td>
-                              <td class="w-6"><button id="roll_rote_10" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </select></td>
+                                <td class="w-6"><button id="roll_rote_10" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                             </tr>            
                         </table>
                         <textarea type="text" class="" name="attr_rote10_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
                     
                     </div>
-
-
                 </div>
+
+
             </div>
-            <div class="column">
-                <div class="mb-1 p-2px border-thin bg-orange">
-                    <h4>BackGrounds</h4>
-                    <div style="margin-bottom: 1rem;">
-                        <table class="w-100" style="text-align: center;">
-        
-                            <tr style="font-size:12px;">
-                                <td class="w-30"></td>
-                                <td class="w-9">Score</td>
-                                <td class="w-50">Description</td>
-                                <td class="w-9"></td>
-                            </tr>
-                
-                            <tr >
-                                <td class="w-20"><strong>Contacts:</strong></td>
-                                <td class="w-10"><input class="w-100" type="text" name="attr_contacts_score"></td>
-                                <td class="w-60"><input class="w-100" type="text" name="attr_contacts_description"></td>
-                                <td class="w-10"><button id="roll_contacts" name="act_roll_contacts" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr> 
-                            <tr>
-                                <td class="w-20"><strong>Followers:</strong></td>
-                                <td class="w-9"><input class="w-100" type="text" name="attr_followers_score"></td>
-                                <td class="w-60"><input class="w-100" type="text" name="attr_followers_description"></td>
-                                <td class="w-10"><button id="roll_followers" name="act_roll_followers" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr> 
-                            <tr>
-                                <td class="w-20"><strong>Soul:</strong></td>
-                                <td class="w-9"><input class="w-100" type="text" name="attr_soul_score"></td>
-                                <td class="w-50"><input class="w-100" type="text" name="attr_soul_description"></td>
-                                <td class="w-10"><button id="roll_soul" name="act_roll_soul" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr> 
-                            <tr>
-                                <td class="w-20"><strong>Status:</strong></td>
-                                <td class="w-9"><input class="w-100" type="text" name="attr_status_score"></td>
-                                <td class="w-50"><input class="w-100" type="text" name="attr_status_description"></td>
-                                <td class="w-10"><button id="roll_status" name="act_roll_status" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr> 
-                            <tr>
-                                <td class="w-20"><strong>Wealth:</strong></td>
-                                <td class="w-9"><input class="w-100" type="text" name="attr_wealth_score"></td>
-                                <td class="w-50"><input class="w-100" type="text" name="attr_wealth_description"></td>
-                                <td class="w-10"><button id="roll_wealth" name="act_roll_wealth" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr>            
-                        </table>
-        
-        
-                    </div>
-                    <div style="margin-bottom: 1rem;">
-                        Cash:
-                        <input type="text" class="w-20" name="attr_cash" placeholder="" type="text"></td>    
-                    </div>
+
+
+
+        </div>
+        <div>
+            <div class="mb-1 p-2px border-thin bg-orange">
+                <input type="checkbox" class="hider"> 
+                <span class="header-4">BackGrounds</span>   
+                <div class="two-column can-hide" style="margin-bottom: 1rem;">
+                    <table class="w-100 column" style="text-align: center;">
+    
+                        <tr style="font-size:12px;">
+                            <td class="w-30"></td>
+                            <td class="w-9">Score</td>
+                            <td class="w-50">Description</td>
+                            <td class="w-9"></td>
+                        </tr>
+            
+                        <tr >
+                            <td class="w-20"><strong>Contacts:</strong></td>
+                            <td class="w-10"><input class="w-100" type="text" name="attr_contacts_score"></td>
+                            <td class="w-60"><input class="w-100" type="text" name="attr_contacts_description"></td>
+                            <td class="w-10"><button id="roll_contacts" name="act_roll_contacts" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                        </tr> 
+                        <tr>
+                            <td class="w-20"><strong>Followers:</strong></td>
+                            <td class="w-9"><input class="w-100" type="text" name="attr_followers_score"></td>
+                            <td class="w-60"><input class="w-100" type="text" name="attr_followers_description"></td>
+                            <td class="w-10"><button id="roll_followers" name="act_roll_followers" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                        </tr> 
+                        <tr>
+                            <td class="w-20"><strong>Soul:</strong></td>
+                            <td class="w-9"><input class="w-100" type="text" name="attr_soul_score"></td>
+                            <td class="w-50"><input class="w-100" type="text" name="attr_soul_description"></td>
+                            <td class="w-10"><button id="roll_soul" name="act_roll_soul" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                        </tr> 
+                    </table>
+                    <table class="w-100 column" style="text-align: center;">
+    
+                        <tr style="font-size:12px;">
+                            <td class="w-30"></td>
+                            <td class="w-9">Score</td>
+                            <td class="w-50">Description</td>
+                            <td class="w-9"></td>
+                        </tr>
+                        <tr>
+                            <td class="w-20"><strong>Status:</strong></td>
+                            <td class="w-9"><input class="w-100" type="text" name="attr_status_score"></td>
+                            <td class="w-50"><input class="w-100" type="text" name="attr_status_description"></td>
+                            <td class="w-10"><button id="roll_status" name="act_roll_status" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                        </tr> 
+                        <tr>
+                            <td class="w-20"><strong>Wealth:</strong></td>
+                            <td class="w-9"><input class="w-100" type="text" name="attr_wealth_score"></td>
+                            <td class="w-50"><input class="w-100" type="text" name="attr_wealth_description"></td>
+                            <td class="w-10"><button id="roll_wealth" name="act_roll_wealth" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                        </tr>      
+                        <tr>
+                            <td class="w-20"><strong>Cash:</strong></td>
+                            <td class="w-69" colspan="2"><input type="text" class="w-100" name="attr_cash" placeholder="" type="text"></td>    
+                        </td>
+                        </tr>        
+                    </table>
+    
                 </div>
 
-                
-                
             </div>
         </div>
-
     </main>
 </body>
 
