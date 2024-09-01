@@ -240,157 +240,648 @@
 
 
 
-        <div id="section2 w-100">
+        <div id="section2">
             <div class="w-100 mb-1 p-2px border-thin bg-black" style="padding:2px;">
-                <div class="mb-1">
-                    <h4>Fate Card</h4>
-                    <button id="roll_fate" name="act_roll_fate" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
-    
+
+                <input type="checkbox" class="hider"> 
+                <span class="header-4">Fate Card</span>  
+                <button id="roll_fate" name="act_roll_fate" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
+                <div class="can-hide-block">
+                    <table class="w-100 can-hide" style="text-align: center;">
+                        <tr style="font-size:12px;">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate1_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate1_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate1_desc">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate2_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate2_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate2_desc">
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate3_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate3_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate3_desc">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate4_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate4_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate4_desc">
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate5_minpercent">
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate5_maxpercent">  
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate5_desc">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate6_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate6_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate6_desc">
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate7_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate7_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate7_desc">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate8_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate8_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate8_desc">
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate9_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate9_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate9_desc">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate10_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate10_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate10_desc">
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate11_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate11_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate11_desc">
+                            <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate12_minpercent"> 
+                            <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate12_maxpercent"> 
+                            <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate12_desc">
+                        </tr>
+                    </table>
                 </div>
-                <table class="w-100" style="text-align: center;">
-                    <tr style="font-size:12px;">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate1_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate1_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate1_desc">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate2_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate2_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate2_desc">
-                    </tr>
-                    <tr style="font-size:12px;">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate3_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate3_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate3_desc">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate4_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate4_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate4_desc">
-                    </tr>
-                    <tr style="font-size:12px;">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate5_minpercent">
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate5_maxpercent">  
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate5_desc">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate6_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate6_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate6_desc">
-                    </tr>
-                    <tr style="font-size:12px;">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate7_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate7_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate7_desc">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate8_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate8_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate8_desc">
-                    </tr>
-                    <tr style="font-size:12px;">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate9_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate9_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate9_desc">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate10_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate10_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate10_desc">
-                    </tr>
-                    <tr style="font-size:12px;">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate11_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate11_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate11_desc">
-                        <input type="text" class="w-4 mb-small" placeholder="min" name="attr_fate12_minpercent"> 
-                        <input type="text" class="w-4 mb-small" placeholder="max" name="attr_fate12_maxpercent"> 
-                        <input type="text" class="w-42 mb-small" placeholder="" name="attr_fate12_desc">
-                    </tr>
-                </table>
+
                 <small>(Botch is already included 01-03)</small>
         
             </div> 
-            <div class="bg-red mb-1 p-2px border-thin">
-                <h3 class="w-100">Combat</h4>
-                <div class="w-100">
-        
-                    <div class="w-100 multi-column">
-                         <div class="w-15 text-center " style="font-size: 1.2rem;">Weapon or Attack:</div>
-                          <div class="w-15 text-center " style="font-size: 1.2rem;">Attack Roll</div>
-                         <div class="w-6 text-center " style="font-size: 1.2rem;">Short Range</div>
-                         <div class="w-6 text-center " style="font-size: 1.2rem;">Long Range</div>
-                          <div class="w-20 text-center " style="font-size: 1.2rem;">Damage</div>
-                         <div class="w-10 text-center " style="font-size: 1.2rem;">Damage Type</div>
-                         <div class="w-6 text-center " style="font-size: 1.2rem;">Burst Roll</div>
-                         <div class="w-6 text-center " style="font-size: 1.2rem;">Burst Ammo</div>
-                         <div class="w-6 text-center " style="font-size: 1.2rem;">Mags</div>
-                         <div class="w-3 text-center " style="font-size: 1.2rem;"> </div>
-                    </div>
-                    <div  class="w-100 multi-column">
-                         <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon1">
-                         <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon1_damage_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon1_short_range">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon1_long_range">
-                         <input type="text" class="w-20" style="font-size: 1.2rem;" name="attr_weapon1_damage">
-                         <input type="text" class="w-10" style="font-size: 1.2rem;" name="attr_weapon1_damage_type">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon1_burst_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon1_burst_ammo">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon1_mags">
-                         <div class="w-3 roll-button-container">
-                            <button id="roll_weapon1_damage" name="act_roll_weapon_attack" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></div>
-                         </div>
-                    </div>
-                    <div class="w-100 multi-column">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon2">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon2_damage_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon2_short_range">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon2_long_range">
-                          <input type="text" class="w-20" style="font-size: 1.2rem;" name="attr_weapon2_damage">
-                         <input type="text" class="w-10" style="font-size: 1.2rem;" name="attr_weapon2_damage_type">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon2_burst_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon2_burst_ammo">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon2_mags">
-                         <div class="w-3 roll-button-container">
-                            <button id="roll_weapon2_damage" style="font-size: 1.2rem;" name="act_roll_weapon_attack" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></div>
-                    </div>
-                    <div class="w-100 multi-column">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon3">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon3_damage_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon3_short_range">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon3_long_range">
-                          <input type="text" class="w-20" style="font-size: 1.2rem;" name="attr_weapon3_damage">
-                         <input type="text" class="w-10" style="font-size: 1.2rem;" name="attr_weapon3_damage_type">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon3_burst_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon3_burst_ammo">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon3_mags">
-                         <div class="w-3 roll-button-container">
-                            <button id="roll_weapon3_damage" style="font-size: 1.2rem;" name="act_roll_weapon_attack" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></div>
-                    </div>
-                    <div class="w-100 multi-column">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon4">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon4_damage_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon4_short_range">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon4_long_range">
-                          <input type="text" class="w-20" style="font-size: 1.2rem;" name="attr_weapon4_damage">
-                         <input type="text" class="w-10" style="font-size: 1.2rem;" name="attr_weapon4_damage_type">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon4_burst_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon4_burst_ammo">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon4_mags">
-                         <div class="w-3 roll-button-container">
-                            <button id="roll_weapon4_damage" style="font-size: 1.2rem;" name="act_roll_weapon_attack" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></div>
-                    </div>
-                    <div class="w-100 multi-column">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon5">
-                          <input type="text" class="w-15" style="font-size: 1.2rem;" name="attr_weapon5_damage_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon5_short_range">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon5_long_range">
-                          <input type="text" class="w-20" style="font-size: 1.2rem;" name="attr_weapon5_damage">
-                         <input type="text" class="w-10" style="font-size: 1.2rem;" name="attr_weapon5_damage_type">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon5_burst_roll">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon5_burst_ammo">
-                         <input type="text" class="w-6" style="font-size: 1.2rem;" name="attr_weapon5_mags">
-                         <div class="w-3 roll-button-container">
-                            <button id="roll_weapon5_damage" style="font-size: 1.2rem;" name="act_roll_weapon_attack" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></div>
-                    </div>
-        
-                </div>
-        
-            </div>
-            <section id="skills_augs" class="two-column">
-                <div id="skills" class="w-64 mb-1 p-2px border-thin bg-green">
-                    <h4>Skills</h4>
-                    <div id="skills_table" class="w-100">
 
+            <div class="mb-1 p-2px border-thin bg-blue">
+                <input type="checkbox" class="hider">
+                <span class="header-4">Equipment</span>              
+
+
+                <div class="can-hide">
+                    <div class="two-column mv-0">
+                        <div  class="equipment-column equipment mv-0"  style="margin-bottom: 1rem; border-right: solid 1px black;">
+                            <table class="w-100" style="text-align: center;">
+            
+                                <tr style="font-size:12px;">
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td colspan="4">Weapon</td>
+                                    <td colspan="2">Skill</td>
+                                    <td colspan="5">Unlocks, features, upgrades and notes</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Short/Melee</td>
+                                    <td colspan="2">Long/Thrown</td>
+                                    <td colspan="2">Damage & Type</td>
+                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="1">Burst Ammo</td>
+                                    <td colspan="1">Mag Size</td>
+                                    <td colspan="2">Ammo Carried</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Quality</td>
+                                    <td colspan="2">Grit</td>
+                                    <td colspan="2">Tier</td>
+                                    <td colspan="2">Attack Bonus</td>
+                                    <td colspan="2">Damage Bonus</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="11"> 
+                                        Filled Mod Slots 
+                                        <input type="checkbox" name="attr_wep1_mod_slot1">
+                                        <input type="checkbox" name="attr_wep1_mod_slot2">
+                                        <input type="checkbox" name="attr_wep1_mod_slot3">
+                                        <input type="checkbox" name="attr_wep1_mod_slot4">
+                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                    </td>
+                                </tr> 
+                      
+                            </table>
+            
+            
+                        </div> 
+                        <div  class="equipment-column equipment mv-0">
+                            <table class="w-100" style="text-align: center;">
+            
+                                <tr style="font-size:12px;">
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td colspan="4">Weapon</td>
+                                    <td colspan="2">Skill</td>
+                                    <td colspan="5">Unlocks, features, upgrades and notes</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Short/Melee</td>
+                                    <td colspan="2">Long/Thrown</td>
+                                    <td colspan="2">Damage & Type</td>
+                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="1">Burst Ammo</td>
+                                    <td colspan="1">Mag Size</td>
+                                    <td colspan="2">Ammo Carried</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Quality</td>
+                                    <td colspan="2">Grit</td>
+                                    <td colspan="2">Tier</td>
+                                    <td colspan="2">Attack Bonus</td>
+                                    <td colspan="2">Damage Bonus</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="11"> 
+                                        Filled Mod Slots 
+                                        <input type="checkbox" name="attr_wep1_mod_slot1">
+                                        <input type="checkbox" name="attr_wep1_mod_slot2">
+                                        <input type="checkbox" name="attr_wep1_mod_slot3">
+                                        <input type="checkbox" name="attr_wep1_mod_slot4">
+                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                    </td>
+                                </tr> 
+                      
+                            </table>
+            
+            
+                        </div>       
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="mb-1 p-2px border-thin bg-blue">
+                <input type="checkbox" class="hider">
+                <span class="header-4">Equipment</span>              
+
+
+                <div class="can-hide">
+                    <div class="two-column mv-0">
+                        <div  class="equipment-column equipment mv-0"  style="margin-bottom: 1rem; border-right: solid 1px black;">
+                            <table class="w-100" style="text-align: center;">
+            
+                                <tr style="font-size:12px;">
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td colspan="4">Weapon</td>
+                                    <td colspan="2">Skill</td>
+                                    <td colspan="5">Unlocks, features, upgrades and notes</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Short/Melee</td>
+                                    <td colspan="2">Long/Thrown</td>
+                                    <td colspan="2">Damage & Type</td>
+                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="1">Burst Ammo</td>
+                                    <td colspan="1">Mag Size</td>
+                                    <td colspan="2">Ammo Carried</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Quality</td>
+                                    <td colspan="2">Grit</td>
+                                    <td colspan="2">Tier</td>
+                                    <td colspan="2">Attack Bonus</td>
+                                    <td colspan="2">Damage Bonus</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="11"> 
+                                        Filled Mod Slots 
+                                        <input type="checkbox" name="attr_wep1_mod_slot1">
+                                        <input type="checkbox" name="attr_wep1_mod_slot2">
+                                        <input type="checkbox" name="attr_wep1_mod_slot3">
+                                        <input type="checkbox" name="attr_wep1_mod_slot4">
+                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                    </td>
+                                </tr> 
+                      
+                            </table>
+            
+            
+                        </div> 
+                        <div  class="equipment-column equipment mv-0">
+                            <table class="w-100" style="text-align: center;">
+            
+                                <tr style="font-size:12px;">
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td colspan="4">Weapon</td>
+                                    <td colspan="2">Skill</td>
+                                    <td colspan="5">Unlocks, features, upgrades and notes</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Short/Melee</td>
+                                    <td colspan="2">Long/Thrown</td>
+                                    <td colspan="2">Damage & Type</td>
+                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="1">Burst Ammo</td>
+                                    <td colspan="1">Mag Size</td>
+                                    <td colspan="2">Ammo Carried</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Quality</td>
+                                    <td colspan="2">Grit</td>
+                                    <td colspan="2">Tier</td>
+                                    <td colspan="2">Attack Bonus</td>
+                                    <td colspan="2">Damage Bonus</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="11"> 
+                                        Filled Mod Slots 
+                                        <input type="checkbox" name="attr_wep1_mod_slot1">
+                                        <input type="checkbox" name="attr_wep1_mod_slot2">
+                                        <input type="checkbox" name="attr_wep1_mod_slot3">
+                                        <input type="checkbox" name="attr_wep1_mod_slot4">
+                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                    </td>
+                                </tr> 
+                      
+                            </table>
+            
+            
+                        </div>       
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="mb-1 p-2px border-thin bg-blue">
+                <input type="checkbox" class="hider">
+                <span class="header-4">Equipment</span>              
+
+
+                <div class="can-hide">
+                    <div class="two-column mv-0">
+                        <div  class="equipment-column equipment mv-0"  style="margin-bottom: 1rem; border-right: solid 1px black;">
+                            <table class="w-100" style="text-align: center;">
+            
+                                <tr style="font-size:12px;">
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td colspan="4">Weapon</td>
+                                    <td colspan="2">Skill</td>
+                                    <td colspan="5">Unlocks, features, upgrades and notes</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Short/Melee</td>
+                                    <td colspan="2">Long/Thrown</td>
+                                    <td colspan="2">Damage & Type</td>
+                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="1">Burst Ammo</td>
+                                    <td colspan="1">Mag Size</td>
+                                    <td colspan="2">Ammo Carried</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Quality</td>
+                                    <td colspan="2">Grit</td>
+                                    <td colspan="2">Tier</td>
+                                    <td colspan="2">Attack Bonus</td>
+                                    <td colspan="2">Damage Bonus</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="11"> 
+                                        Filled Mod Slots 
+                                        <input type="checkbox" name="attr_wep1_mod_slot1">
+                                        <input type="checkbox" name="attr_wep1_mod_slot2">
+                                        <input type="checkbox" name="attr_wep1_mod_slot3">
+                                        <input type="checkbox" name="attr_wep1_mod_slot4">
+                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                    </td>
+                                </tr> 
+                      
+                            </table>
+            
+            
+                        </div> 
+                        <div  class="equipment-column equipment mv-0">
+                            <table class="w-100" style="text-align: center;">
+            
+                                <tr style="font-size:12px;">
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                    <td class="w-9"></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td colspan="4">Weapon</td>
+                                    <td colspan="2">Skill</td>
+                                    <td colspan="5">Unlocks, features, upgrades and notes</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Short/Melee</td>
+                                    <td colspan="2">Long/Thrown</td>
+                                    <td colspan="2">Damage & Type</td>
+                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="1">Burst Ammo</td>
+                                    <td colspan="1">Mag Size</td>
+                                    <td colspan="2">Ammo Carried</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2">Quality</td>
+                                    <td colspan="2">Grit</td>
+                                    <td colspan="2">Tier</td>
+                                    <td colspan="2">Attack Bonus</td>
+                                    <td colspan="2">Damage Bonus</td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                </tr> 
+                                <tr>
+                                    <td colspan="11"> 
+                                        Filled Mod Slots 
+                                        <input type="checkbox" name="attr_wep1_mod_slot1">
+                                        <input type="checkbox" name="attr_wep1_mod_slot2">
+                                        <input type="checkbox" name="attr_wep1_mod_slot3">
+                                        <input type="checkbox" name="attr_wep1_mod_slot4">
+                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                    </td>
+                                </tr> 
+                      
+                            </table>
+            
+            
+                        </div>       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-1 p-2px border-thin bg-blue">
+
+                <input type="checkbox" class="hider">
+                <span class="header-4">Armor</span>  
+                <div class="can-hide" style="margin-bottom: 1rem;">
+                    
+                    <table class="w-100" style="text-align: center;">
+    
+                        <tr style="font-size:12px;">
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                            <td class="w-9"></td>
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <td colspan="3">Armor</td>
+                            <td colspan="1">Quality</td>
+                            <td colspan="4">Soak Type(s) & Rating</td>
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <td colspan="3"><input class="w-100" type="text" name="attr_armor_name"></td>
+                            <td colspan="1"><input class="w-100" type="text" name="attr_armor_quality"></td>
+                            <td colspan="4"><input class="w-100" type="text" name="attr_armor_soak_types_and_rating"></td>
+                            <td colspan="3"> 
+                                Filled Mod Slots 
+                                <input type="checkbox" name="attr_armor_mod_slot1">
+                                <input type="checkbox" name="attr_armor_mod_slot2">
+                                <input type="checkbox" name="attr_armor_mod_slot3">
+                                <input type="checkbox" name="attr_armor_mod_slot4">
+                                <input type="checkbox" name="attr_armor_mod_slot5">
+                            </td>
+                        </tr>
+
+                        <tr style="font-size:12px;">
+                            <td colspan="11">Unlock, features, upgrades and notes</td>
+                        </tr>
+                        <tr style="font-size:12px;">
+                            <td colspan="11"><textarea class="w-100" type="text" name="attr_armor_details" rows="2"  style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="skills_augs" class="bg-green p-2px border-thin" style="margin-bottom: 1rem;">
+            <input type="checkbox" class="hider"> 
+            <span class="header-4">Skills & Augs</span>   
+
+            <div class="can-hide">
+                <div id="skills" class="w-64 mb-1" style="border-right: solid 1px black;">
+
+                    <div id="skills_table">
+    
                         <div id="skills_header" class="w-100 multi-column">
                             <div class="w-20 mr-2px">Name</div>
                             <div class="w-44"> Focus</div>
@@ -438,8 +929,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill1_focus1">
@@ -506,8 +997,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>                            <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill2_focus1">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill2_focus2">
@@ -571,8 +1062,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>                            <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill3_focus1">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill3_focus2">
@@ -636,8 +1127,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>                            <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill4_focus1">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill4_focus2">
@@ -700,8 +1191,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>                            <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill5_focus1">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill5_focus2">
@@ -764,8 +1255,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>                            <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill6_focus1">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill6_focus2">
@@ -828,8 +1319,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill7_focus1">
@@ -893,8 +1384,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill8_focus1">
@@ -962,8 +1453,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill9_focus1">
@@ -1027,8 +1518,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill10_focus1">
@@ -1092,8 +1583,8 @@
                                     <option value="thrown">Thrown</option>
                                     <option value="unarmed">Unarmed</option>
                                     <option value="wetware">Wetware</option>
-                                  </select>
-                                  
+                                    </select>
+                                    
                             </div>
                             <div class="w-44">
                                 <input type="text" class="w-15" placeholder="d" name="attr_skill11_focus1">
@@ -1129,104 +1620,93 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill12_trait" id="skill12_trait" class="w-100" style="margin-bottom: 0px;" >
-                                  <option value="power">Power</option>
-                                  <option value="reflex">Reflex</option>
-                                  <option value="heart">Heart</option>
-                                  <option value="savvy">Savvy</option>
-                                  <option value="perception">Perception</option>
-                                  <option value="presence">Presence</option>
-                                  <option value="shinpi">Shinpi</option>                                  
+                                    <option value="power">Power</option>
+                                    <option value="reflex">Reflex</option>
+                                    <option value="heart">Heart</option>
+                                    <option value="savvy">Savvy</option>
+                                    <option value="perception">Perception</option>
+                                    <option value="presence">Presence</option>
+                                    <option value="shinpi">Shinpi</option>                                  
                                 </select> 
                             </div>                            <div class="w-29"><input type="text" class="w-100" name="attr_skill12_note"></div>
                             <div class="w-6 roll-button-container"><button id="roll_skill_12" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
     
+    
+    
+                    </div>
+                </div>
+                <div class="w-34 mb-1 p-2px">
+                    <div class="m-0 p-0 w-100">
+                        <div class="w-100 two-column">
+                            <div class="w-20" >
+                                Rank
+                                <input class="w-100" type="text" name="attr_aug1_rank">
+                            </div>
+                            <div class="w-80" >
+                                Name
+                                <input class="w-100" type="text" name="attr_aug1_name">
+                            </div>                
+                        </div>
+                        <div class="w-100">
+                            Description
+                            <input class="w-100" type="text" name="attr_aug1_description">
+                        </div>
+        
+                        <div class="w-100 two-column">
+                            <div class="w-20" >
+                                Rank
+                                <input class="w-100" type="text" name="attr_aug2_rank">
+                            </div>
+                            <div class="w-80" >
+                                Name
+                                <input class="w-100" type="text" name="attr_aug2_name">
+                            </div>                
+                        </div>
+                        <div class="w-100">
+                            Description
+                            <input class="w-100" type="text" name="attr_aug2_description">
+                        </div>
+        
+                        <div class="w-100 two-column">
+                            <div class="w-20" >
+                                Rank
+                                <input class="w-100" type="text" name="attr_aug3_rank">
+                            </div>
+                            <div class="w-80" >
+                                Name
+                                <input class="w-100" type="text" name="attr_aug3_name">
+                            </div>                
+                        </div>
+                        <div class="w-100">
+                            Description
+                            <input class="w-100" type="text" name="attr_aug3_description">
+                        </div>
+                        
+                        <div class="w-100 two-column">
+                            <div class="w-20" >
+                                Rank
+                                <input class="w-100" type="text" name="attr_aug4_rank">
+                            </div>
+                            <div class="w-80" >
+                                Name
+                                <input class="w-100" type="text" name="attr_aug4_name">
+                            </div>                
+                        </div>
+                        <div class="w-100">
+                            Description
+                            <input class="w-100" type="text" name="attr_aug4_description">
+                        </div>
+                    </div>
+    
+                </div>
+            </div>      
 
-                    </div>
-                </div>
-                <div class="w-34 mb-1 p-2px border-thin bg-cyan">
-                    <h4>Augs</h4>
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug1_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug1_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug1_description">
-                    </div>
-    
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug2_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug2_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug2_description">
-                    </div>
-    
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug3_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug3_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug3_description">
-                    </div>
-                    
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug4_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug4_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug4_description">
-                    </div>
-                </div>
-            </section>
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <section id="section3" class="two-column">
+        <div id="section3" class="two-column">
             <div class="column mb-1 p-2px border-thin bg-purple">
                 <h4>Magic</h4>
                 <div class="w-100">
@@ -1969,216 +2449,10 @@
                     </div>
                 </div>
 
-                <div class="mb-1 p-2px border-thin bg-blue">
-                    <h4>Equipment</h4>
-                    <div  class="border-bottom-thin"  style="margin-bottom: 1rem;">
-                        <table class="w-100" style="text-align: center;">
-        
-                            <tr style="font-size:12px;">
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                            </tr>
                 
-                            <tr>
-                                <td colspan="4">Weapon</td>
-                                <td colspan="2">Skill</td>
-                                <td colspan="5">Unlocks, features, upgrades and notes</td>
-                            </tr> 
-                            <tr>
-                                <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
-                                <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2">Short/Melee</td>
-                                <td colspan="2">Long/Thrown</td>
-                                <td colspan="2">Damage & Type</td>
-                                <td colspan="1">Burst Roll</td>
-                                <td colspan="1">Burst Ammo</td>
-                                <td colspan="1">Mag Size</td>
-                                <td colspan="2">Ammo Carried</td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
-                                <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
-                                <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2">Quality</td>
-                                <td colspan="2">Grit</td>
-                                <td colspan="2">Tier</td>
-                                <td colspan="2">Attack Bonus</td>
-                                <td colspan="2">Damage Bonus</td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="11"> 
-                                    Filled Mod Slots 
-                                    <input type="checkbox" name="attr_wep1_mod_slot1">
-                                    <input type="checkbox" name="attr_wep1_mod_slot2">
-                                    <input type="checkbox" name="attr_wep1_mod_slot3">
-                                    <input type="checkbox" name="attr_wep1_mod_slot4">
-                                    <input type="checkbox" name="attr_wep1_mod_slot5">
-                                </td>
-                            </tr> 
-                  
-                        </table>
-        
-        
-                    </div>     
-          
-                    <div class="border-bottom-thin"  style="margin-bottom: 1rem;">
-                        <table class="w-100" style="text-align: center;">
-        
-                            <tr style="font-size:12px;">
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                            </tr>
-                
-                            <tr>
-                                <td colspan="4">Weapon</td>
-                                <td colspan="2">Skill</td>
-                                <td colspan="5">Unlocks, features, upgrades and notes</td>
-                            </tr> 
-                            <tr>
-                                <td colspan="4"><input class="w-100" type="text" name="attr_wep2_name"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_skill"></td>
-                                <td colspan="5"><input class="w-100" type="text" name="attr_wep2_details"></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2">Short/Melee</td>
-                                <td colspan="2">Long/Thrown</td>
-                                <td colspan="2">Damage & Type</td>
-                                <td colspan="1">Burst Roll</td>
-                                <td colspan="1">Burst Ammo</td>
-                                <td colspan="1">Mag Size</td>
-                                <td colspan="2">Ammo Carried</td>
-                            </tr>  
-                            <tr>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_short_range"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_long_range"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_damage_type"></td>
-                                <td colspan="1"><input class="w-100" type="text" name="attr_wep2_burst_roll"></td>
-                                <td colspan="1"><input class="w-100" type="text" name="attr_wep2_burst_ammo"></td>
-                                <td colspan="1"><input class="w-100" type="text" name="attr_wep2_mag_size"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_ammo"></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_short_modifier" placeholder="X"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_long_modifier" placeholder="X"></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2">Quality</td>
-                                <td colspan="2">Grit</td>
-                                <td colspan="2">Tier</td>
-                                <td colspan="2">Attack Bonus</td>
-                                <td colspan="2">Damage Bonus</td>
-                            </tr> 
-                            <tr>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_quality"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_grit"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_tier"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_attack_bonus"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_wep2_damage_bonus"></td>
-                                <td colspan="1" class="roll-button-container"><button id="roll_wep2" name="act_roll_wep2" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                            </tr> 
-                            <tr>
-                                <td colspan="11"> 
-                                    Filled Mod Slots 
-                                    <input type="checkbox" name="attr_wep2_mod_slot1">
-                                    <input type="checkbox" name="attr_wep2_mod_slot2">
-                                    <input type="checkbox" name="attr_wep2_mod_slot3">
-                                    <input type="checkbox" name="attr_wep2_mod_slot4">
-                                    <input type="checkbox" name="attr_wep2_mod_slot5">
-                                </td>
-                            </tr> 
-                  
-                        </table>
-        
-                    </div>
-    
-                    <div style="margin-bottom: 1rem;">
-                        
-                        <table class="w-100" style="text-align: center;">
-        
-                            <tr style="font-size:12px;">
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                                <td class="w-9"></td>
-                            </tr>
-                            <tr style="font-size:12px;">
-                                <td colspan="4">Armor</td>
-                                <td colspan="2">Quality</td>
-                                <td colspan="5">Soak Type(s) & Rating</td>
-                            </tr>
-                            <tr style="font-size:12px;">
-                                <td colspan="4"><input class="w-100" type="text" name="attr_armor_name"></td>
-                                <td colspan="2"><input class="w-100" type="text" name="attr_armor_quality"></td>
-                                <td colspan="5"><input class="w-100" type="text" name="attr_armor_soak_types_and_rating"></td>
-                            </tr>
-                            <tr style="font-size:12px;">
-                                <td colspan="11">Unlock, features, upgrades and notes</td>
-                            </tr>
-                            <tr style="font-size:12px;">
-                                <td colspan="11"><input class="w-100" type="text" name="attr_armor_details"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="11"> 
-                                    Filled Mod Slots 
-                                    <input type="checkbox" name="attr_armor_mod_slot1">
-                                    <input type="checkbox" name="attr_armor_mod_slot2">
-                                    <input type="checkbox" name="attr_armor_mod_slot3">
-                                    <input type="checkbox" name="attr_armor_mod_slot4">
-                                    <input type="checkbox" name="attr_armor_mod_slot5">
-                                </td>
-                            </tr> 
-                        </table>
-                    </div>
-                </div>
                 
             </div>
-        </section>
+        </div>
 
     </main>
 </body>
@@ -2969,7 +3243,7 @@
     }
 
     const getFateEffect = (roll, values) => {
-        let effect = "None";
+
         const effectMap = new Map(Object.entries(values));
         console.log(effectMap);
 
@@ -2984,7 +3258,7 @@
 
         }
 
-        return effect;
+        return "None";
     }
 
     const getSkillValue = (skillNum) => {
