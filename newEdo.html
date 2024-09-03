@@ -299,8 +299,6 @@
                     </table>
                     <small>(Botch is already included 01-03)</small>
                 </div>
-
-
         
             </div> 
 
@@ -335,14 +333,53 @@
                                 </tr> 
                                 <tr>
                                     <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
+                                    <td colspan="2">
+                                        <select name="attr_wep1_skill_name" id="wep1_skill_name" class="w-100" style="margin-bottom: 0px;">
+                                            <option value="archery">Archery</option>
+                                            <option value="arcana">Arcana</option>
+                                            <option value="athletics">Athletics</option>
+                                            <option value="banter">Banter</option>
+                                            <option value="commerce">Commerce</option>
+                                            <option value="computers">Computers</option>
+                                            <option value="crafting">Crafting</option>
+                                            <option value="deception">Deception</option>
+                                            <option value="drive">Drive</option>
+                                            <option value="dodge">Dodge</option>
+                                            <option value="eloquence">Eloquence</option>
+                                            <option value="gambling">Gambling</option>
+                                            <option value="gunnery">Gunnery</option>
+                                            <option value="hardware">Hardware</option>
+                                            <option value="heavy_melee">Heavy Melee</option>
+                                            <option value="intimidation">Intimidation</option>
+                                            <option value="intuition">Intuition</option>
+                                            <option value="investigation">Investigation</option>
+                                            <option value="light_melee">Light Melee</option>
+                                            <option value="medicine">Medicine</option>
+                                            <option value="meditation">Meditation</option>
+                                            <option value="performance">Performance</option>
+                                            <option value="rally">Rally</option>
+                                            <option value="security">Security</option>
+                                            <option value="seduction">Seduction</option>
+                                            <option value="sleight_of_hand">Sleight of Hand</option>
+                                            <option value="small_arms">Small Arms</option>
+                                            <option value="stealth">Stealth</option>
+                                            <option value="streetwise">Streetwise</option>
+                                            <option value="study">Study</option>
+                                            <option value="surveillance">Surveillance</option>
+                                            <option value="survival">Survival</option>
+                                            <option value="tactics">Tactics</option>
+                                            <option value="toxicology">Toxicology</option>
+                                            <option value="thrown">Thrown</option>
+                                            <option value="unarmed">Unarmed</option>
+                                            <option value="wetware">Wetware</option>
+                                            </select>
+                                    </td>
                                     <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Short/Melee</td>
                                     <td colspan="2">Long/Thrown</td>
-                                    <td colspan="2">Damage & Type</td>
-                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="3">Damage & Type<sup><a href="#damage-footnote">1</a></sup></td>
                                     <td colspan="1">Burst Ammo</td>
                                     <td colspan="1">Mag Size</td>
                                     <td colspan="2">Ammo Carried</td>
@@ -350,8 +387,8 @@
                                 <tr>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
+                                    <td colspan="3"><input class="w-100" type="text" name="attr_wep1_damage" placeholder="Damage"></td>
+                                    <!-- <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td> -->
                                     <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
                                     <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
@@ -359,6 +396,7 @@
                                 <tr>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type" placeholder="Type"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Quality</td>
@@ -373,7 +411,7 @@
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
                                     <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep_1" name="act_roll_wep" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="11"> 
@@ -413,31 +451,71 @@
                                     <td colspan="5">Unlocks, features, upgrades and notes</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
-                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep2_name"></td>
+                                    <td colspan="2">
+                                        <select name="attr_wep2_skill_name" id="wep2_skill_name" class="w-100" style="margin-bottom: 0px;">
+                                            <option value="archery">Archery</option>
+                                            <option value="arcana">Arcana</option>
+                                            <option value="athletics">Athletics</option>
+                                            <option value="banter">Banter</option>
+                                            <option value="commerce">Commerce</option>
+                                            <option value="computers">Computers</option>
+                                            <option value="crafting">Crafting</option>
+                                            <option value="deception">Deception</option>
+                                            <option value="drive">Drive</option>
+                                            <option value="dodge">Dodge</option>
+                                            <option value="eloquence">Eloquence</option>
+                                            <option value="gambling">Gambling</option>
+                                            <option value="gunnery">Gunnery</option>
+                                            <option value="hardware">Hardware</option>
+                                            <option value="heavy_melee">Heavy Melee</option>
+                                            <option value="intimidation">Intimidation</option>
+                                            <option value="intuition">Intuition</option>
+                                            <option value="investigation">Investigation</option>
+                                            <option value="light_melee">Light Melee</option>
+                                            <option value="medicine">Medicine</option>
+                                            <option value="meditation">Meditation</option>
+                                            <option value="performance">Performance</option>
+                                            <option value="rally">Rally</option>
+                                            <option value="security">Security</option>
+                                            <option value="seduction">Seduction</option>
+                                            <option value="sleight_of_hand">Sleight of Hand</option>
+                                            <option value="small_arms">Small Arms</option>
+                                            <option value="stealth">Stealth</option>
+                                            <option value="streetwise">Streetwise</option>
+                                            <option value="study">Study</option>
+                                            <option value="surveillance">Surveillance</option>
+                                            <option value="survival">Survival</option>
+                                            <option value="tactics">Tactics</option>
+                                            <option value="toxicology">Toxicology</option>
+                                            <option value="thrown">Thrown</option>
+                                            <option value="unarmed">Unarmed</option>
+                                            <option value="wetware">Wetware</option>
+                                            </select>
+                                    </td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep2_details"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Short/Melee</td>
                                     <td colspan="2">Long/Thrown</td>
-                                    <td colspan="2">Damage & Type</td>
-                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="3">Damage & Type<sup><a href="#damage-footnote">1</a></sup></td>
                                     <td colspan="1">Burst Ammo</td>
                                     <td colspan="1">Mag Size</td>
                                     <td colspan="2">Ammo Carried</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_long_range"></td>
+                                    <td colspan="3"><input class="w-100" type="text" name="attr_wep2_damage" placeholder="Damage"></td>
+                                    <!-- <td colspan="1"><input class="w-100" type="text" name="attr_wep2_burst_roll"></td> -->
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep2_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep2_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_ammo"></td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_damage_type" placeholder="Type"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Quality</td>
@@ -447,21 +525,21 @@
                                     <td colspan="2">Damage Bonus</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep2_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep_2" name="act_roll_wep" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="11"> 
                                         Filled Mod Slots 
-                                        <input type="checkbox" name="attr_wep1_mod_slot1">
-                                        <input type="checkbox" name="attr_wep1_mod_slot2">
-                                        <input type="checkbox" name="attr_wep1_mod_slot3">
-                                        <input type="checkbox" name="attr_wep1_mod_slot4">
-                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                        <input type="checkbox" name="attr_wep2_mod_slot1">
+                                        <input type="checkbox" name="attr_wep2_mod_slot2">
+                                        <input type="checkbox" name="attr_wep2_mod_slot3">
+                                        <input type="checkbox" name="attr_wep2_mod_slot4">
+                                        <input type="checkbox" name="attr_wep2_mod_slot5">
                                     </td>
                                 </tr> 
                       
@@ -508,30 +586,70 @@
                                 </tr> 
                                 <tr>
                                     <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
-                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                    <td colspan="2">
+                                        <select name="attr_wep3_skill_name" id="wep3_skill_name" class="w-100" style="margin-bottom: 0px;">
+                                            <option value="archery">Archery</option>
+                                            <option value="arcana">Arcana</option>
+                                            <option value="athletics">Athletics</option>
+                                            <option value="banter">Banter</option>
+                                            <option value="commerce">Commerce</option>
+                                            <option value="computers">Computers</option>
+                                            <option value="crafting">Crafting</option>
+                                            <option value="deception">Deception</option>
+                                            <option value="drive">Drive</option>
+                                            <option value="dodge">Dodge</option>
+                                            <option value="eloquence">Eloquence</option>
+                                            <option value="gambling">Gambling</option>
+                                            <option value="gunnery">Gunnery</option>
+                                            <option value="hardware">Hardware</option>
+                                            <option value="heavy_melee">Heavy Melee</option>
+                                            <option value="intimidation">Intimidation</option>
+                                            <option value="intuition">Intuition</option>
+                                            <option value="investigation">Investigation</option>
+                                            <option value="light_melee">Light Melee</option>
+                                            <option value="medicine">Medicine</option>
+                                            <option value="meditation">Meditation</option>
+                                            <option value="performance">Performance</option>
+                                            <option value="rally">Rally</option>
+                                            <option value="security">Security</option>
+                                            <option value="seduction">Seduction</option>
+                                            <option value="sleight_of_hand">Sleight of Hand</option>
+                                            <option value="small_arms">Small Arms</option>
+                                            <option value="stealth">Stealth</option>
+                                            <option value="streetwise">Streetwise</option>
+                                            <option value="study">Study</option>
+                                            <option value="surveillance">Surveillance</option>
+                                            <option value="survival">Survival</option>
+                                            <option value="tactics">Tactics</option>
+                                            <option value="toxicology">Toxicology</option>
+                                            <option value="thrown">Thrown</option>
+                                            <option value="unarmed">Unarmed</option>
+                                            <option value="wetware">Wetware</option>
+                                            </select>
+                                    </td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep3_details"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Short/Melee</td>
                                     <td colspan="2">Long/Thrown</td>
-                                    <td colspan="2">Damage & Type</td>
-                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="3">Damage & Type<sup><a href="#damage-footnote">1</a></sup></td>
                                     <td colspan="1">Burst Ammo</td>
                                     <td colspan="1">Mag Size</td>
                                     <td colspan="2">Ammo Carried</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_long_range"></td>
+                                    <td colspan="3"><input class="w-100" type="text" name="attr_wep3_damage" placeholder="Damage"></td>
+                                    <!-- <td colspan="1"><input class="w-100" type="text" name="attr_wep3_burst_roll"></td> -->
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep3_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep3_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_ammo"></td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_damage_type" placeholder="Type"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Quality</td>
@@ -541,21 +659,21 @@
                                     <td colspan="2">Damage Bonus</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep3_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep_3" name="act_roll_wep" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="11"> 
                                         Filled Mod Slots 
-                                        <input type="checkbox" name="attr_wep1_mod_slot1">
-                                        <input type="checkbox" name="attr_wep1_mod_slot2">
-                                        <input type="checkbox" name="attr_wep1_mod_slot3">
-                                        <input type="checkbox" name="attr_wep1_mod_slot4">
-                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                        <input type="checkbox" name="attr_wep3_mod_slot1">
+                                        <input type="checkbox" name="attr_wep3_mod_slot2">
+                                        <input type="checkbox" name="attr_wep3_mod_slot3">
+                                        <input type="checkbox" name="attr_wep3_mod_slot4">
+                                        <input type="checkbox" name="attr_wep3_mod_slot5">
                                     </td>
                                 </tr> 
                       
@@ -586,31 +704,31 @@
                                     <td colspan="5">Unlocks, features, upgrades and notes</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
-                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep4_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep4_details"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Short/Melee</td>
                                     <td colspan="2">Long/Thrown</td>
-                                    <td colspan="2">Damage & Type</td>
-                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="3">Damage & Type<sup><a href="#damage-footnote">1</a></sup></td>
                                     <td colspan="1">Burst Ammo</td>
                                     <td colspan="1">Mag Size</td>
                                     <td colspan="2">Ammo Carried</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_long_range"></td>
+                                    <td colspan="3"><input class="w-100" type="text" name="attr_wep4_damage" placeholder="Damage"></td>
+                                    <!-- <td colspan="1"><input class="w-100" type="text" name="attr_wep4_burst_roll"></td> -->
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep4_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep4_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_ammo"></td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_damage_type" placeholder="Type"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Quality</td>
@@ -620,21 +738,21 @@
                                     <td colspan="2">Damage Bonus</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep4_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep_4" name="act_roll_wep" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="11"> 
                                         Filled Mod Slots 
-                                        <input type="checkbox" name="attr_wep1_mod_slot1">
-                                        <input type="checkbox" name="attr_wep1_mod_slot2">
-                                        <input type="checkbox" name="attr_wep1_mod_slot3">
-                                        <input type="checkbox" name="attr_wep1_mod_slot4">
-                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                        <input type="checkbox" name="attr_wep4_mod_slot1">
+                                        <input type="checkbox" name="attr_wep4_mod_slot2">
+                                        <input type="checkbox" name="attr_wep4_mod_slot3">
+                                        <input type="checkbox" name="attr_wep4_mod_slot4">
+                                        <input type="checkbox" name="attr_wep4_mod_slot5">
                                     </td>
                                 </tr> 
                       
@@ -680,31 +798,31 @@
                                     <td colspan="5">Unlocks, features, upgrades and notes</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
-                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep5_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep5_details"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Short/Melee</td>
                                     <td colspan="2">Long/Thrown</td>
-                                    <td colspan="2">Damage & Type</td>
-                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="3">Damage & Type<sup><a href="#damage-footnote">1</a></sup></td>
                                     <td colspan="1">Burst Ammo</td>
                                     <td colspan="1">Mag Size</td>
                                     <td colspan="2">Ammo Carried</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_long_range"></td>
+                                    <td colspan="3"><input class="w-100" type="text" name="attr_wep5_damage" placeholder="Damage"></td>
+                                    <!-- <td colspan="1"><input class="w-100" type="text" name="attr_wep5_burst_roll"></td> -->
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep5_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep5_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_ammo"></td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_damage_type" placeholder="Type"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Quality</td>
@@ -714,21 +832,21 @@
                                     <td colspan="2">Damage Bonus</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep5_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep_5" name="act_roll_wep" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="11"> 
                                         Filled Mod Slots 
-                                        <input type="checkbox" name="attr_wep1_mod_slot1">
-                                        <input type="checkbox" name="attr_wep1_mod_slot2">
-                                        <input type="checkbox" name="attr_wep1_mod_slot3">
-                                        <input type="checkbox" name="attr_wep1_mod_slot4">
-                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                        <input type="checkbox" name="attr_wep5_mod_slot1">
+                                        <input type="checkbox" name="attr_wep5_mod_slot2">
+                                        <input type="checkbox" name="attr_wep5_mod_slot3">
+                                        <input type="checkbox" name="attr_wep5_mod_slot4">
+                                        <input type="checkbox" name="attr_wep5_mod_slot5">
                                     </td>
                                 </tr> 
                       
@@ -759,31 +877,31 @@
                                     <td colspan="5">Unlocks, features, upgrades and notes</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_skill"></td>
-                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep1_details"></td>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep6_name"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_skill"></td>
+                                    <td colspan="5"><input class="w-100" type="text" name="attr_wep6_details"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Short/Melee</td>
                                     <td colspan="2">Long/Thrown</td>
-                                    <td colspan="2">Damage & Type</td>
-                                    <td colspan="1">Burst Roll</td>
+                                    <td colspan="3">Damage & Type<sup><a href="#damage-footnote">1</a></sup></td>
                                     <td colspan="1">Burst Ammo</td>
                                     <td colspan="1">Mag Size</td>
                                     <td colspan="2">Ammo Carried</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_range"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_roll"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_burst_ammo"></td>
-                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep1_mag_size"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_ammo"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_short_range"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_long_range"></td>
+                                    <td colspan="3"><input class="w-100" type="text" name="attr_wep6_damage" placeholder="Damage"></td>
+                                    <!-- <td colspan="1"><input class="w-100" type="text" name="attr_wep6_burst_roll"></td> -->
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep6_burst_ammo"></td>
+                                    <td colspan="1"><input class="w-100" type="text" name="attr_wep6_mag_size"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_ammo"></td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_short_modifier" placeholder="X"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_short_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_long_modifier" placeholder="X"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_type" placeholder="Type"></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">Quality</td>
@@ -793,21 +911,21 @@
                                     <td colspan="2">Damage Bonus</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_quality"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_grit"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_tier"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_attack_bonus"></td>
-                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep1_damage_bonus"></td>
-                                    <td colspan="1" class="roll-button-container"><button id="roll_wep1" name="act_roll_wep1" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_quality"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_grit"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_tier"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_attack_bonus"></td>
+                                    <td colspan="2"><input class="w-100" type="text" name="attr_wep6_damage_bonus"></td>
+                                    <td colspan="1" class="roll-button-container"><button id="roll_wep_6" name="act_roll_wep" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="11"> 
                                         Filled Mod Slots 
-                                        <input type="checkbox" name="attr_wep1_mod_slot1">
-                                        <input type="checkbox" name="attr_wep1_mod_slot2">
-                                        <input type="checkbox" name="attr_wep1_mod_slot3">
-                                        <input type="checkbox" name="attr_wep1_mod_slot4">
-                                        <input type="checkbox" name="attr_wep1_mod_slot5">
+                                        <input type="checkbox" name="attr_wep6_mod_slot1">
+                                        <input type="checkbox" name="attr_wep6_mod_slot2">
+                                        <input type="checkbox" name="attr_wep6_mod_slot3">
+                                        <input type="checkbox" name="attr_wep6_mod_slot4">
+                                        <input type="checkbox" name="attr_wep6_mod_slot5">
                                     </td>
                                 </tr> 
                       
@@ -1863,6 +1981,7 @@
     
                     </div>
                 </div>
+
                 <div class="w-100 two-column">
                     <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
@@ -2000,6 +2119,16 @@
     
                     </div>
                 </div>
+
+            </div>
+
+        </div>
+
+        <div id="rotes-contd" class="mb-1 p-2px border-thin bg-purple">
+            <input type="checkbox" class="hider"> 
+            <span class="header-4">Rotes (Cont'd)</span>   
+
+            <div class="can-hide-block">
                 <div class="w-100 two-column">
                     <div class="margin-bottom column">
                         <table class="w-100" style="text-align: center;">
@@ -2416,6 +2545,7 @@
 
 
         </div>
+
         <div>
             <div class="mb-1 p-2px border-thin bg-orange">
                 <input type="checkbox" class="hider"> 
@@ -2480,14 +2610,40 @@
 
             </div>
         </div>
+        <div>
+            <p id="damage-footnote">
+                1. If you have burst damage, you must add notation to the damage roll you input. i.e. !2d10>8 means roll 2d10, explode on 8 or more.
+            </p>
+        </div>
     </main>
 </body>
+
+
+
 
 <rolltemplate class="sheet-rolltemplate-trait">
     <div class="container">
         <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{traitName}}:</h3>
         <div class="">
             <h4>{{roll}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-wep">
+    <div class="container">
+        <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{wepName}}:</h3>
+        <div style="margin-bottom: 0.3rem;" class="">
+            <h4>{{attackRoll}}</h4>
+        </div>
+        <div class="">
+            <h4>TN:</h4>
+        </div>
+        <div class="sheet-rolltemplate-rote-details">
+            <h4>Effect:</h4>
+            <p>
+                A{{computed::attackRoll}}
+            </p>
         </div>
     </div>
 </rolltemplate>
@@ -2526,13 +2682,18 @@
             <div style="margin-bottom: 0.3rem;">
                 <h4>{{roll}}</h4>
             </div>
-            <h4>Effect:</h4>
-            <p style="color: #e4e4e4;">
-                {{effect}}
-            </p>
+            <div class="sheet-rolltemplate-rote-details">
+                <h4>Effect:</h4>
+                <p style="color: #e4e4e4;">
+                    {{effect}}
+                </p>
+            </div>
+
         </div>
     </div>
 </rolltemplate>
+
+
 
 
 <script type="text/worker">
@@ -2542,13 +2703,147 @@
     ///BUTTON CLICKS
 
 
+    on("clicked:roll_wep", (info) => {
+        console.log("rolling weapon attack....");
+
+        const wepNum = info.htmlAttributes.id.split("_")[2];
+
+        console.log(wepNum);
+
+        const wepAttrNames = buildAttackAttrDependencyNames(wepNum);
+
+        console.log(wepAttrNames);
+
+        getAttrs(wepAttrNames, (values) => {
+
+            const valueMap = new Map(Object.entries(values));
+            console.log(valueMap);
+
+            //get skill name
+            const skillName = valueMap.get(`wep${wepNum}_skill_name`);
+            const wepName = valueMap.get(`wep${wepNum}_name`) ? valueMap.get(`wep${wepNum}_name`) : "Rote";
+
+            console.log(values.character_name);
+
+            if(!skillName) return;
+
+            console.log(skillName);
+
+            //SKILL CALC
+            const skillId = findSkillInValues(valueMap, skillName);
+
+            const traitName = skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`skill${skillId}_trait`);
+
+            //get traitname
+            
+            //usee traitName to get value of corresponding trait
+            console.log(traitName);
+
+            const traitValue = valueMap.get(traitName);
+
+            //parse the trait
+            const traitValNum = parseInt(traitValue);
+
+            //calculate d10s
+            const traitRoll = getTraitRollD10s(traitValNum);
+
+            const shortRange = valueMap.get(`wep${wepNum}_short_range`);
+
+            const longRange = valueMap.get(`wep${wepNum}_long_range`);
+
+            //roll damage
+            let damageRoll = valueMap.get(`wep${wepNum}_damage`)
+
+            if(valueMap.get(`wep${wepNum}_damage_bonus`)){
+                damageRoll = damageRoll + ` + ${valueMap.get(`wep${wepNum}_damage_bonus`)}`
+            }
+
+            const longDamage = ""
+
+            const shortDamage = ""
+            
+
+            let roll = `${traitRoll}d10!`;
+
+            console.log(roll);
+
+            //add focus
+            
+            //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
+            if(parseInt(skillId) === 0){
+
+                roll = applyWounds(roll, values);
+
+                startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=${damageRoll}}} {{shortRange=${shortRange}}} {{longRange=${longRange}}} {{shortDamage=${""}}} {{longDamage=${""}}}`, (results) => {
+
+                    const uh = results.results.attackRoll.result;
+                    const total = uh * 10;
+                    console.log(total);
+                    finishRoll(
+                        results.rollId,
+                        {
+                            attackRoll: total
+                        }
+                    );
+                });
+                return;
+            }
+
+
+            for(let i = 1; i <= 5; i++){
+                const diceToAdd = valueMap.get(`skill${skillId}_focus${i}`);
+                if(diceToAdd) {
+                    roll = roll + ' + ' + diceToAdd;
+                    console.log(roll);
+                }
+            }
+
+            //add mod
+            const diceToAdd = valueMap.get(`skill${skillId}_mod`);
+            if(diceToAdd) {
+                roll = roll + ' + ' + diceToAdd;
+            }
+
+            //apply attack bonus
+            roll = roll + `+ ${valueMap.get(`wep${wepNum}_attack_bonus`)}`;
+
+
+            roll = applyWounds(roll, values);
+
+            console.log(roll);
+
+
+            //check results and declare hit/miss
+
+            startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=${""}}} {{shortRange=${shortRange}}} {{longRange=${longRange}}} {{shortDamage=${""}}} {{longDamage=${""}}}`, (results) => {
+
+                const uh = results.results.attackRoll.result;
+                const total = uh * 10;
+                console.log(total);
+                finishRoll(
+                    results.rollId,
+                    {
+                        attackRoll: total
+                    }
+                );
+            });
+
+        });
+
+
+        console.log("weapon attack roll(s) done.");
+
+
+
+    });
+
     //TODO: Change background rolls to use the map method
     on("clicked:roll_contacts", (info) => {
         console.log("rolling contacts....");
 
-        getAttrs(["contacts_score", "character_name"], (values) => {
+        getAttrs(["contacts_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
-            const roll = getTraitRollD10s(parseInt(values.contacts_score));
+            const roll = getBackgroundD10s(parseInt(values.contacts_score), values);
 
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Contacts}}`, (results) => {
                 const total = results.results.roll.result
@@ -2570,9 +2865,9 @@
     on("clicked:roll_followers", (info) => {
         console.log("rolling followers....");
 
-        getAttrs(["followers_score", "character_name"], (values) => {
+        getAttrs(["followers_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
-            const roll = getTraitRollD10s(parseInt(values.followers_score));
+            const roll = getBackgroundD10s(parseInt(values.followers_score));
 
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Followers}}`, (results) => {
                 const total = results.results.roll.result
@@ -2594,9 +2889,9 @@
     on("clicked:roll_soul", (info) => {
         console.log("rolling soul....");
 
-        getAttrs(["soul_score", "character_name"], (values) => {
+        getAttrs(["soul_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
-            const roll = getTraitRollD10s(parseInt(values.soul_score));
+            const roll = getBackgroundD10s(parseInt(values.soul_score));
 
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Soul}}`, (results) => {
                 const total = results.results.roll.result
@@ -2618,9 +2913,9 @@
     on("clicked:roll_status", (info) => {
         console.log("rolling status....");
 
-        getAttrs(["status_score", "character_name"], (values) => {
+        getAttrs(["status_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
-            const roll = getTraitRollD10s(parseInt(values.status_score));
+            const roll = getBackgroundD10s(parseInt(values.status_score));
 
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Status}}`, (results) => {
                 const total = results.results.roll.result
@@ -2642,9 +2937,9 @@
     on("clicked:roll_wealth", (info) => {
         console.log("rolling wealth....");
 
-        getAttrs(["wealth_score", "character_name"], (values) => {
+        getAttrs(["wealth_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
-            const roll = getTraitRollD10s(parseInt(values.wealth_score));
+            const roll = getBackgroundD10s(parseInt(values.wealth_score));
 
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{skillName=Wealth}}`, (results) => {
                 const total = results.results.roll.result
@@ -2712,6 +3007,7 @@
             
             //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
             if(parseInt(skillId) === 0){
+                roll = applyWounds(roll, values);
                 startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${valueMap.get(`rote${roteNum}_details`)}}}`, (results) => {
                     const total = results.results.roll.result
 
@@ -2739,6 +3035,9 @@
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
             }
+
+
+            roll = applyWounds(roll, values);
 
             console.log(roll);
 
@@ -2770,7 +3069,8 @@
 
         getAttrs([`skill${traitNum}_trait`, `skill${traitNum}_name`, "character_name",
         `skill${traitNum}_focus1`, `skill${traitNum}_focus2`, `skill${traitNum}_focus3`, `skill${traitNum}_focus4`, `skill${traitNum}_focus5`, 
-        `skill${traitNum}_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi"], (values) => {
+        `skill${traitNum}_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
+        "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
 
             const valueMap = new Map(Object.entries(values));
@@ -2806,6 +3106,9 @@
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
             }
+
+
+            roll = applyWounds(roll, values);
 
             console.log(roll);
 
@@ -2864,7 +3167,7 @@
     on("clicked:roll_power", (info) => {
         console.log("POWAAAAAAA! -LeMillion");
         console.log("rolling power....");
-        getAttrs(["power", "character_name"], (values) => {
+        getAttrs(["power", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.power) return;
@@ -2877,7 +3180,11 @@
             
             const d10s = getTraitRollD10s(power);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Power}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Power}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -2896,7 +3203,7 @@
     on("clicked:roll_reflex", (info) => {
 
         console.log("rolling reflex....");
-        getAttrs(["reflex", "character_name"], (values) => {
+        getAttrs(["reflex", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.reflex) return;
@@ -2909,7 +3216,11 @@
             
             const d10s = getTraitRollD10s(reflex);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Reflex}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Reflex}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -2928,7 +3239,7 @@
     on("clicked:roll_heart", (info) => {
 
         console.log("rolling heart....");
-        getAttrs(["heart", "character_name"], (values) => {
+        getAttrs(["heart", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.heart) return;
@@ -2941,7 +3252,11 @@
             
             const d10s = getTraitRollD10s(heart);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Heart}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Heart}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -2961,7 +3276,7 @@
     on("clicked:roll_savvy", (info) => {
 
         console.log("rolling savvy....");
-        getAttrs(["savvy", "character_name"], (values) => {
+        getAttrs(["savvy", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.savvy) return;
@@ -2974,7 +3289,11 @@
             
             const d10s = getTraitRollD10s(savvy);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Savvy}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Savvy}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -2993,7 +3312,7 @@
     on("clicked:roll_presence", (info) => {
 
         console.log("rolling presence....");
-        getAttrs(["presence", "character_name"], (values) => {
+        getAttrs(["presence", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.presence) return;
@@ -3006,7 +3325,11 @@
             
             const d10s = getTraitRollD10s(presence);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Presence}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Presence}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -3025,7 +3348,7 @@
     on("clicked:roll_perception", (info) => {
 
         console.log("rolling perception....");
-        getAttrs(["perception", "character_name"], (values) => {
+        getAttrs(["perception", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.perception) return;
@@ -3038,7 +3361,11 @@
             
             const d10s = getTraitRollD10s(perception);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Perception}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Perception}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -3057,7 +3384,7 @@
     on("clicked:roll_shinpi", (info) => {
 
         console.log("rolling shinpi....");
-        getAttrs(["shinpi", "character_name"], (values) => {
+        getAttrs(["shinpi", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"], (values) => {
 
             //if either value is not populated, do nothing.
             if(!values.shinpi) return;
@@ -3071,7 +3398,11 @@
             const d10s = getTraitRollD10s(shinpi);
             console.log(d10s);
 
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Shinpi}} {{roll=[[${d10s}d10!]]}}`, (results) => {
+            let roll = `${d10s}d10!`;
+
+            roll = applyWounds(roll, values);
+
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Shinpi}} {{roll=[[${roll}]]}}`, (results) => {
                 const total = results.results.roll.result
 
     
@@ -3263,8 +3594,15 @@
             columns.push(`fate${i}_minpercent`);
             columns.push(`fate${i}_maxpercent`);
             columns.push(`fate${i}_desc`);
-        };
 
+        };
+            columns.push("max_hp");
+            columns.push("hp_current");
+            columns.push("grazed");
+            columns.push("flesh_wound");
+            columns.push("banged_up");
+            columns.push("hurt_bad");
+            columns.push("burning_legend");
         return columns;
     }
 
@@ -3327,7 +3665,56 @@
         skillAttrNames.push(`rote${roteNum}_tn`);
         skillAttrNames.push(`rote${roteNum}_casting_skill`);
         skillAttrNames.push(`rote${roteNum}_details`);
+        skillAttrNames.push("max_hp");
+        skillAttrNames.push("hp_current");
+        skillAttrNames.push("grazed");
+        skillAttrNames.push("flesh_wound");
+        skillAttrNames.push("banged_up");
+        skillAttrNames.push("hurt_bad");
+        skillAttrNames.push("burning_legend");
 
+        return skillAttrNames;
+    }
+
+    const buildAttackAttrDependencyNames = (wepNum) => {
+        const skillAttrNames = [];
+        for(let i = 1; i <= 12; i++){
+            skillAttrNames.push(`skill${i}_trait`);
+            skillAttrNames.push(`skill${i}_name`);
+            skillAttrNames.push(`skill${i}_focus1`);
+            skillAttrNames.push(`skill${i}_focus2`);
+            skillAttrNames.push(`skill${i}_focus3`);
+            skillAttrNames.push(`skill${i}_focus4`);
+            skillAttrNames.push(`skill${i}_focus5`);
+            skillAttrNames.push(`skill${i}_mod`);
+            skillAttrNames.push(`skill${i}_trait`);
+        };
+        skillAttrNames.push("power");
+        skillAttrNames.push(`reflex`);
+        skillAttrNames.push(`heart`);
+        skillAttrNames.push(`savvy`);
+        skillAttrNames.push(`presence`);
+        skillAttrNames.push(`perception`);
+        skillAttrNames.push(`shinpi`);
+        skillAttrNames.push(`character_name`);
+        skillAttrNames.push("max_hp");
+        skillAttrNames.push("hp_current");
+        skillAttrNames.push("grazed");
+        skillAttrNames.push("flesh_wound");
+        skillAttrNames.push("banged_up");
+        skillAttrNames.push("hurt_bad");
+        skillAttrNames.push("burning_legend");
+        skillAttrNames.push(`wep${wepNum}_name`);
+        skillAttrNames.push(`wep${wepNum}_skill_name`);
+        skillAttrNames.push(`wep${wepNum}_short_range`);
+        skillAttrNames.push(`wep${wepNum}_long_range`);
+        skillAttrNames.push(`wep${wepNum}_damage_type`);
+        skillAttrNames.push(`wep${wepNum}_damage`);
+        skillAttrNames.push(`wep${wepNum}_burst_roll`);
+        skillAttrNames.push(`wep${wepNum}_short_modifier`);
+        skillAttrNames.push(`wep${wepNum}_long_modifier`);
+        skillAttrNames.push(`wep${wepNum}_attack_bonus`);
+        skillAttrNames.push(`wep${wepNum}_damage_bonus`);
 
         return skillAttrNames;
     }
@@ -3387,13 +3774,61 @@
         return 0;
     }
 
+    const getWoundDeficit = (values) => {
+        console.log(values);
+        console.log("get wound deficit");
+        const currentHp = parseInt(values.hp_current);
+        console.log(currentHp);
+        if(currentHp >= Math.ceil(parseInt(values.max_hp) * 0.9)){
+            return "";
+        }
+        console.log("deficit found");
+        let deficit = 0;
+        if(currentHp <= parseInt(values.burning_legend)) return "(-10)";
+        if(currentHp <= parseInt(values.hurt_bad)) return "(-7)";
+        if(currentHp <= parseInt(values.banged_up)) return "(-5)";
+        if(currentHp <= parseInt(values.flesh_wound)) return "(-3)";
+        if(currentHp <= parseInt(values.grazed)) return "(-1)";
+
+
+
+        return null;
+
+    }
+
+    const applyWounds = (roll, values) => {
+        console.log("apply wounds");
+        const woundDeficit = getWoundDeficit(values);
+        console.log("wound deficit:" + woundDeficit);
+        return woundDeficit ? roll + `+ ${woundDeficit}` : roll;
+    }
+
+    const getBackgroundD10s = (value) => {
+
+        if(value <= 10) return 1;
+        if(value <= 30) return 2;
+        if(value <= 65) return 3;
+        if(value <= 90) return 4;
+        if(value <= 100) return 5;
+        
+        return 1;
+    }
+
+    const getLegendD10s = (value) => {
+
+        if(value <= 45) return 1;
+        if(value <= 75) return 2;
+        if(value <= 110) return 3;
+        if(value <= 160) return 4;
+        
+        return 5;
+    }
+
     ///UTIL FNS - END
 
     //TODO LIST:
-    //Skills
     //Combat
-    //Equipment/Weapons
-    //Background
+    //Equipment/Weapons - damage rolls
     
 </script>
 </html>
