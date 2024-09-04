@@ -585,7 +585,7 @@
                                     <td colspan="5">Unlocks, features, upgrades and notes</td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep1_name"></td>
+                                    <td colspan="4"><input class="w-100" type="text" name="attr_wep3_name"></td>
                                     <td colspan="2">
                                         <select name="attr_wep3_skill_name" id="wep3_skill_name" class="w-100" style="margin-bottom: 0px;">
                                             <option value="archery">Archery</option>
@@ -2632,23 +2632,33 @@
 
 <rolltemplate class="sheet-rolltemplate-wep">
     <div class="container">
-        <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{wepName}}:</h3>
-        <div style="margin-bottom: 0.3rem;" class="">
-            <h4>{{attackRoll}}</h4>
-        </div>
-        <div class="">
-            <h4>TN:</h4>
-        </div>
-        <div class="sheet-rolltemplate-rote-details">
-            <h4>Effect:</h4>
-            <p>
-                A{{computed::attackRoll}}
-            </p>
+        <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls attack with {{wepName}}:</h3>
+        <div class="sheet-rolltemplate-rote-details" style="text-align: center;">
+            <h4 style="margin-bottom: 0.3rem;">Attack Roll:</h4>
+            <h4 style="margin-bottom: 0.3rem;">{{attackRoll}}</h4>
+            <table class="w-100" style="text-align: center; width:100%;">    
+                <tr style="font-size:12px;">
+                    <td class="w-10" colspan="2"><h4>Damage</h4></td>
+                </tr>
+    
+                <tr>
+                    <td  colspan="2" style="padding: 5px;"><h4>{{damageRoll}}</h4></td>
+                </tr>        
+                <tr>
+                    <td><h4>Short({{shortRange}})</h4></td>
+                    <td><h4>Long({{longRange}})</h4></td>
+                </tr>        
+                <tr>
+                    <td style="padding: 5px;"><h4>{{computed::shortDamage}}</h4></td>
+                    <td style="padding: 5px;"><h4>{{computed::longDamage}}</h4></td>
+                </tr>    
+            </table>
+            <h5>{{damageType}}</h5>
         </div>
     </div>
 </rolltemplate>
 
-<rolltemplate class="sheet-rolltemplate-rote">
+<rolltemplate class="sheet-rolltemplate-rote">                
     <div class="container">
         <h3 style="margin-bottom: 0.3rem;">{{characterName}} rolls {{roteName}}:</h3>
         <div style="margin-bottom: 0.3rem;" class="">
@@ -2721,7 +2731,7 @@
 
             //get skill name
             const skillName = valueMap.get(`wep${wepNum}_skill_name`);
-            const wepName = valueMap.get(`wep${wepNum}_name`) ? valueMap.get(`wep${wepNum}_name`) : "Rote";
+            const wepName = valueMap.get(`wep${wepNum}_name`) ? valueMap.get(`wep${wepNum}_name`) : "Weapon";
 
             console.log(values.character_name);
 
@@ -2751,6 +2761,8 @@
 
             const longRange = valueMap.get(`wep${wepNum}_long_range`);
 
+            const damageType = valueMap.get(`wep${wepNum}_damage_type`);
+
             //roll damage
             let damageRoll = valueMap.get(`wep${wepNum}_damage`)
 
@@ -2774,15 +2786,17 @@
 
                 roll = applyWounds(roll, values);
 
-                startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=${damageRoll}}} {{shortRange=${shortRange}}} {{longRange=${longRange}}} {{shortDamage=${""}}} {{longDamage=${""}}}`, (results) => {
+                startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
 
-                    const uh = results.results.attackRoll.result;
-                    const total = uh * 10;
-                    console.log(total);
+                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_short_modifier`)));
+                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_long_modifier`)));
+                    console.log("calcShortDamage:");
+                    console.log(calcShortDamage);
                     finishRoll(
                         results.rollId,
                         {
-                            attackRoll: total
+                            shortDamage: calcShortDamage,
+                            longDamage: calcLongDamage
                         }
                     );
                 });
@@ -2815,15 +2829,17 @@
 
             //check results and declare hit/miss
 
-            startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=${""}}} {{shortRange=${shortRange}}} {{longRange=${longRange}}} {{shortDamage=${""}}} {{longDamage=${""}}}`, (results) => {
+            startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
 
-                const uh = results.results.attackRoll.result;
-                const total = uh * 10;
-                console.log(total);
+                const calcShortDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_short_modifier`)));
+                const calcLongDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_long_modifier`)));
+                console.log("calcShortDamage:");
+                console.log(calcShortDamage);
                 finishRoll(
                     results.rollId,
                     {
-                        attackRoll: total
+                        shortDamage: calcShortDamage,
+                        longDamage: calcLongDamage
                     }
                 );
             });

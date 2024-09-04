@@ -117,6 +117,10 @@ h2 {
     width: 100%;
 }
 
+.sheet-w-100 {
+    width: 100%wep;
+}
+
 .w-79 {
     width: 79%;
 }
@@ -385,21 +389,14 @@ h2 {
     padding: 1rem;
 }
 
-.sheet-rolltemplate-attack,
-.sheet-rolltemplate-attack {
+.sheet-rolltemplate-wep,
+.sheet-rolltemplate-wep {
     border: solid 2px #202020;
     background: #34163a;
     text-align: center;
     padding: 1rem;
 }
 
-.sheet-rolltemplate-weapon,
-.sheet-rolltemplate-weapon {
-    border: solid 2px #202020;
-    background: #34163a;
-    text-align: center;
-    padding: 1rem;
-}
 
 
   
