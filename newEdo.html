@@ -3337,9 +3337,9 @@
             //calculate d10s
             const traitRoll = getTraitRollD10s(traitValNum);
 
-            const shortRange = valueMap.get(`wep${wepNum}_short_range`);
+            const shortRange = valueMap.get(`wep${wepNum}_short_range`) ? valueMap.get(`wep${wepNum}_short_range`) : "-";
 
-            const longRange = valueMap.get(`wep${wepNum}_long_range`);
+            const longRange = valueMap.get(`wep${wepNum}_long_range`) ? valueMap.get(`wep${wepNum}_long_range`) : "-";
 
             const damageType = valueMap.get(`wep${wepNum}_damage_type`);
 
@@ -3362,14 +3362,16 @@
             //add focus
             
             //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
+            //long/short range damage is calculated after roll completes, then displayed in finishRoll
             if(parseInt(skillId) === 0){
 
                 roll = applyWounds(roll, values);
 
                 startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
-
-                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_short_modifier`)));
-                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_long_modifier`)));
+                    const shortMod = parseFloat(valueMap.get(`wep${wepNum}_short_modifier`)) ? parseFloat(valueMap.get(`wep${wepNum}_short_modifier`)) : 1;
+                    const longMod = parseFloat(valueMap.get(`wep${wepNum}_long_modifier`)) ? parseFloat(valueMap.get(`wep${wepNum}_long_modifier`)) : 1;
+                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod);
+                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod);
                     console.log("calcShortDamage:");
                     console.log(calcShortDamage);
                     finishRoll(
@@ -3408,11 +3410,13 @@
 
 
             //check results and declare hit/miss
-
+            //long/short range damage is calculated after roll completes, then displayed in finishRoll
             startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
 
-                const calcShortDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_short_modifier`)));
-                const calcLongDamage = Math.ceil(results.results.damageRoll.result * parseFloat(valueMap.get(`wep${wepNum}_long_modifier`)));
+                const shortMod = parseFloat(valueMap.get(`wep${wepNum}_short_modifier`));
+                const longMod = parseFloat(valueMap.get(`wep${wepNum}_long_modifier`));
+                const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod) ? Math.ceil(results.results.damageRoll.result * shortMod) : "N/A";
+                const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod) ? Math.ceil(results.results.damageRoll.result * longMod) : "N/A";
                 console.log("calcShortDamage:");
                 console.log(calcShortDamage);
                 finishRoll(
@@ -3573,6 +3577,7 @@
             //get skill name
             const skillName = valueMap.get(`rote${roteNum}_casting_skill`);
             const roteName = valueMap.get(`rote${roteNum}_name`) ? valueMap.get(`rote${roteNum}_name`) : "Rote";
+            const roteDetails = valueMap.get(`rote${roteNum}_details`) ? valueMap.get(`rote${roteNum}_details`) : "N/A";
             console.log(values.character_name);
             console.log(skillName);
 
@@ -3606,7 +3611,7 @@
             //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
             if(parseInt(skillId) === 0){
                 roll = applyWounds(roll, values);
-                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${valueMap.get(`rote${roteNum}_details`)}}}`, (results) => {
+                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${roteDetails}}}`, (results) => {
                     const total = results.results.roll.result
 
                     finishRoll(
