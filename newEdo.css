@@ -190,6 +190,10 @@ h2 {
     width: 19%;
 }
 
+.w-16 {
+    width: 16%;
+}
+
 .w-15 {
     width: 15%;
 }
@@ -224,6 +228,10 @@ h2 {
 
 .w-3 {
     width: 3%;
+}
+
+.h-98 {
+    height: 98% !important;
 }
 
 
@@ -290,6 +298,12 @@ h2 {
 
 .hider:checked ~ .can-hide-block {
     display:none;
+}
+
+.no-select-arrow {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
 }
 
 
