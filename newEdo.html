@@ -3451,14 +3451,16 @@
             const skillName = valueMap.get(`rote${roteNum}_casting_skill`);
             const roteName = valueMap.get(`rote${roteNum}_name`) ? valueMap.get(`rote${roteNum}_name`) : "Rote";
             console.log(values.character_name);
-            if(!skillName) return;
             console.log(skillName);
 
             //SKILL CALC
             const skillId = findSkillInValues(valueMap, skillName);
 
-            const traitName = skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`skill${skillId}_trait`);
+            console.log(skillId);
 
+            const traitName = !skillId ? "shinpi" : valueMap.get(`skill${skillId}_trait`);
+
+            if(!traitName) traitName = "shinpi";
             //get traitname
             
             //usee traitName to get value of corresponding trait
@@ -4238,13 +4240,14 @@
 
     const findSkillInValues = (valueMap, nameToFind) => {
         console.log(nameToFind);
+        if(!nameToFind) return null;
         for(let i = 1; i <= 12; i++){
             console.log("comparing map and " + nameToFind);
             if(valueMap.get(`skill${i}_name`) === nameToFind) return i;
         };
         console.log("Not found, returning default...");
         
-        return 0;
+        return null;
     }
 
     const getWoundDeficit = (values) => {
