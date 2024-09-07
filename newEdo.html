@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="newEdo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
 </head>
-<body>
-    <header>
+<body class="body-background">
+    <header class="sheet-header">
         <h1>New Edo Character Sheet</h1>
     </header>
     <main>
@@ -1134,7 +1138,7 @@
                             <div class="w-29 mr-2px">Skill Ability Notes</div>
                             <div class="w-6"></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill1_name" id="skill1_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1178,7 +1182,7 @@
                                 </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill1_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1214,7 +1218,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill1_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill1_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1233,7 +1237,7 @@
                                 <button id="roll_skill_1" name="act_roll_skill" type="action" class="roll-button">
                                     <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill2_name" id="skill2_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1277,7 +1281,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill2_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1313,7 +1317,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill2_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill2_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1331,7 +1335,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_2" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill3_name" id="skill3_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1375,7 +1379,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill3_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1411,7 +1415,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill3_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill3_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1429,7 +1433,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_3" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill4_name" id="skill4_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1473,7 +1477,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill4_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1509,7 +1513,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill4_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill4_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1526,7 +1530,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_4" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill5_name" id="skill5_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1570,7 +1574,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill5_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1606,7 +1610,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill5_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill5_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1623,7 +1627,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_5" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill6_name" id="skill6_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1667,7 +1671,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill6_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1703,7 +1707,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill6_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill6_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1720,7 +1724,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_6" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill7_name" id="skill7_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1764,43 +1768,45 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
-                                <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill7_focus1">
+                            <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
+                                <select class="w-19 m-0 no-select-arrow text-center" name="attr_skill7_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill7_focus2">
+                                <select class="w-19 m-0 no-select-arrow text-center" name="attr_skill7_focus2">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill7_focus3">
+                                <select class="w-19 m-0 no-select-arrow text-center" name="attr_skill7_focus3">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="w-15 m-0 m-0 no-select-arrow text-center" name="attr_skill7_focus4">
+                                <select class="w-19 m-0 m-0 no-select-arrow text-center" name="attr_skill7_focus4">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill7_focus5">
+                                <select class="w-19 m-0 no-select-arrow text-center" name="attr_skill7_focus5">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill7_mod">
+                                <input type="text" class="w-15" placeholder="+" name="attr_skill7_mod">
+
+
                                 
                             </div>
                             <div class="w-15">
@@ -1817,7 +1823,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_7" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill8_name" id="skill8_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1861,7 +1867,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill8_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1897,7 +1903,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill8_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill8_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -1918,7 +1924,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill9_name" id="skill9_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -1962,7 +1968,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill9_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -1998,7 +2004,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill9_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill9_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -2015,7 +2021,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_9" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill10_name" id="skill10_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -2059,7 +2065,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill10_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -2095,7 +2101,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill10_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill10_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -2112,7 +2118,7 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_10" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20">                                
                                 <select name="attr_skill11_name" id="skill11_name" class="w-100" style="margin-bottom: 0px;">
                                     <option value="archery">Archery</option>
@@ -2156,7 +2162,7 @@
                                     </select>
                                     
                             </div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill11_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -2192,7 +2198,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill11_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill11_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -2209,9 +2215,9 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_11" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill12_name" placeholder="Custom"></div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill12_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -2247,7 +2253,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill12_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill12_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -2265,9 +2271,9 @@
                             <div class="w-6 roll-button-container"><button id="roll_skill_12" name="act_roll_skill" type="action" class="m-0 roll-button">
                                 <span style="font-family:dicefontd20;">t</span></button></div>
                         </div>
-                        <div class="w-100 multi-column">
+                        <div class="w-100 multi-column mb-2px">
                             <div class="w-20"><input type="text" class="w-100" name="attr_skill13_name" placeholder="Custom"></div>
-                            <div class="w-44">
+                           <div class="w-44" style="display: flex; justify-content:space-around; align-items: middle;">
                                 <select class="w-15 m-0 no-select-arrow text-center" name="attr_skill13_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
@@ -2303,7 +2309,7 @@
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="w-15 h-98" placeholder="+" name="attr_skill13_mod">
+                                <input type="text" class="w-15 text-center" placeholder="+" name="attr_skill13_mod">
                                 
                             </div>
                             <div class="w-15">
@@ -3191,7 +3197,7 @@
             </div>
         </div>
         <div>
-            <p id="damage-footnote">
+            <p id="damage-footnote" style="letter-spacing:normal;">
                 1. If you have burst damage, you must add notation to the damage roll you input. i.e. !2d10>8 means roll 2d10, explode on 8 or more.
             </p>
         </div>

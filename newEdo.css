@@ -1,8 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Orbitron, system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+}
+
+
+
+.sheetform {
+
+}
+
+.sheet-header {
 }
 
 header, main {
@@ -304,6 +321,8 @@ h2 {
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
+    padding: 2px;
+    width: auto !important;
 }
 
 
