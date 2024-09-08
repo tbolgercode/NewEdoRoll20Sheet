@@ -17,12 +17,19 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
+.newedo-logo-svg {
+    width: auto;
+    height: 70px;
+    background-image: url(https://raw.githubusercontent.com/tbolgercode/NewEdoRoll20Sheet/a874b9b0a48a612671ad5ee1423dd7f5070d3059/NewEdoLogo.svg);
+    background-size: 100% 100%;
+}
 
 .sheetform {
 
 }
 
 .sheet-header {
+    height: 72px;
 }
 
 header, main {
