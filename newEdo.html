@@ -174,7 +174,11 @@
 
                         Initiative (base): <input type="text" class="w-100 legend-section-input" name="attr_initiative_base">
                         <br>
-                        Initiative: <input type="text" class="w-100 legend-section-input" name="attr_initiative">
+                        Initiative: 
+                        <span class="roll-button-container">
+                            <input type="text" class="w-75 legend-section-input" name="attr_initiative"> 
+                            <button id="roll_initiative" name="act_roll_initiative" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>
+                        </span>
 
                     </div>
                     <div class="column-4">
@@ -1223,6 +1227,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill1_trait" id="skill1_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1322,6 +1327,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill2_trait" id="skill2_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1420,6 +1426,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill3_trait" id="skill3_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1518,6 +1525,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill4_trait" id="skill4_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1615,6 +1623,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill5_trait" id="skill5_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1712,6 +1721,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill6_trait" id="skill6_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1811,6 +1821,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill7_trait" id="skill7_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -1908,6 +1919,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill8_trait" id="skill8_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -2009,6 +2021,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill9_trait" id="skill9_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -2106,6 +2119,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill10_trait" id="skill10_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -2203,6 +2217,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill11_trait" id="skill11_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -2258,6 +2273,7 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill12_trait" id="skill12_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
@@ -2314,13 +2330,14 @@
                             </div>
                             <div class="w-15">
                                 <select name="attr_skill12_trait" id="skill13_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
                                     <option value="heart">Heart</option>
                                     <option value="savvy">Savvy</option>
                                     <option value="perception">Perception</option>
                                     <option value="presence">Presence</option>
-                                    <option value="shinpi">Shinpi</option>                                  
+                                    <option value="shinpi">Shinpi</option>
                                 </select> 
                             </div>                            
                             <div class="w-29"><input type="text" class="w-100" name="attr_skill13_note"></div>
@@ -3205,7 +3222,14 @@
 </body>
 
 
-
+<rolltemplate class="sheet-rolltemplate-init">
+    <div class="container">
+        <h3 style="margin-bottom: 0.3rem;">{{characterName}} adds Initiative:</h3>
+        <div class="">
+            <h4>{{initiative}}</h4>
+        </div>
+    </div>
+</rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-trait">
     <div class="container">
@@ -3297,6 +3321,21 @@
     //TODO: Make the attribute manipulation easier?
 
     ///BUTTON CLICKS
+
+    on("clicked:roll_initiative", (info) => {
+        console.log("Adding initiative.");
+
+        getAttrs(["character_name", "initiative", "initiative_base"], (values) => {
+
+            var initiative = values.initiative_base;
+            if(parseInt(values.initiative)) initiative = values.initiative;
+
+            startRoll(`&{template:init} {{characterName=${values.character_name}}} {{initiative=[[${initiative} &{tracker}]]}}`, (results) => {
+                finishRoll(results.rollId, {});
+            });
+        });
+
+    });
 
 
     on("clicked:roll_wep", (info) => {
@@ -3683,17 +3722,18 @@
 
 
             const valueMap = new Map(Object.entries(values));
-
+            console.log(valueMap);
             //error check
-            if(!valueMap.get(`skill${traitNum}_trait`)) return;
+            if(!valueMap.get(`skill${traitNum}_trait`) === null) return;
 
             //get traitname
             const traitName = valueMap.get(`skill${traitNum}_trait`);
-            
-            //usee traitName to get value of corresponding trait
+            console.log(traitName);
+            //use traitName to get value of corresponding trait
             const traitValue = valueMap.get(traitName);
+            console.log(traitValue);
             //parse the trait
-            const traitValNum = parseInt(traitValue);
+            const traitValNum = traitValue ? parseInt(traitValue) : 0;
             //calculate d10s
             const traitRoll = getTraitRollD10s(traitValNum);
 
@@ -4246,6 +4286,7 @@
         traits.set("savvy", values.savvy);
         traits.set("presence", values.presence);
         traits.set("shinpi", values.shinpi);
+        traits.set("", 0)
         return traits;
     }
 
