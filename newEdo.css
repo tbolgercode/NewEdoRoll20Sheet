@@ -325,17 +325,7 @@ h2 {
 }
 
 
-.hider {
-    transform: scale(0.8);
-}
 
-.hider:checked ~ .can-hide {
-    display:none;
-}
-
-.hider:checked ~ .can-hide-block {
-    display:none;
-}
 
 .no-select-arrow {
     -webkit-appearance: none;
@@ -532,11 +522,52 @@ h2 {
 .root-stats-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(50px, 1fr));
+    padding: 2px;
 }
 
 .derived-traits-container {
     display: grid;
     grid-template-columns: repeat(4, minmax(50px, 1fr));
+    padding: 2px;
+}
+
+.fate-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.fate-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.fate-card-contents-container {
+    display: grid;
+}
+
+.fate-card-fate-line-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 8fr;
+}
+
+.hider {
+    aspect-ratio: 1 / 1;
+}
+
+.hider:checked ~ .can-hide {
+    display:none;
+}
+
+.hider:checked ~ .can-hide-block {
+    display:none;
+}
+
+.hider-holder {
+    display: grid;
+    justify-content: end;
 }
 
 .initiative-roller {
@@ -548,4 +579,6 @@ h2 {
 .conditions-textarea {
     max-width: 97.5%; 
     min-width: 97.5%;
+    min-height: 50px;
+    height: 100%
 }

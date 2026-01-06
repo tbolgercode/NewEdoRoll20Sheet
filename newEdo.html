@@ -15,273 +15,323 @@
 
     <section id="character-details" class="character-details-container">
         <div class="legend-wounds-container">
-            <div class="character-name-container bg-brown border-thin">
-                <div>
-                    <h5>Character Name:</h5>
-                    <input id="characterName" type="text" class="w-100" name="attr_character_name" placeholder="Character Name" type="text">  
-                </div>
-                <div>
-                    <h5>Character Lineage and Culture:</h5>
-                    <input id="characterLineageCulture" type="text" class="w-100" name="attr_lineage_and_culture" placeholder="Character Lineage and Culture" type="text">
-                </div>
-                <div>
-                    <h5>Character Faction and Path:</h5>
-                    <input id="characterFactionPath" type="text" class="w-100" name="attr_faction_and_path" placeholder="Character Faction And Path" type="text">
-                </div>
-            </div>
-
-            
-            <div class="xp-wounds-container bg-lpink border-thin">
-
-                <div id="legend-section" class="legend-section-container mb-1">
-                    <div class="generic-content-column">
-                        XP: 
-                        <input type="text" class="w-100" name="attr_xp" placeholder="XP" type="text">
-
-                        Path Rank: 
-                        <input type="text" class="w-100 legend-section-input" name="attr_path_rank" placeholder="Path Rank">    
-
-                        Size: 
-                        <input id="size" type="text" class="w-100 legend-section-input" name="attr_size">  
-                    </div>
-                    <div class="legend-values-container">
-
-                        Permanent Legend: 
-                        <input type="text" class="w-100 legend-section-input" name="attr_legend_permanent" placeholder="Legend" type="text">
-
-                        Temporary Legend: 
-                        <input type="text" class="w-100 legend-section-input" name="attr_legend_temp" placeholder="Temporary Legend" type="text">
-
-                        <div></div>
-    
-                    </div>
-                    <div class="generic-content-column">
-                        Max HP: <input type="text" class="w-100 legend-section-input" name="attr_max_hp" placeholder="Max HP" type="text">
-
-
-                        HP Multiplier: <input id="hp_multiplier" type="text" class="w-100 legend-section-input" name="attr_hp_multiplier" placeholder="HP Multiplier" type="text">
-
-
-                        Current HP: <input type="text" class="w-100 legend-section-input" name="attr_hp_current" placeholder="Current HP" type="text">
-    
-                    </div>
-
-                </div>
-
-                <div id="soak-wounds-section" class="soak-wounds-section-container">
-
+            <div>
+                <div class="character-name-container bg-brown border-thin mb-1">
                     <div>
-                        <h5 class="text-center m-0">Soak</h5>
-
-                        Kinetic: <input type="text" class="w-100 " name="attr_soak_kinetic" placeholder="Kinetic Soak">
-                        Elemental: <input type="text" class="w-100 " name="attr_soak_elemental" placeholder="Elemental Soak">
-                        Biological: <input type="text" class="w-100 " name="attr_soak_biological" placeholder="Biological Soak">
-                        Arcane: <input type="text" class="w-100 " name="attr_soak_arcane" placeholder="Arcane Soak">
-
-                    </div>  
-
+                        <h5>Character Name:</h5>
+                        <input id="characterName" type="text" class="w-100" name="attr_character_name" placeholder="Character Name" type="text">  
+                    </div>
                     <div>
-                        <h5 class="text-center m-0">Wounds</h5>
-
-                        Grazed: <input type="text" class="w-100 " name="attr_grazed">
-                        Flesh Wound: <input type="text" class="w-100 " name="attr_flesh_wound">
-                        Banged Up: <input type="text" class="w-100 " name="attr_banged_up">
-                        Hurt Bad: <input type="text" class="w-100 " name="attr_hurt_bad">
-                        Burning Legend: <input type="text" class="w-100" name="attr_burning_legend" value="0">
-                    </div> 
-
+                        <h5>Character Lineage and Culture:</h5>
+                        <input id="characterLineageCulture" type="text" class="w-100" name="attr_lineage_and_culture" placeholder="Character Lineage and Culture" type="text">
+                    </div>
+                    <div>
+                        <h5>Character Faction and Path:</h5>
+                        <input id="characterFactionPath" type="text" class="w-100" name="attr_faction_and_path" placeholder="Character Faction And Path" type="text">
+                    </div>
                 </div>
 
-                <div id="status-effects-section" class="status-effects-section-container">
-                    Active Status Effects: 
-                </div>
-                <textarea class="conditions-textarea" name="attr_active_status_effects" placeholder="Status Effects" 
-                    type="text"></textarea>
                 
+                <div class="xp-wounds-container bg-lpink border-thin">
+
+                    <div id="legend-section" class="legend-section-container mb-1">
+                        <div class="generic-content-column">
+                            XP: 
+                            <input type="text" class="w-100" name="attr_xp" placeholder="XP" type="text">
+
+                            Path Rank: 
+                            <input type="text" class="w-100 legend-section-input" name="attr_path_rank" placeholder="Path Rank">    
+
+                            Size: 
+                            <input id="size" type="text" class="w-100 legend-section-input" name="attr_size">  
+                        </div>
+                        <div class="legend-values-container">
+
+                            Permanent Legend: 
+                            <input type="text" class="w-100 legend-section-input" name="attr_legend_permanent" placeholder="Legend" type="text">
+
+                            Temporary Legend: 
+                            <input type="text" class="w-100 legend-section-input" name="attr_legend_temp" placeholder="Temporary Legend" type="text">
+
+                            <div></div>
+        
+                        </div>
+                        <div class="generic-content-column">
+                            Max HP: <input type="text" class="w-100 legend-section-input" name="attr_max_hp" placeholder="Max HP" type="text">
+
+
+                            HP Multiplier: <input id="hp_multiplier" type="text" class="w-100 legend-section-input" name="attr_hp_multiplier" placeholder="HP Multiplier" type="text">
+
+
+                            Current HP: <input type="text" class="w-100 legend-section-input" name="attr_hp_current" placeholder="Current HP" type="text">
+        
+                        </div>
+
+                    </div>
+
+                    <div id="soak-wounds-section" class="soak-wounds-section-container">
+
+                        <div>
+                            <h5 class="text-center m-0">Soak</h5>
+
+                            Kinetic: <input type="text" class="w-100 " name="attr_soak_kinetic" placeholder="Kinetic Soak">
+                            Elemental: <input type="text" class="w-100 " name="attr_soak_elemental" placeholder="Elemental Soak">
+                            Biological: <input type="text" class="w-100 " name="attr_soak_biological" placeholder="Biological Soak">
+                            Arcane: <input type="text" class="w-100 " name="attr_soak_arcane" placeholder="Arcane Soak">
+
+                        </div>  
+
+                        <div>
+                            <h5 class="text-center m-0">Wounds</h5>
+
+                            Grazed: <input type="text" class="w-100 " name="attr_grazed">
+                            Flesh Wound: <input type="text" class="w-100 " name="attr_flesh_wound">
+                            Banged Up: <input type="text" class="w-100 " name="attr_banged_up">
+                            Hurt Bad: <input type="text" class="w-100 " name="attr_hurt_bad">
+                            Burning Legend: <input type="text" class="w-100" name="attr_burning_legend" value="0">
+                        </div> 
+
+                    </div>
+
+                    <div id="status-effects-section" class="">
+                        <div>
+                            Active Status Effects: 
+                        </div>
+                        <textarea class="conditions-textarea" name="attr_active_status_effects" placeholder="Status Effects" 
+                            type="text" style="max-width: 97.5%; min-width: 97.5%;"></textarea>
+                    </div>
+                    
+                </div>
             </div>
         </div>
 
-        <div class="stats-container">
-            <div class="bg-grey border-thin">
-            <div class="root-stats-container">
-                <div class="generic-content-column">
-                    <div>
-                        <h5>Power:</h5>
-                        <span class="roll-button-container">
-                            <input id="power" type="text" class="w-75" name="attr_power" placeholder="10" value="10">  
-                            <button id="roll_power" name="act_roll_power" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
-                        </span>
+        <div class="stats-container bg-grey border-thin">
+            <div>
+                <div class="root-stats-container">
+                    <div class="generic-content-column">
+                        <div>
+                            <h5>Power:</h5>
+                            <span class="roll-button-container">
+                                <input id="power" type="text" class="w-75" name="attr_power" placeholder="10" value="10">  
+                                <button id="roll_power" name="act_roll_power" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
 
-                            
-                        </button>
-                    </div>
-                    <div>
-                        <h5>Reflex:</h5>
-                        <span class="roll-button-container">
-                            <input id="reflex" type="text" class="w-75" name="attr_reflex" placeholder="10" value="10">
-                            <button id="roll_reflex" name="act_roll_reflex" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
-                        </span>
-                    </div>
-    
-                </div>  
-                <div class="generic-content-column">
-                    <div>
-                        <h5>Heart:</h5>
-                        <span class="roll-button-container">
-                            <input id="heart" type="text" class="w-75" name="attr_heart" placeholder="10" value="10">
-                            <button id="roll_heart" name="act_roll_heart" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>
-                        </span>
-                    </div>
-                    <div>
-                        <h5>Savvy:</h5>
-                        <span class="roll-button-container">
-                            <input id="savvy" type="text" class="w-75" name="attr_savvy" placeholder="10" value="10">
-                            <button id="roll_savvy" name="act_roll_savvy" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
-                        </span>
-                    </div>
-    
-                </div>   
-                <div class="generic-content-column">
-                    <div>
-                        <h5>Presence:</h5>
-                        <span class="roll-button-container">
-                            <input id="presence" type="text" class="w-75" name="attr_presence" placeholder="10" value="10"> 
-                            <button id="roll_presence" name="act_roll_presence" type="action" class="m-0 roll-button">   <span style="font-family:dicefontd20;">t</span></button>
-                        </span>
-                    </div>
-                    <div>
-                        <h5>Perception:</h5>
-                        <span class="roll-button-container">
-                            <input id="perception" type="text" class="w-75" name="attr_perception" placeholder="0" >
-                            <button id="roll_perception" name="act_roll_perception" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
-                        </span>
-                    </div>
-                    <div>
-                        <h5>Shinpi:</h5>
-                        <span class="roll-button-container">
-                            <input id="shinpi" type="text" class="w-75" name="attr_shinpi" placeholder="0" >
-                            <button id="roll_shinpi" name="act_roll_shinpi" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
-                        </span>
-                    </div>
-    
-                </div>  
-            </div>
+                                
+                            </button>
+                        </div>
+                        <div>
+                            <h5>Reflex:</h5>
+                            <span class="roll-button-container">
+                                <input id="reflex" type="text" class="w-75" name="attr_reflex" placeholder="10" value="10">
+                                <button id="roll_reflex" name="act_roll_reflex" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
+                        </div>
 
-            <h5 class="w-100" style="text-align: center;">
-                Derived Traits 
-            </h5>
+                    </div>  
+                    <div class="generic-content-column">
+                        <div>
+                            <h5>Heart:</h5>
+                            <span class="roll-button-container">
+                                <input id="heart" type="text" class="w-75" name="attr_heart" placeholder="10" value="10">
+                                <button id="roll_heart" name="act_roll_heart" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>
+                            </span>
+                        </div>
+                        <div>
+                            <h5>Savvy:</h5>
+                            <span class="roll-button-container">
+                                <input id="savvy" type="text" class="w-75" name="attr_savvy" placeholder="10" value="10">
+                                <button id="roll_savvy" name="act_roll_savvy" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
+                        </div>
 
-            <div id="derived-traits" class="derived-traits-container">
-                            
+                    </div>   
+                    <div class="generic-content-column">
+                        <div>
+                            <h5>Presence:</h5>
+                            <span class="roll-button-container">
+                                <input id="presence" type="text" class="w-75" name="attr_presence" placeholder="10" value="10"> 
+                                <button id="roll_presence" name="act_roll_presence" type="action" class="m-0 roll-button">   <span style="font-family:dicefontd20;">t</span></button>
+                            </span>
+                        </div>
+                        <div>
+                            <h5>Perception:</h5>
+                            <span class="roll-button-container">
+                                <input id="perception" type="text" class="w-75" name="attr_perception" placeholder="0" >
+                                <button id="roll_perception" name="act_roll_perception" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
+                        </div>
+                        <div>
+                            <h5>Shinpi:</h5>
+                            <span class="roll-button-container">
+                                <input id="shinpi" type="text" class="w-75" name="attr_shinpi" placeholder="0" >
+                                <button id="roll_shinpi" name="act_roll_shinpi" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </span>
+                        </div>
 
-                <div class="generic-content-column">
-
-                    <span>Resolve (base): </span>
-                    
-                    <input type="text" class="w-100 legend-section-input" name="attr_resolve_base">
-
-                    <span>Resolve: </span>
-                    
-                    <input type="text" class="w-100 legend-section-input" name="attr_resolve">
-
+                    </div>  
                 </div>
-                <div class="generic-content-column">
 
-                    <span>Move (base): </span>
-                    
-                    <input type="text" class="w-100 legend-section-input" name="attr_move_base">
+        <h5 class="w-100" style="text-align: center;">
+            Derived Traits 
+        </h5>
 
-                    <span>Move:</span>
-                    
-                    <input type="text" class="w-100 legend-section-input" name="attr_move">
+        <div id="derived-traits" class="derived-traits-container">
+                        
 
-                </div>
-                <div class="generic-content-column">
+            <div class="generic-content-column">
 
-                    <span>Initiative (base):</span> 
-                    
-                    <input type="text" class="w-100 legend-section-input" name="attr_initiative_base">
+                <span>Resolve (base): </span>
+                
+                <input type="text" class="w-100 legend-section-input" name="attr_resolve_base">
 
-                    <span>Initiative:</span>
-
-                    <div class="initiative-roller">
-
-                        <input type="text" class="w-100" name="attr_initiative"> 
-
-                            <button id="roll_initiative" name="act_roll_initiative" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>
-
-                    </div>
-
-
-
-                </div>
-                <div class="generic-content-column">
-
-                    Defence (base): <input type="text" class="w-100 legend-section-input" name="attr_defence_base">
-
-                    Defence: <input type="text" class="w-100 legend-section-input" name="attr_defence">
-
-                </div>
+                <span>Resolve: </span>
+                
+                <input type="text" class="w-100 legend-section-input" name="attr_resolve">
 
             </div>
+            <div class="generic-content-column">
 
+                <span>Move (base): </span>
+                
+                <input type="text" class="w-100 legend-section-input" name="attr_move_base">
+
+                <span>Move:</span>
+                
+                <input type="text" class="w-100 legend-section-input" name="attr_move">
+
+            </div>
+            <div class="generic-content-column">
+
+                <span>Initiative (base):</span> 
+                
+                <input type="text" class="w-100 legend-section-input" name="attr_initiative_base">
+
+                <span>Initiative:</span>
+
+                <div class="initiative-roller">
+
+                    <input type="text" class="w-100" name="attr_initiative"> 
+
+                        <button id="roll_initiative" name="act_roll_initiative" type="action" class="m-0 roll-button">  <span style="font-family:dicefontd20;">t</span></button>
+
+                </div>
+
+
+
+            </div>
+            <div class="generic-content-column">
+
+                Defence (base): <input type="text" class="w-100 legend-section-input" name="attr_defence_base">
+
+                Defence: <input type="text" class="w-100 legend-section-input" name="attr_defence">
+
+            </div>
+
+        </div>
+
+        <div>
             <div>
                 Lineage & Path Bonuses, Augs, Rotes, Skills, Abilities, Etc.
             </div>
 
             <textarea class="conditions-textarea" style="max-width: 97.5%; min-width: 97.5%;" name="attr_bonuses"></textarea>
-
-            <h5 class="w-100" style="text-align: center;">
-                Action Economy 
-            </h5>
-            <div id="fav_action_uses" class="three-column">
-                <div class="column-3">
-                
-                    <div class="w-100" style="text-align: center;">
-                        Move Action:
-                    </div>
-                    <input type="text" class="w-100 legend-section-input" placeholder="# of Attacks" name="attr_move_action_attack_count">
-                    <br>
-
-                    Favorite Actions: 
-                    <input type="text" class="w-100 mb-2px" name="attr_move_action_favorites1">
-                    <input type="text" class="w-100 mb-2px" name="attr_move_action_favorites2" >
-                    <input type="text" class="w-100 mb-2px" name="attr_move_action_favorites3">
-
-                </div>
-                <div class="column-3">
-
-                    <div class="w-100" style="text-align: center;">
-                        Quick Action:
-                    </div>
-                    <input type="text" class="w-100 legend-section-input" placeholder="# of Attacks" name="attr_quick_action_attack_count">
-
-                    Favorite Actions: 
-                    <input type="text" class="w-100 mb-2px" name="attr_quick_action_favorites1" >
-                    <input type="text" class="w-100 mb-2px" name="attr_quick_action_favorites2">
-                    <input type="text" class="w-100 mb-2px" name="attr_quick_action_favorites3" >
-
-
-                </div>
-                <div class="column-3">
-
-                    <div class="w-100" style="text-align: center;">
-                        Full Action:
-                    </div>
-                    <input type="text" class="w-100 legend-section-input" placeholder="# of Attacks" name="attr_full_action_attack_count">
-
-                    Favorite Actions: 
-                    <input type="text" class="w-100 mb-2px" name="attr_full_action_favorites1">
-                    <input type="text" class="w-100 mb-2px" name="attr_full_action_favorites2">
-                    <input type="text" class="w-100 mb-2px" name="attr_full_action_favorites3" >
-
-                </div>
-            </div>
-            </div>
-
         </div>
+
+        <div>
+                    <h5 class="w-100" style="text-align: center;">
+            Action Economy 
+        </h5>
+        <div id="fav_action_uses" class="three-column">
+            <div class="column-3">
+            
+                <div class="w-100" style="text-align: center;">
+                    Move Action:
+                </div>
+                <input type="text" class="w-100 legend-section-input" placeholder="# of Attacks" name="attr_move_action_attack_count">
+                <br>
+
+                Favorite Actions: 
+                <input type="text" class="w-100 mb-2px" name="attr_move_action_favorites1">
+                <input type="text" class="w-100 mb-2px" name="attr_move_action_favorites2" >
+                <input type="text" class="w-100 mb-2px" name="attr_move_action_favorites3">
+
+            </div>
+            <div class="column-3">
+
+                <div class="w-100" style="text-align: center;">
+                    Quick Action:
+                </div>
+                <input type="text" class="w-100 legend-section-input" placeholder="# of Attacks" name="attr_quick_action_attack_count">
+
+                Favorite Actions: 
+                <input type="text" class="w-100 mb-2px" name="attr_quick_action_favorites1" >
+                <input type="text" class="w-100 mb-2px" name="attr_quick_action_favorites2">
+                <input type="text" class="w-100 mb-2px" name="attr_quick_action_favorites3" >
+
+
+            </div>
+            <div class="column-3">
+
+                <div class="w-100" style="text-align: center;">
+                    Full Action:
+                </div>
+                <input type="text" class="w-100 legend-section-input" placeholder="# of Attacks" name="attr_full_action_attack_count">
+
+                Favorite Actions: 
+                <input type="text" class="w-100 mb-2px" name="attr_full_action_favorites1">
+                <input type="text" class="w-100 mb-2px" name="attr_full_action_favorites2">
+                <input type="text" class="w-100 mb-2px" name="attr_full_action_favorites3" >
+
+            </div>
+        </div>
+        </div>
+        </div>
+
+
     </section>
 
+    <section id="fate-card">
+
+        <div class="border-thin bg-black fate-card-container">
+            <div class="fate-card-header-container">
+                <div>
+                    <button id="roll_fate" name="act_roll_fate" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
+                </div>
+                <div>
+                    <span class="header-4">Fate Card</span>  
+                </div>
+                <div class="hider-holder">
+                    <input type="checkbox" class="hider" name="attr_fate_hidden"> 
+                </div>
+
+            </div>
+
+
+            <div class="fate-card-contents-container can-hide-block">
+
+                <div class="fate-card-fate-line-container" style="font-size:12px;">
+                    <h5>Min</h5>
+                    <h5>Max</h5>
+                    <h5>Description</h5>
+                </div>
+                <div class="fate-card-fate-line-container" style="font-size:12px;">
+                    <input type="text" class="w-100 mb-small" placeholder="min" name="attr_fate1_minpercent"> 
+                    <input type="text" class="w-100 mb-small" placeholder="max" name="attr_fate1_maxpercent"> 
+                    <textarea type="text" class="w-100 mb-small" placeholder="" name="attr_fate1_desc"></textarea>
+                </div>
+
+                <div class="fate-card-footer-container">
+                    <div>
+                        <button id="add_fate_button" name="act_add_fate" type="action" class="m-0 roll-button" ><span style="font-family:dicefontd20;">t</span></button>
+                    </div>
+                    <small>(Botch is already included 01-03)</small>
+
+                </div>
+            </div>
+    
+        </div> 
+
+    </section>
 
 </main>
 
