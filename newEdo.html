@@ -328,11 +328,126 @@
 
                     </div>
                 </fieldset>
-
+                
             </div>
     
         </div> 
 
+    </section>
+
+    <section id="backgrounds-card">
+        <div class="border-thin bg-orange backgrounds-card-container">
+            <div class="backgrounds-card-header-container">
+                <div>
+                    <button id="roll_null" name="act_roll_null" type="action" class="m-0 roll-button-grid" style="opacity: 0;" disabled><span style="font-family:dicefontd20;">t</span></button>
+                </div>
+                <div>
+                    <span class="header-4">BackGrounds</span>   
+                </div>
+                <div class="hider-holder">
+                    <input type="checkbox" class="background-hider" name="attr_backgrounds_hidden"> 
+                </div>
+
+            </div>
+
+            <input type="checkbox" class="background-hider" name="attr_backgrounds_hidden" hidden> 
+
+            <div id="background-card-contents" class="backgrounds-card-contents-container can-hide">
+                <div id="backgrounds-content-header" class="backgrounds-card-content-header">
+                    <div>
+                        
+                    </div>
+                    <div style="margin-left: 5px;">
+                        Score
+                    </div>
+                    <div style="margin-left: 5px;">
+                        Description
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                <div class="backgrounds-card-background-line-container">
+                    <div class="backgrounds-card-contents-body">
+                        <div class="backgrounds-card-background-line-container-header"><strong>Contacts:</strong></div>
+                        <div><input class="w-100" type="text" name="attr_contacts_score"></div>
+                        <div><textarea class="lockwidth-background-textarea" style="height: 18px;" type="text" name="attr_contacts_description"></textarea></div>
+                        <div class="backgrounds-card-background-line-container-button-holder">
+                            <div>
+                                <button id="roll_contacts" name="act_roll_contacts" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="backgrounds-card-background-line-container">
+                    <div class="backgrounds-card-contents-body">
+                        <div class="backgrounds-card-background-line-container-header"><strong>Followers:</strong></div>
+                        <div><input class="w-100" type="text" name="attr_followers_score"></div>
+                        <div><textarea class="lockwidth-background-textarea" style="height: 18px;" type="text" name="attr_followers_description"></textarea></div>
+                        <div class="backgrounds-card-background-line-container-button-holder">
+                            <div>
+                                <button id="roll_followers" name="act_roll_followers" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="backgrounds-card-background-line-container">
+                    <div class="backgrounds-card-contents-body">
+                        <div class="backgrounds-card-background-line-container-header"><strong>Soul:</strong></div>
+                        <div><input class="w-100" type="text" name="attr_soul_score"></div>
+                        <div><textarea class="lockwidth-background-textarea" style="height: 18px;" type="text" name="attr_soul_description"></textarea></div>
+                        <div class="backgrounds-card-background-line-container-button-holder">
+                            <div>
+                                <button id="roll_soul" name="act_roll_soul" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="backgrounds-card-background-line-container">
+                    <div class="backgrounds-card-contents-body">
+                        <div class="backgrounds-card-background-line-container-header"><strong>Status:</strong></div>
+                        <div><input class="w-100" type="text" name="attr_contacts_score"></div>
+                        <div><textarea class="lockwidth-background-textarea" style="height: 18px;" type="text" name="attr_status_description"></textarea></div>
+                        <div class="backgrounds-card-background-line-container-button-holder">
+                            <div>
+                                <button id="roll_status" name="act_roll_status" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="backgrounds-card-background-line-container">
+                    <div class="backgrounds-card-contents-body">
+                        <div class="backgrounds-card-background-line-container-header"><strong>Wealth:</strong></div>
+                        <div><input class="w-100" type="text" name="attr_wealth_score"></div>
+                        <div><textarea class="lockwidth-background-textarea" style="height: 18px;" type="text" name="attr_wealth_description"></textarea></div>
+                        <div class="backgrounds-card-background-line-container-button-holder">
+                            <div>
+                                <button id="roll_wealth" name="act_roll_wealth" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="backgrounds-card-background-line-container mb-1">
+                    <div class="backgrounds-card-contents-body">
+                        <div class="backgrounds-card-background-line-container-header"><strong>Cash:</strong></div>
+                        <div><input type="text" class="w-100" name="attr_cash" placeholder="" type="text"></div>
+                        <div></div>
+                        <div class="backgrounds-card-background-line-container-button-holder">
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        </div>
     </section>
 
 </main>
@@ -2678,70 +2793,10 @@
 
     </div>
 
-    <div>
-        <div class="mb-1 p-2px border-thin bg-orange">
-            <input type="checkbox" class="hider" name="attr_backgrounds_hidden"> 
-            <span class="header-4">BackGrounds</span>   
-            <div class="two-column can-hide" style="margin-bottom: 1rem;">
-                <table class="w-100 column" style="text-align: center;">
 
-                    <tr style="font-size:12px;">
-                        <td class="w-30"></td>
-                        <td class="w-9">Score</td>
-                        <td class="w-50">Description</td>
-                        <td class="w-9"></td>
-                    </tr>
         
-                    <tr >
-                        <td class="w-20"><strong>Contacts:</strong></td>
-                        <td class="w-10"><input class="w-100" type="text" name="attr_contacts_score"></td>
-                        <td class="w-60"><input class="w-100" type="text" name="attr_contacts_description"></td>
-                        <td class="w-10"><button id="roll_contacts" name="act_roll_contacts" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                    </tr> 
-                    <tr>
-                        <td class="w-20"><strong>Followers:</strong></td>
-                        <td class="w-9"><input class="w-100" type="text" name="attr_followers_score"></td>
-                        <td class="w-60"><input class="w-100" type="text" name="attr_followers_description"></td>
-                        <td class="w-10"><button id="roll_followers" name="act_roll_followers" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                    </tr> 
-                    <tr>
-                        <td class="w-20"><strong>Soul:</strong></td>
-                        <td class="w-9"><input class="w-100" type="text" name="attr_soul_score"></td>
-                        <td class="w-50"><input class="w-100" type="text" name="attr_soul_description"></td>
-                        <td class="w-10"><button id="roll_soul" name="act_roll_soul" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                    </tr> 
-                </table>
-                <table class="w-100 column" style="text-align: center;">
 
-                    <tr style="font-size:12px;">
-                        <td class="w-30"></td>
-                        <td class="w-9">Score</td>
-                        <td class="w-50">Description</td>
-                        <td class="w-9"></td>
-                    </tr>
-                    <tr>
-                        <td class="w-20"><strong>Status:</strong></td>
-                        <td class="w-9"><input class="w-100" type="text" name="attr_status_score"></td>
-                        <td class="w-50"><input class="w-100" type="text" name="attr_status_description"></td>
-                        <td class="w-10"><button id="roll_status" name="act_roll_status" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                    </tr> 
-                    <tr>
-                        <td class="w-20"><strong>Wealth:</strong></td>
-                        <td class="w-9"><input class="w-100" type="text" name="attr_wealth_score"></td>
-                        <td class="w-50"><input class="w-100" type="text" name="attr_wealth_description"></td>
-                        <td class="w-10"><button id="roll_wealth" name="act_roll_wealth" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                    </tr>      
-                    <tr>
-                        <td class="w-20"><strong>Cash:</strong></td>
-                        <td class="w-69" colspan="2"><input type="text" class="w-100" name="attr_cash" placeholder="" type="text"></td>    
-                    </td>
-                    </tr>        
-                </table>
-
-            </div>
-
-        </div>
-    </div>
+        
     <div>
         <p id="damage-footnote" style="letter-spacing:normal;">
             1. If you have burst damage, you must add notation to the damage roll you input. i.e. !2d10>8 means roll 2d10, explode on 8 or more.

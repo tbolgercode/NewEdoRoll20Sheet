@@ -610,6 +610,52 @@ h2 {
     width: 100%;
 }
 
+.backgrounds-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.backgrounds-card-contents-container {
+    display: grid;
+}
+
+.backgrounds-card-content-header {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.backgrounds-card-contents-body {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.backgrounds-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.backgrounds-card-background-line-container {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.backgrounds-card-background-line-container-header {
+    display: flex; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.backgrounds-card-background-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
 
 .hider {
     aspect-ratio: 1 / 1;
@@ -629,6 +675,15 @@ h2 {
 }
 
 .fate-hider:checked ~ #fate-card-contents {
+    display:none;
+}
+
+.background-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.background-hider:checked ~ #background-card-contents {
     display:none;
 }
 
@@ -654,6 +709,15 @@ h2 {
     max-width: 90%; 
     min-width: 90%;
     min-height: 18px;
+    resize: vertical;
+}
+
+.lockwidth-background-textarea {
+    max-width: 98%; 
+    min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
 }
 
 .fate-button-holder {
