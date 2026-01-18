@@ -21,6 +21,8 @@ input {
     width: 100%
 }
 
+
+
 .newedo-logo-svg {
     width: auto;
     height: 70px;
@@ -50,7 +52,9 @@ header h1 {
     margin: 0;
 }
 
-
+input[type="checkbox"] {
+    accent-color: black;
+}
 
 select {
     background-color: #f7f7f7;
@@ -90,8 +94,9 @@ option {
 
 
 section {
-    margin-bottom: 10px;
     padding: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .text-center {
@@ -330,6 +335,10 @@ h2 {
     line-height: 18px;
 }
 
+.no-underline {
+    text-decoration: none;
+}
+
 .can-hide {
     display:flex;
 }
@@ -373,6 +382,10 @@ h2 {
 
 .bg-blue {
     background-color: #00367e46;
+}
+
+.bg-ltblue {
+    background-color: #d6dbe4 !important;
 }
 
 .bg-green {
@@ -518,7 +531,9 @@ h2 {
 .character-details-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 10px;
+    column-gap: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .character-name-container {
@@ -596,8 +611,8 @@ h2 {
 .fate-card-header-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(50px, auto));
+    grid-template-rows: minmax(28px, auto);
     justify-content: space-between;
-    grid-template-rows: 80%;
 }
 
 .fate-card-contents-container {
@@ -613,8 +628,8 @@ h2 {
 .backgrounds-card-header-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(50px, auto));
+    grid-template-rows: minmax(28px, auto);
     justify-content: space-between;
-    grid-template-rows: 80%;
 }
 
 .backgrounds-card-contents-container {
@@ -656,6 +671,70 @@ h2 {
     justify-content: center;
 }
 
+.equipment-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.equipment-card-contents-container {
+    display: grid;
+}
+
+.equipment-card-content-header {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.equipment-card-contents-body {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.equipment-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+}
+
+.equipment-card-equipment-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.equipment-card-equipment-line-contents-body {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-details {
+    display: grid;
+    grid-template-columns: minmax(30px, 3fr) minmax(30px, 3fr) repeat(3, minmax(50px, 1fr));
+    gap:5px;
+}
+
+.equipment-card-equipment-line-stats {
+    display: grid;
+    grid-template-columns: minmax(30px, 2fr) minmax(30px, 2fr) repeat(4, minmax(50px, 2fr));
+    gap:5px;
+}
 
 .hider {
     aspect-ratio: 1 / 1;
@@ -687,12 +766,36 @@ h2 {
     display:none;
 }
 
+.equipment-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.equipment-hider:checked ~ #equipment-card-contents {
+    display:none;
+}
+
+.equipment-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.equipment-line-hider:checked ~ .equipment-card-equipment-line-contents-body {
+    display:none;
+}
+
 .hider-holder {
     display: grid;
     justify-content: end;
 }
 
 .initiative-roller {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 0px;
+}
+
+.generic-roller {
     display: grid;
     grid-template-columns: 4fr 2fr;
     gap: 0px;
@@ -715,6 +818,14 @@ h2 {
 .lockwidth-background-textarea {
     max-width: 98%; 
     min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-equipment-textarea {
+    max-width: 99%; 
+    min-width: 99%;
     min-height: 18px;
     resize: vertical;
     margin-bottom: 0px;
