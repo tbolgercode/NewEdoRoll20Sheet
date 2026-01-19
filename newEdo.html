@@ -861,53 +861,53 @@
                                 <button id="roll_custskill" name="act_roll-custskill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
                             </div>
                             <div>
-                                <span class="header-4"><input class="w-100" type="text" name="attr_custskill_name" style="text-align: center;" readonly></span>  
+                                <span class="header-4"><input class="w-100" type="text" name="attr_skill_name" style="text-align: center;" readonly></span>  
                             </div>
                             <div class="hider-holder">
-                                <input type="checkbox" class="skills-hider" name="attr_custskill_hidden"> 
+                                <input type="checkbox" class="skills-hider" name="attr_skill_hidden"> 
                             </div>
                         </div>
-                        <input type="checkbox" class="skills-line-hider" name="attr_custskill_hidden" hidden> 
+                        <input type="checkbox" class="skills-line-hider" name="attr_skill_hidden" hidden> 
                         <div class="skills-card-skills-line-contents-body can-hide">
                             <div class="skills-card-skills-line-contents-stats">
-                                <input type="text" class="w-100" name="attr_custskill_name" placeholder="Custom">
-                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus1">
+                                <input type="text" class="w-100" name="attr_skill_name" placeholder="Custom">
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus1">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus2">
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus2">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus3">
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus3">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="m-0 m-0 no-select-arrow text-center" name="attr_custskill_focus4">
+                                <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill_focus4">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus5">
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus5">
                                     <option value="" selected="selected">-</option>
                                     <option value="d4">d4</option>
                                     <option value="d6">d6</option>
                                     <option value="d8">d8</option>
                                     <option value="d12">d12</option>
                                 </select>
-                                <input type="text" class="text-center" placeholder="+" name="attr_custskill_mod">
-                                <select name="attr_custskill_trait" id="custskill_trait" class="w-100" style="margin-bottom: 0px;" >
+                                <input type="text" class="text-center" placeholder="+" name="attr_skill_mod">
+                                <select name="attr_skill_trait" id="skill_trait" class="w-100" style="margin-bottom: 0px;" >
                                     <option value="" selected>-</option>  
                                     <option value="power">Power</option>
                                     <option value="reflex">Reflex</option>
@@ -922,7 +922,7 @@
                                 <div class="pl-2px">
                                     Skill Ability Notes
                                 </div>
-                                <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_custskill_details"></textarea>
+                                <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill_details"></textarea>
                             </div>
                         </div>
 
@@ -2969,7 +2969,77 @@
         console.log("rote roll done.");
     });
 
+    on("clicked:repeating_custskills-lines:roll-custskill", (info) => {
+                console.log("rolling skill....");
+        console.log(info);
 
+        const skillId = info.sourceAttribute.split("_")[2];
+
+        console.log(skillId);
+
+        getAttrs([`repeating_skills-lines_skill_trait`, `repeating_skills-lines_skill_name`, "character_name",
+        `repeating_skills-lines_skill_focus1`, `repeating_skills-lines_skill_focus2`, `repeating_skills-lines_skill_focus3`, `repeating_skills-lines_skill_focus4`, `repeating_skills-lines_skill_focus5`, 
+        `repeating_skills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
+        "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
+
+
+            const valueMap = new Map(Object.entries(values));
+            console.log(valueMap);
+            //error check
+            if(!valueMap.get(`repeating_skills-lines_skill_trait`) === null) return;
+
+            //get traitname
+            const traitName = valueMap.get(`repeating_skills-lines_skill_trait`);
+            console.log(traitName);
+            //use traitName to get value of corresponding trait
+            const traitValue = valueMap.get(traitName);
+            console.log(traitValue);
+            //parse the trait
+            const traitValNum = traitValue ? parseInt(traitValue) : 0;
+            //calculate d10s
+            const traitRoll = getTraitRollD10s(traitValNum);
+
+            let roll = `${traitRoll}d10!`;
+
+            console.log(roll);
+
+            //add focus
+            for(let i = 1; i <= 5; i++){
+                const diceToAdd = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
+                if(diceToAdd) {
+                    roll = roll + ' + ' + diceToAdd;
+                    console.log(roll);
+                }
+            }
+
+            //add mod
+            const diceToAdd = valueMap.get(`repeating_skills-lines_skill_mod`);
+            if(diceToAdd) {
+                roll = roll + ' + ' + diceToAdd;
+            }
+
+
+            roll = applyWounds(roll, values);
+
+            console.log(roll);
+
+            const skillName = valueMap.get(`repeating_skills-lines_skill_name`);
+
+            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
+                const total = results.results.roll.result
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: total
+                    }
+                );
+            });
+
+
+            console.log("skill roll done.");
+        });
+    });
 
     on("clicked:repeating_skills-lines:roll-skill", (info) => {
         console.log("rolling skill....");
