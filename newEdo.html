@@ -370,19 +370,19 @@
                         <input type="checkbox" class="equipment-line-hider" name="attr_equipment_hidden" hidden> 
                         <div class="equipment-card-equipment-line-contents-body can-hide">
                             <div class="equipment-card-equipment-line-details">
-                                <div style="padding-left: 2px;">
+                                <div class="pl-2px">
                                     Name
                                 </div>
-                                <div style="padding-left: 2px;">
+                                <div class="pl-2px">
                                     Skill
                                 </div>
-                                <div style="padding-left: 2px;">
+                                <div class="pl-2px">
                                     Quality
                                 </div>
-                                <div style="padding-left: 2px;">
+                                <div class="pl-2px">
                                     Grit
                                 </div>
-                                <div style="padding-left: 2px;">
+                                <div class="pl-2px">
                                     Tier
                                 </div>
                                 <div>
@@ -442,22 +442,22 @@
 
                             </div>
                             <div class="equipment-card-equipment-line-stats">
-                                <div>
+                                <div class="pl-2px">
                                     Short/Melee
                                 </div>
                                 <div>
                                     Long/Thrown
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Damage
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Attack Bonus
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Ammo Carried
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Mag Size
                                 </div>
                                 <div>
@@ -480,19 +480,19 @@
                                 </div>
                             </div>
                             <div class="equipment-card-equipment-line-stats">
-                                <div>
+                                <div class="pl-2px">
                                     Short Mod
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Long Mod
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Damage Type
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Damage Bonus
                                 </div>
-                                <div>
+                                <div class="pl-2px">
                                     Burst Ammo
                                 </div>
                                 <div>
@@ -517,7 +517,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div style="padding-left: 2px;">
+                                <div class="pl-2px">
                                     Weapon Skill Unlocks, features, upgrades and notes
                                 </div>
                                 <textarea type="text" class="w-98 lockwidth-equipment-textarea" style="height: 18px;" placeholder="" name="attr_wep_details"></textarea>
@@ -654,6 +654,61 @@
         </div>
     </section>
 
+    <section id="augs-section">
+        <div class="border-thin bg-cyan augments-card-container">
+            <div class="augments-card-header-container">
+                <div>
+                    
+                </div>
+                <div>
+                    <h3 class="no-underline">Augs</span>   
+                </div>
+                <div class="hider-holder">
+                    
+                </div>
+
+            </div>
+            <fieldset class="repeating_augment-lines" style="display: none;">
+
+                    <div class="augments-card-augments-line-container bg-ltblue border-thin mb-1" style="font-size:12px;">
+
+                        <div class="augments-card-augments-line-container-header">
+                            <div class="generic-roller">
+                                
+                            </div>
+                            <div>
+                                <span class="header-4"><input class="w-100" type="text" name="attr_aug_name" style="text-align: center;" readonly></span>  
+                            </div>
+                            <div class="hider-holder">
+                                <input type="checkbox" class="augments-hider" name="attr_augment_hidden"> 
+                            </div>
+                        </div>
+                        <input type="checkbox" class="augments-line-hider" name="attr_augment_hidden" hidden> 
+                        <div class="augments-card-augments-line-contents-body can-hide">
+                            <div class="pl-2px">
+                                Name
+                            </div>
+                            <div class="pl-2px">
+                                Rank
+                            </div>
+                            <div class="pl-2px">
+                                Details
+                            </div>
+                            <div>
+                                <input class="w-100" type="text" name="attr_aug_name" placeholder="">
+                            </div>
+                            <div>
+                                <input class="w-100" type="text" name="attr_aug_rank" placeholder="">
+                            </div>
+                            <div>
+                                <textarea type="text" class="w-98 lockwidth-augments-textarea" style="height: 18px;" placeholder="" name="attr_aug_details"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+        </div>
+    </section>
 
 </main>
 

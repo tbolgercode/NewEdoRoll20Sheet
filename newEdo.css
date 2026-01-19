@@ -328,6 +328,10 @@ h2 {
     padding: 2px;
 }
 
+.pl-2px {
+    padding-left: 2px;
+}
+
 .header-4 {
     font-size: 14px;
     font-weight: bold;
@@ -347,9 +351,6 @@ h2 {
     display:block;
 }
 
-
-
-
 .no-select-arrow {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -366,6 +367,14 @@ h2 {
 
 .bg-lpink {
     background-color: #31001a46;
+}
+
+.bg-cyan {
+    background-color: #00d4d446;
+}
+
+.bg-ltcyan {
+    background-color: #c0f7f7b2;
 }
 
 .bg-grey {
@@ -736,6 +745,45 @@ h2 {
     gap:5px;
 }
 
+.augments-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.augments-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.augments-card-augments-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.augments-card-augments-line-contents-body {
+    display: grid;
+    grid-template-columns: minmax(50px, 3fr) minmax(50px, 1fr) minmax(50px, 7fr);
+    gap: 10px;
+    padding: 2px;
+}
+
+.augments-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
 .hider {
     aspect-ratio: 1 / 1;
 }
@@ -784,6 +832,24 @@ h2 {
     display:none;
 }
 
+.augments-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.augments-hider:checked ~ #equipment-card-contents {
+    display:none;
+}
+
+.augments-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.augments-line-hider:checked ~ .augments-card-augments-line-contents-body {
+    display:none;
+}
+
 .hider-holder {
     display: grid;
     justify-content: end;
@@ -826,6 +892,14 @@ h2 {
 .lockwidth-equipment-textarea {
     max-width: 99%; 
     min-width: 99%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-augments-textarea {
+    max-width: 98%; 
+    min-width: 98%;
     min-height: 18px;
     resize: vertical;
     margin-bottom: 0px;
