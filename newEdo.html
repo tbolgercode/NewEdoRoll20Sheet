@@ -703,10 +703,231 @@
                             <div>
                                 <textarea type="text" class="w-98 lockwidth-augments-textarea" style="height: 18px;" placeholder="" name="attr_aug_details"></textarea>
                             </div>
+
                         </div>
 
                     </div>
                 </fieldset>
+        </div>
+    </section>
+
+    <section id="skills-section">
+        <div class="border-thin bg-green skills-card-container">
+            <div class="skills-card-header-container">
+                <div>
+
+                </div>
+                <div>
+                    <h3 class="no-underline">Skills</span>   
+                </div>
+                <div class="hider-holder">
+                    
+                </div>
+
+            </div>
+            <fieldset class="repeating_skills-lines" style="display: none;">
+
+                    <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
+
+                        <div class="skills-card-skills-line-container-header">
+                            <div class="generic-roller">
+                                <button id="roll_skill" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
+                            </div>
+                            <div>
+                                <span class="header-4"><input class="w-100" type="text" name="attr_skill_name" style="text-align: center;" readonly></span>  
+                            </div>
+                            <div class="hider-holder">
+                                <input type="checkbox" class="skills-hider" name="attr_skill_hidden"> 
+                            </div>
+                        </div>
+                        <input type="checkbox" class="skills-line-hider" name="attr_skill_hidden" hidden> 
+                        <div class="skills-card-skills-line-contents-body can-hide">
+                            <div class="skills-card-skills-line-contents-stats">
+                                <select name="attr_skill_name" id="skill_name" class="w-100" style="margin-bottom: 0px;">
+                                    <option value="Archery">Archery</option>
+                                    <option value="Arcana">Arcana</option>
+                                    <option value="Athletics">Athletics</option>
+                                    <option value="Banter">Banter</option>
+                                    <option value="Commerce">Commerce</option>
+                                    <option value="Computers">Computers</option>
+                                    <option value="Crafting">Crafting</option>
+                                    <option value="Deception">Deception</option>
+                                    <option value="Drive">Drive</option>
+                                    <option value="Dodge">Dodge</option>
+                                    <option value="Eloquence">Eloquence</option>
+                                    <option value="Gambling">Gambling</option>
+                                    <option value="Gunnery">Gunnery</option>
+                                    <option value="Hardware">Hardware</option>
+                                    <option value="Heavy_melee">Heavy Melee</option>
+                                    <option value="Intimidation">Intimidation</option>
+                                    <option value="Intuition">Intuition</option>
+                                    <option value="Investigation">Investigation</option>
+                                    <option value="Light_melee">Light Melee</option>
+                                    <option value="Medicine">Medicine</option>
+                                    <option value="Meditation">Meditation</option>
+                                    <option value="Performance">Performance</option>
+                                    <option value="Rally">Rally</option>
+                                    <option value="Security">Security</option>
+                                    <option value="Seduction">Seduction</option>
+                                    <option value="Sleight of Hand">Sleight of Hand</option>
+                                    <option value="Small_arms">Small Arms</option>
+                                    <option value="Stealth">Stealth</option>
+                                    <option value="Streetwise">Streetwise</option>
+                                    <option value="Study">Study</option>
+                                    <option value="Surveillance">Surveillance</option>
+                                    <option value="Survival">Survival</option>
+                                    <option value="Tactics">Tactics</option>
+                                    <option value="Toxicology">Toxicology</option>
+                                    <option value="Thrown">Thrown</option>
+                                    <option value="Unarmed">Unarmed</option>
+                                    <option value="Wetware">Wetware</option>
+                                    <option value="" selected="selected">-</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus1">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus2">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus3">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill_focus4">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_skill_focus5">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <input type="text" class="text-center" placeholder="+" name="attr_skill_mod">
+                                <select name="attr_skill_trait" id="skill_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
+                                    <option value="power">Power</option>
+                                    <option value="reflex">Reflex</option>
+                                    <option value="heart">Heart</option>
+                                    <option value="savvy">Savvy</option>
+                                    <option value="perception">Perception</option>
+                                    <option value="presence">Presence</option>
+                                    <option value="shinpi">Shinpi</option>                               
+                                </select> 
+                            </div>
+                            <div class="skills-card-skills-line-contents-details">
+                                <div class="pl-2px">
+                                    Skill Ability Notes
+                                </div>
+                                <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill_details"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+            </fieldset>
+            <div class="skills-card-header-container">
+                <div>
+
+                </div>
+                <div>
+                    <h4 class="no-underline">Custom Skills</span>   
+                </div>
+                <div class="hider-holder">
+                    
+                </div>
+
+            </div>
+            <fieldset class="repeating_custskills-lines" style="display: none;">
+
+                    <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
+
+                        <div class="skills-card-skills-line-container-header">
+                            <div class="generic-roller">
+                                <button id="roll_custskill" name="act_roll-custskill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
+                            </div>
+                            <div>
+                                <span class="header-4"><input class="w-100" type="text" name="attr_custskill_name" style="text-align: center;" readonly></span>  
+                            </div>
+                            <div class="hider-holder">
+                                <input type="checkbox" class="skills-hider" name="attr_custskill_hidden"> 
+                            </div>
+                        </div>
+                        <input type="checkbox" class="skills-line-hider" name="attr_custskill_hidden" hidden> 
+                        <div class="skills-card-skills-line-contents-body can-hide">
+                            <div class="skills-card-skills-line-contents-stats">
+                                <input type="text" class="w-100" name="attr_custskill_name" placeholder="Custom">
+                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus1">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus2">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus3">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 m-0 no-select-arrow text-center" name="attr_custskill_focus4">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <select class="m-0 no-select-arrow text-center" name="attr_custskill_focus5">
+                                    <option value="" selected="selected">-</option>
+                                    <option value="d4">d4</option>
+                                    <option value="d6">d6</option>
+                                    <option value="d8">d8</option>
+                                    <option value="d12">d12</option>
+                                </select>
+                                <input type="text" class="text-center" placeholder="+" name="attr_custskill_mod">
+                                <select name="attr_custskill_trait" id="custskill_trait" class="w-100" style="margin-bottom: 0px;" >
+                                    <option value="" selected>-</option>  
+                                    <option value="power">Power</option>
+                                    <option value="reflex">Reflex</option>
+                                    <option value="heart">Heart</option>
+                                    <option value="savvy">Savvy</option>
+                                    <option value="perception">Perception</option>
+                                    <option value="presence">Presence</option>
+                                    <option value="shinpi">Shinpi</option>                               
+                                </select> 
+                            </div>
+                            <div class="skills-card-skills-line-contents-details">
+                                <div class="pl-2px">
+                                    Skill Ability Notes
+                                </div>
+                                <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_custskill_details"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+            </fieldset>
         </div>
     </section>
 
@@ -733,43 +954,43 @@
                     <div class="w-100 multi-column mb-2px">
                         <div class="w-20">                                
                             <select name="attr_skill1_name" id="skill1_name" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
+                                <option value="Archery">Archery</option>
+                                <option value="Arcana">Arcana</option>
+                                <option value="Athletics">Athletics</option>
+                                <option value="Banter">Banter</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Crafting">Crafting</option>
+                                <option value="Deception">Deception</option>
+                                <option value="Drive">Drive</option>
+                                <option value="Dodge">Dodge</option>
+                                <option value="Eloquence">Eloquence</option>
+                                <option value="Gambling">Gambling</option>
+                                <option value="Gunnery">Gunnery</option>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Heavy_melee">Heavy Melee</option>
+                                <option value="Intimidation">Intimidation</option>
+                                <option value="Intuition">Intuition</option>
+                                <option value="Investigation">Investigation</option>
+                                <option value="Light_melee">Light Melee</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Meditation">Meditation</option>
+                                <option value="Performance">Performance</option>
+                                <option value="Rally">Rally</option>
+                                <option value="Security">Security</option>
+                                <option value="Seduction">Seduction</option>
+                                <option value="Sleight_of_hand">Sleight of Hand</option>
+                                <option value="Small_arms">Small Arms</option>
+                                <option value="Stealth">Stealth</option>
+                                <option value="Streetwise">Streetwise</option>
+                                <option value="Study">Study</option>
+                                <option value="Surveillance">Surveillance</option>
+                                <option value="Survival">Survival</option>
+                                <option value="Tactics">Tactics</option>
+                                <option value="Toxicology">Toxicology</option>
+                                <option value="Thrown">Thrown</option>
+                                <option value="Unarmed">Unarmed</option>
+                                <option value="Wetware">Wetware</option>
                                 <option value="" selected="selected">-</option>
                             </select>
                                 
@@ -828,7 +1049,8 @@
                         <div class="w-29"><input type="text" class="w-100" name="attr_skill1_note"></div>
                         <div class="w-6 roll-button-container">
                             <button id="roll_skill_1" name="act_roll_skill" type="action" class="roll-button">
-                                <span style="font-family:dicefontd20;">t</span></button></div>
+                                <span style="font-family:dicefontd20;">t</span></button>
+                        </div>
                     </div>
                     <div class="w-100 multi-column mb-2px">
                         <div class="w-20">                                
@@ -1938,67 +2160,7 @@
                 </div>
             </div>
             <div id="augs" class="w-29 mb-1 p-2px">
-                <div class="m-0 p-0 w-100">
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug1_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug1_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug1_description">
-                    </div>
-    
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug2_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug2_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug2_description">
-                    </div>
-    
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug3_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug3_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug3_description">
-                    </div>
-                    
-                    <div class="w-100 two-column">
-                        <div class="w-20" >
-                            Rank
-                            <input class="w-100" type="text" name="attr_aug4_rank">
-                        </div>
-                        <div class="w-80" >
-                            Name
-                            <input class="w-100" type="text" name="attr_aug4_name">
-                        </div>                
-                    </div>
-                    <div class="w-100">
-                        Description
-                        <input class="w-100" type="text" name="attr_aug4_description">
-                    </div>
-                </div>
+
 
             </div>
         </div>      
@@ -2308,436 +2470,6 @@
         </div>
 
     </div>
-
-    <div id="rotes-contd" class="mb-1 p-2px border-thin bg-purple">
-        <input type="checkbox" class="hider" name="attr_magic2_hidden"> 
-        <span class="header-4">Rotes (Cont'd)</span>   
-
-        <div class="can-hide-block">
-            <div class="w-100 two-column">
-                <div class="margin-bottom column">
-                    <table class="w-100" style="text-align: center;">
-
-                        <tr style="font-size:12px;">
-                            <td class="w-20">Name</td>
-                            <td class="w-9">Action</td>
-                            <td class="w-9">TN</td>
-                            <td class="w-9">LC</td>
-                            <td class="w-9">Range</td>
-                            <td class="w-14">Duration</td>
-                            <td class="w-20">Casting Skill</td>
-                            <td class="w-6"></td>
-                        </tr>
-            
-                        <tr>
-                            <td  class="w-20"><input type="text" class="w-100" name="attr_rote5_name"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote5_action"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote5_tn"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote5_legend_cost"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote5_range"></td>
-                            <td class="w-14"><input type="text" class="w-100" name="attr_rote5_duration"></td>
-                            <td class="w-20">
-                                <select name="attr_rote5_casting_skill" id="rote_5_casting_skill" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
-                                <option value="" selected="selected">-</option>
-                            </select></td>                                <td class="w-6"><button id="roll_rote_5" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                        </tr>            
-                    </table>
-                    <textarea type="text" class="w-100" name="attr_rote5_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
-
-                </div>
-                <div class="margin-bottom column">
-                    <table class="w-100" style="text-align: center;">
-
-                        <tr style="font-size:12px;">
-                            <td class="w-20">Name</td>
-                            <td class="w-9">Action</td>
-                            <td class="w-9">TN</td>
-                            <td class="w-9">LC</td>
-                            <td class="w-9">Range</td>
-                            <td class="w-14">Duration</td>
-                            <td class="w-20">Casting Skill</td>
-                            <td class="w-6"></td>
-                        </tr>
-            
-                        <tr>
-                            <td  class="w-20"><input type="text" class="w-100" name="attr_rote6_name"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote6_action"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote6_tn"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote6_legend_cost"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote6_range"></td>
-                            <td class="w-14"><input type="text" class="w-100" name="attr_rote6_duration"></td>
-                            <td class="w-20">
-                                <select name="attr_rote6_casting_skill" id="rote_6_casting_skill" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
-                                <option value="" selected="selected">-</option>
-                            </select></td>
-                            <td class="w-6"><button id="roll_rote_6" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                        </tr>            
-                    </table>
-                    <textarea type="text" class="w-100" name="attr_rote6_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
-
-                </div>
-            </div>
-
-            <div class="w-100 two-column">
-                <div class="margin-bottom column">
-                    <table class="w-100" style="text-align: center;">
-                
-                        <tr style="font-size:12px;">
-                            <td class="w-20">Name</td>
-                            <td class="w-9">Action</td>
-                            <td class="w-9">TN</td>
-                            <td class="w-9">LC</td>
-                            <td class="w-9">Range</td>
-                            <td class="w-14">Duration</td>
-                            <td class="w-20">Casting Skill</td>
-                            <td class="w-6"></td>
-                        </tr>
-                
-                        <tr>
-                            <td  class="w-20"><input type="text" class="w-100" name="attr_rote7_name"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote7_action"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote7_tn"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote7_legend_cost"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote7_range"></td>
-                            <td class="w-14"><input type="text" class="w-100" name="attr_rote7_duration"></td>
-                            <td class="w-20">
-                                <select name="attr_rote7_casting_skill" id="rote_7_casting_skill" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
-                                <option value="" selected="selected">-</option>
-                            </select></td>
-                            <td class="w-6"><button id="roll_rote_7" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                        </tr>            
-                    </table>
-                    <textarea type="text" class="w-100" name="attr_rote7_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
-                
-                </div>
-                <div class="margin-bottom column">
-                    <table class="w-100" style="text-align: center;">
-                
-                        <tr style="font-size:12px;">
-                            <td class="w-20">Name</td>
-                            <td class="w-9">Action</td>
-                            <td class="w-9">TN</td>
-                            <td class="w-9">LC</td>
-                            <td class="w-9">Range</td>
-                            <td class="w-14">Duration</td>
-                            <td class="w-20">Casting Skill</td>
-                            <td class="w-6"></td>
-                        </tr>
-                
-                        <tr>
-                            <td  class="w-20"><input type="text" class="w-100" name="attr_rote8_name"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote8_action"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote8_tn"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote8_legend_cost"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote8_range"></td>
-                            <td class="w-14"><input type="text" class="w-100" name="attr_rote8_duration"></td>
-                            <td class="w-20">
-                                <select name="attr_rote8_casting_skill" id="rote_8_casting_skill" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
-                                <option value="" selected="selected">-</option>
-                            </select></td>
-                            <td class="w-6"><button id="roll_rote_8" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                        </tr>            
-                    </table>
-                    <textarea type="text" class="w-100" name="attr_rote8_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
-                
-                </div>
-            </div>
-
-            <div class="w-100 two-column">
-                <div class="margin-bottom column">
-                    <table class="w-100" style="text-align: center;">
-                
-                        <tr style="font-size:12px;">
-                            <td class="w-20">Name</td>
-                            <td class="w-9">Action</td>
-                            <td class="w-9">TN</td>
-                            <td class="w-9">LC</td>
-                            <td class="w-9">Range</td>
-                            <td class="w-14">Duration</td>
-                            <td class="w-20">Casting Skill</td>
-                            <td class="w-6"></td>
-                        </tr>
-                
-                        <tr>
-                            <td  class="w-20"><input type="text" class="w-100" name="attr_rote9_name"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote9_action"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote9_tn"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote9_legend_cost"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote9_range"></td>
-                            <td class="w-14"><input type="text" class="w-100" name="attr_rote9_duration"></td>
-                            <td class="w-20">
-                                <select name="attr_rote9_casting_skill" id="rote_9_casting_skill" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
-                                <option value="" selected="selected">-</option>
-                            </select></td>
-                            <td class="w-6"><button id="roll_rote_9" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                        </tr>            
-                    </table>
-                    <textarea type="text" class="w-100" name="attr_rote9_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
-                
-                </div>
-                <div class="margin-bottom column">
-                    <table class="w-100" style="text-align: center;">
-                
-                        <tr style="font-size:12px;">
-                            <td class="w-20">Name</td>
-                            <td class="w-9">Action</td>
-                            <td class="w-9">TN</td>
-                            <td class="w-9">LC</td>
-                            <td class="w-9">Range</td>
-                            <td class="w-14">Duration</td>
-                            <td class="w-20">Casting Skill</td>
-                            <td class="w-6"></td>
-                        </tr>
-                
-                        <tr>
-                            <td  class="w-20"><input type="text" class="w-100" name="attr_rote10_name"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote10_action"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote10_tn"></td>
-                            <td class="w-9"><input type="text" class="w-100" name="attr_rote10_legend_cost"></td>
-                            <td  class="w-9"><input type="text" class="w-100" name="attr_rote10_range"></td>
-                            <td class="w-14"><input type="text" class="w-100" name="attr_rote10_duration"></td>
-                            <td class="w-20">
-                                <select name="attr_rote10_casting_skill" id="rote_10_casting_skill" class="w-100" style="margin-bottom: 0px;">
-                                <option value="archery">Archery</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="athletics">Athletics</option>
-                                <option value="banter">Banter</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="computers">Computers</option>
-                                <option value="crafting">Crafting</option>
-                                <option value="deception">Deception</option>
-                                <option value="drive">Drive</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="eloquence">Eloquence</option>
-                                <option value="gambling">Gambling</option>
-                                <option value="gunnery">Gunnery</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="heavy_melee">Heavy Melee</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="intuition">Intuition</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="light_melee">Light Melee</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="meditation">Meditation</option>
-                                <option value="performance">Performance</option>
-                                <option value="rally">Rally</option>
-                                <option value="security">Security</option>
-                                <option value="seduction">Seduction</option>
-                                <option value="sleight_of_hand">Sleight of Hand</option>
-                                <option value="small_arms">Small Arms</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="streetwise">Streetwise</option>
-                                <option value="study">Study</option>
-                                <option value="surveillance">Surveillance</option>
-                                <option value="survival">Survival</option>
-                                <option value="tactics">Tactics</option>
-                                <option value="toxicology">Toxicology</option>
-                                <option value="thrown">Thrown</option>
-                                <option value="unarmed">Unarmed</option>
-                                <option value="wetware">Wetware</option>
-                                <option value="" selected="selected">-</option>
-                            </select></td>
-                            <td class="w-6"><button id="roll_rote_10" name="act_roll_rote" type="action" class="m-0 roll-button"><span style="font-family:dicefontd20;">t</span></button></td>
-                        </tr>            
-                    </table>
-                    <textarea type="text" class="" name="attr_rote10_details" placeholder="Rote Details" rows="1" style="width: 97%; max-width: 97%; min-width: 97%; height: 3.2rem;"></textarea></td>
-                
-                </div>
-            </div>
-
-
-        </div>
-
-
-
-    </div>
-
-
         
 
         
@@ -2869,14 +2601,6 @@
     on("clicked:repeating_equipment-lines:roll-wep", (info) => {
         
         console.log("rolling weapon attack....");
-
-        getAttrs([
-            "repeating_equipment-lines_wep_skill_name"
-            ], function(values) {
-            
-                console.log(values);
-
-        });
 
         const wepNum = info.htmlAttributes.id.split("_")[2];
 
@@ -3246,25 +2970,28 @@
     });
 
 
-    on("clicked:roll_skill", (info) => {
+
+    on("clicked:repeating_skills-lines:roll-skill", (info) => {
         console.log("rolling skill....");
         console.log(info);
 
-        const traitNum = info.htmlAttributes.id.split("roll_skill_")[1];
+        const skillId = info.sourceAttribute.split("_")[2];
 
-        getAttrs([`skill${traitNum}_trait`, `skill${traitNum}_name`, "character_name",
-        `skill${traitNum}_focus1`, `skill${traitNum}_focus2`, `skill${traitNum}_focus3`, `skill${traitNum}_focus4`, `skill${traitNum}_focus5`, 
-        `skill${traitNum}_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
+        console.log(skillId);
+
+        getAttrs([`repeating_skills-lines_skill_trait`, `repeating_skills-lines_skill_name`, "character_name",
+        `repeating_skills-lines_skill_focus1`, `repeating_skills-lines_skill_focus2`, `repeating_skills-lines_skill_focus3`, `repeating_skills-lines_skill_focus4`, `repeating_skills-lines_skill_focus5`, 
+        `repeating_skills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
         "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
 
             const valueMap = new Map(Object.entries(values));
             console.log(valueMap);
             //error check
-            if(!valueMap.get(`skill${traitNum}_trait`) === null) return;
+            if(!valueMap.get(`repeating_skills-lines_skill_trait`) === null) return;
 
             //get traitname
-            const traitName = valueMap.get(`skill${traitNum}_trait`);
+            const traitName = valueMap.get(`repeating_skills-lines_skill_trait`);
             console.log(traitName);
             //use traitName to get value of corresponding trait
             const traitValue = valueMap.get(traitName);
@@ -3280,7 +3007,7 @@
 
             //add focus
             for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`skill${traitNum}_focus${i}`);
+                const diceToAdd = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
                 if(diceToAdd) {
                     roll = roll + ' + ' + diceToAdd;
                     console.log(roll);
@@ -3288,7 +3015,7 @@
             }
 
             //add mod
-            const diceToAdd = valueMap.get(`skill${traitNum}_mod`);
+            const diceToAdd = valueMap.get(`repeating_skills-lines_skill_mod`);
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
             }
@@ -3298,7 +3025,7 @@
 
             console.log(roll);
 
-            const skillName = valueMap.get(`skill${traitNum}_name`);
+            const skillName = valueMap.get(`repeating_skills-lines_skill_name`);
 
             startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
                 const total = results.results.roll.result

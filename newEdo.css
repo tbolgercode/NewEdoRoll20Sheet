@@ -401,6 +401,10 @@ h2 {
     background-color: #004b1346;
 }
 
+.bg-ltgreen {
+    background-color: #dae6dcee;
+}
+
 .bg-red {
     background-color: #3d010146;
 }
@@ -779,7 +783,53 @@ h2 {
     padding: 2px;
 }
 
-.equipment-card-equipment-line-container-button-holder {
+.skills-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.skills-card-skills-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.skills-card-skills-line-contents-body {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-skills-line-contents-stats {
+    display: grid;
+    grid-template-columns: minmax(50px, 4fr) repeat(6, minmax(20px, 1fr)) minmax(50px, 4fr);
+    gap: 2px;
+    padding: 2px;
+}
+
+.skills-card-skills-line-contents-details {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-skills-line-container-button-holder {
     display: flex;
     justify-content: center;
 }
@@ -850,6 +900,24 @@ h2 {
     display:none;
 }
 
+.skills-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.skills-hider:checked ~ #skills-card-contents {
+    display:none;
+}
+
+.skills-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.skills-line-hider:checked ~ .skills-card-skills-line-contents-body {
+    display:none;
+}
+
 .hider-holder {
     display: grid;
     justify-content: end;
@@ -900,6 +968,14 @@ h2 {
 .lockwidth-augments-textarea {
     max-width: 98%; 
     min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-skill-textarea {
+    max-width: 99%; 
+    min-width: 99%;
     min-height: 18px;
     resize: vertical;
     margin-bottom: 0px;
