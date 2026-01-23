@@ -2531,7 +2531,7 @@
             //SKILL CALC
             const skillId = findSkillInValues(valueMap, skillName);
 
-            const traitName = skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`skill${skillId}_trait`);
+            const traitName = skillId === null || skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`skill${skillId}_trait`);
 
             //get traitname
             
@@ -2610,7 +2610,9 @@
             }
 
             //apply attack bonus
-            roll = roll + `+ ${valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)}`;
+            if(valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)){
+                roll = roll + `+ ${valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)}`;
+            }
 
 
             roll = applyWounds(roll, values);
@@ -2846,6 +2848,7 @@
             const diceToAdd = valueMap.get(`skill${skillId}_mod`);
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
+                console.log(roll);
             }
 
 
@@ -2908,7 +2911,7 @@
 
             //add focus
             for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
+                const diceToAdd = valueMap.get(`skill${skillId}_focus${i}`);
                 if(diceToAdd) {
                     roll = roll + ' + ' + diceToAdd;
                     console.log(roll);
@@ -2916,7 +2919,7 @@
             }
 
             //add mod
-            const diceToAdd = valueMap.get(`repeating_skills-lines_skill_mod`);
+            const diceToAdd = valueMap.get(`skill${skillId}_mod`);
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
             }
@@ -2926,7 +2929,7 @@
 
             console.log(roll);
 
-            const skillName = valueMap.get(`repeating_skills-lines_skill_name`);
+            const skillName = valueMap.get(`skill${skillId}_name`);
 
             startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
                 const total = results.results.roll.result
@@ -3672,7 +3675,7 @@
         //TODO: Rework getting skills
         for(let i = 1; i <= 12; i++){
             console.log("comparing map and " + nameToFind);
-            if(valueMap.get(`skill${i}_name`) === nameToFind) return i;
+            if(valueMap.get(`skill${i}_name`).toLowerCase() === nameToFind.toLowerCase()) return i;
         };
         console.log("Not found, returning default...");
         
