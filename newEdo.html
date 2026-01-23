@@ -2876,26 +2876,26 @@
     });
 
     on("clicked:repeating_custskills-lines:roll-custskill", (info) => {
-                console.log("rolling skill....");
+        console.log("rolling skill....");
         console.log(info);
 
         const skillId = info.sourceAttribute.split("_")[2];
 
         console.log(skillId);
 
-        getAttrs([`repeating_skills-lines_skill_trait`, `repeating_skills-lines_skill_name`, "character_name",
-        `repeating_skills-lines_skill_focus1`, `repeating_skills-lines_skill_focus2`, `repeating_skills-lines_skill_focus3`, `repeating_skills-lines_skill_focus4`, `repeating_skills-lines_skill_focus5`, 
-        `repeating_skills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
+        getAttrs([`repeating_custskills-lines_skill_trait`, `repeating_custskills-lines_skill_name`, "character_name",
+        `repeating_custskills-lines_skill_focus1`, `repeating_custskills-lines_skill_focus2`, `repeating_custskills-lines_skill_focus3`, `repeating_custskills-lines_skill_focus4`, `repeating_custskills-lines_skill_focus5`, 
+        `repeating_custskills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
         "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
 
             const valueMap = new Map(Object.entries(values));
             console.log(valueMap);
             //error check
-            if(!valueMap.get(`repeating_skills-lines_skill_trait`) === null) return;
+            if(!valueMap.get(`repeating_custskills-lines_skill_trait`) === null) return;
 
             //get traitname
-            const traitName = valueMap.get(`repeating_skills-lines_skill_trait`);
+            const traitName = valueMap.get(`repeating_custskills-lines_skill_trait`);
             console.log(traitName);
             //use traitName to get value of corresponding trait
             const traitValue = valueMap.get(traitName);
@@ -2911,7 +2911,7 @@
 
             //add focus
             for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`skill${skillId}_focus${i}`);
+                const diceToAdd = valueMap.get(`repeating_custskills-lines_skill_focus${i}`);
                 if(diceToAdd) {
                     roll = roll + ' + ' + diceToAdd;
                     console.log(roll);
@@ -2919,7 +2919,7 @@
             }
 
             //add mod
-            const diceToAdd = valueMap.get(`skill${skillId}_mod`);
+            const diceToAdd = valueMap.get(`repeating_custskills-lines_skill_mod`);
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
             }
@@ -2929,8 +2929,8 @@
 
             console.log(roll);
 
-            const skillName = valueMap.get(`skill${skillId}_name`);
-
+            const skillName = valueMap.get(`repeating_custskills-lines_skill_name`);
+            console.log(skillName);
             startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
                 const total = results.results.roll.result
     
@@ -2943,7 +2943,7 @@
             });
 
 
-            console.log("skill roll done.");
+            console.log("custom skill roll done.");
         });
     });
 
