@@ -17,6 +17,12 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
+input {
+    width: 100%
+}
+
+
+
 .newedo-logo-svg {
     width: auto;
     height: 70px;
@@ -30,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sheet-header {
     height: 72px;
+    width: 100%;
 }
 
 header, main {
@@ -45,9 +52,8 @@ header h1 {
     margin: 0;
 }
 
-main {
-    max-width: 850px;
-    margin: 0 auto;
+input[type="checkbox"] {
+    accent-color: black;
 }
 
 select {
@@ -71,6 +77,8 @@ option {
     align-items: center;
 }
 
+
+
 .roll-button:active {
     transform: scale(0.95) !important;
 }
@@ -86,8 +94,9 @@ option {
 
 
 section {
-    margin-bottom: 10px;
     padding: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .text-center {
@@ -146,6 +155,18 @@ h2 {
 
 .sheet-w-100 {
     width: 100%wep;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-88 {
+    width: 88%;
+}
+
+.w-85 {
+    width: 85%;
 }
 
 .w-79 {
@@ -257,8 +278,16 @@ h2 {
     width: 3%;
 }
 
+.w-2 {
+    width: 2%;
+}
+
 .h-98 {
     height: 96% !important;
+}
+
+.h-90 {
+    height: 90% !important;
 }
 
 
@@ -299,11 +328,19 @@ h2 {
     padding: 2px;
 }
 
+.pl-2px {
+    padding-left: 2px;
+}
+
 .header-4 {
     font-size: 14px;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     line-height: 18px;
+}
+
+.no-underline {
+    text-decoration: none;
 }
 
 .can-hide {
@@ -312,19 +349,6 @@ h2 {
 
 .can-hide-block {
     display:block;
-}
-
-
-.hider {
-    transform: scale(0.8);
-}
-
-.hider:checked ~ .can-hide {
-    display:none;
-}
-
-.hider:checked ~ .can-hide-block {
-    display:none;
 }
 
 .no-select-arrow {
@@ -345,12 +369,24 @@ h2 {
     background-color: #31001a46;
 }
 
+.bg-cyan {
+    background-color: #00d4d446;
+}
+
+.bg-ltcyan {
+    background-color: #dfececda;
+}
+
 .bg-grey {
     background-color: #49494946;
 }
 
 .bg-purple {
     background-color: #44005846;
+}
+
+.bg-ltpurple {
+    background-color: #eeeceef3;
 }
 
 .bg-brown {
@@ -361,8 +397,16 @@ h2 {
     background-color: #00367e46;
 }
 
+.bg-ltblue {
+    background-color: #d6dbe4 !important;
+}
+
 .bg-green {
     background-color: #004b1346;
+}
+
+.bg-ltgreen {
+    background-color: #dae6dcee;
 }
 
 .bg-red {
@@ -385,6 +429,9 @@ h2 {
     border-bottom: solid 1px black;
 }
 
+
+/* NEW SHIT STARTS HERE */
+
 .sheet-rolltemplate-init,
 .sheet-rolltemplate-trait,
 .sheet-rolltemplate-trait {
@@ -392,6 +439,12 @@ h2 {
     background: #34163a;
     text-align: center;
     padding: 1rem;
+}
+
+.sheet-rolltemplate-init .inlinerollresult  {
+    background-color: #63296e;
+    border: 2px solid black;
+    color: white;
 }
 
 .sheet-rolltemplate-fate,
@@ -402,6 +455,12 @@ h2 {
     padding: 1rem;
 }
 
+.sheet-rolltemplate-fate .inlinerollresult  {
+    background-color: #63296e;
+    border: 2px solid black;
+    color: white;
+}
+
 .sheet-rolltemplate-skill,
 .sheet-rolltemplate-skill {
     border: solid 2px #202020;
@@ -410,12 +469,30 @@ h2 {
     padding: 1rem;
 }
 
+.sheet-rolltemplate-skill .inlinerollresult  {
+    background-color: #63296e;
+    border: 2px solid black;
+    color: white;
+}
+
 .sheet-rolltemplate-rote,
 .sheet-rolltemplate-rote {
     border: solid 2px #202020;
     background: #34163a;
     text-align: center;
     padding: 1rem;
+}
+
+.sheet-rolltemplate-rote .inlinerollresult  {
+    background-color: #63296e;
+    border: 2px solid black;
+    color: white;
+}
+
+.sheet-rolltemplate-trait .inlinerollresult  {
+    background-color: #63296e;
+    border: 2px solid black;
+    color: white;
 }
 
 .sheet-rolltemplate-rote-details {
@@ -441,6 +518,575 @@ h2 {
     padding: 1rem;
 }
 
+.sheet-rolltemplate-wep h4 {
+    color: white;
+}
+
+.sheet-rolltemplate-wep .inlinerollresult  {
+    background-color: #63296e;
+    border: 2px solid black;
+    color: white;
+}
 
 
-  
+
+.generic-content-column {
+    display: grid;
+    grid-template-columns: minmax(50px, 1fr);
+    grid-template-rows: auto;
+}
+
+.main-container{
+    padding: 0px;
+    display: grid;
+    grid-template-columns: minmax(600px, 1fr);
+    grid-template-rows: repeat(7);
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.character-details-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    column-gap: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.character-name-container {
+    display: grid;
+    grid-template-columns: minmax(149px, 1fr);
+    padding: 2px;
+}
+
+.legend-wounds-container {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr);
+    gap: 10px;
+}
+
+.xp-wounds-container {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr);
+    gap: 10px;
+    padding: 2px;
+}
+
+.legend-values-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.legend-section-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.soak-wounds-section-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(75px, 1fr));
+    gap: 10px;
+}
+
+.status-effects-section-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.status-effects-section-container > textarea {
+    min-height: 94%;
+    max-width: 97.5%;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr);
+    padding: 2px;
+}
+
+.root-stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    padding: 2px;
+}
+
+.derived-traits-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    padding: 2px;
+}
+
+.fate-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.fate-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+}
+
+.fate-card-contents-container {
+    display: grid;
+}
+
+.fate-card-fate-line-container {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.backgrounds-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+}
+
+.backgrounds-card-contents-container {
+    display: grid;
+}
+
+.backgrounds-card-content-header {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.backgrounds-card-contents-body {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.backgrounds-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.backgrounds-card-background-line-container {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.backgrounds-card-background-line-container-header {
+    display: flex; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.backgrounds-card-background-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.equipment-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.equipment-card-contents-container {
+    display: grid;
+}
+
+.equipment-card-content-header {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.equipment-card-contents-body {
+    display: grid;
+    grid-template-columns: 3fr 2fr 16fr 1fr;
+    justify-content: space-apart;
+}
+
+.equipment-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+}
+
+.equipment-card-equipment-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.equipment-card-equipment-line-contents-body {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.equipment-card-equipment-line-details {
+    display: grid;
+    grid-template-columns: minmax(30px, 3fr) minmax(30px, 3fr) repeat(3, minmax(50px, 1fr));
+    gap:5px;
+}
+
+.equipment-card-equipment-line-stats {
+    display: grid;
+    grid-template-columns: minmax(30px, 2fr) minmax(30px, 2fr) repeat(4, minmax(50px, 2fr));
+    gap:5px;
+}
+
+.augments-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.augments-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.augments-card-augments-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.augments-card-augments-line-contents-body {
+    display: grid;
+    grid-template-columns: minmax(50px, 3fr) minmax(50px, 1fr) minmax(50px, 7fr);
+    gap: 10px;
+    padding: 2px;
+}
+
+.augments-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-container {
+    display: grid;
+    gap: 2px;
+    padding: 2px;
+}
+
+.skills-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.skills-card-skills-line-container {
+    margin-bottom: 2px;
+}
+
+.skills-card-skills-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.skills-card-skills-line-contents-body {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-skills-line-contents-stats {
+    display: grid;
+    grid-template-columns: minmax(50px, 4fr) repeat(6, minmax(20px, 1fr)) minmax(50px, 4fr);
+    gap: 2px;
+    padding: 2px;
+}
+
+.skills-card-skills-line-contents-details {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.skills-card-skills-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.rotes-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.rotes-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.rotes-card-kami-details-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50px, auto));
+    gap: 10;
+}
+
+.rotes-card-rotes-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.rotes-card-rotes-line-contents-body {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.rotes-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.rotes-card-rotes-line-contents-stats {
+    display: grid;
+    grid-template-columns: minmax(50px, 4fr) minmax(50px, 3fr) minmax(50px, 1fr) minmax(50px, 1fr) 
+                            minmax(50px, 2fr) minmax(50px, 2fr) minmax(50px, 4fr);
+    gap: 2px;
+    padding: 2px;
+}
+
+.rotes-card-rotes-line-contents-details {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.hider {
+    aspect-ratio: 1 / 1;
+}
+
+.hider:checked ~ .can-hide {
+    display:none;
+}
+
+.hider:checked ~ .can-hide-block {
+    display:none;
+}
+
+.fate-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.fate-hider:checked ~ #fate-card-contents {
+    display:none;
+}
+
+.background-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.background-hider:checked ~ #background-card-contents {
+    display:none;
+}
+
+.equipment-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.equipment-hider:checked ~ #equipment-card-contents {
+    display:none;
+}
+
+.equipment-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.equipment-line-hider:checked ~ .equipment-card-equipment-line-contents-body {
+    display:none;
+}
+
+.augments-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.augments-hider:checked ~ #equipment-card-contents {
+    display:none;
+}
+
+.augments-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.augments-line-hider:checked ~ .augments-card-augments-line-contents-body {
+    display:none;
+}
+
+.skills-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.skills-hider:checked ~ #skills-card-contents {
+    display:none;
+}
+
+.skills-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.skills-line-hider:checked ~ .skills-card-skills-line-contents-body {
+    display:none;
+}
+
+.rotes-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.rotes-hider:checked ~ #rotes-card-contents {
+    display:none;
+}
+
+.rotes-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.rotes-line-hider:checked ~ .rotes-card-rotes-line-contents-body {
+    display:none;
+}
+
+.hider-holder {
+    display: grid;
+    justify-content: end;
+}
+
+.initiative-roller {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 0px;
+}
+
+.generic-roller {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 0px;
+}
+
+.conditions-textarea {
+    max-width: 97.5%; 
+    min-width: 97.5%;
+    min-height: 10px;
+    height: 100%
+}
+
+.lockwidth-fate-textarea {
+    max-width: 90%; 
+    min-width: 90%;
+    min-height: 18px;
+    resize: vertical;
+}
+
+.lockwidth-background-textarea {
+    max-width: 98%; 
+    min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-equipment-textarea {
+    max-width: 99%; 
+    min-width: 99%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-augments-textarea {
+    max-width: 98%; 
+    min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-skill-textarea {
+    max-width: 99%; 
+    min-width: 99%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.fate-button-holder {
+    display: flex;
+    justify-content: end; /* Centers horizontally */
+    align-items: center;
+}
+
+.roll-button-grid {
+    color: #3a3a3a;
+    background: #e2e2e2;
+    border: solid 2px rgba(53, 53, 53, 0.836);
+    border-radius: 15%;
+    font-weight: bolder;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.del-button-grid {
+    color: #c7c0c0;
+    background: #ce3b3b;
+    border: solid 2px rgba(53, 53, 53, 0.836);
+    border-radius: 15%;
+    font-weight: bolder;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.inlinerollresult {
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+}
+
