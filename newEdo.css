@@ -374,7 +374,7 @@ h2 {
 }
 
 .bg-ltcyan {
-    background-color: #c0f7f7b2;
+    background-color: #dfececda;
 }
 
 .bg-grey {
@@ -383,6 +383,10 @@ h2 {
 
 .bg-purple {
     background-color: #44005846;
+}
+
+.bg-ltpurple {
+    background-color: #eeeceef3;
 }
 
 .bg-brown {
@@ -785,7 +789,7 @@ h2 {
 
 .skills-card-container {
     display: grid;
-    gap: 10px;
+    gap: 2px;
     padding: 2px;
 }
 
@@ -794,6 +798,10 @@ h2 {
     grid-template-columns: repeat(3, minmax(50px, auto));
     justify-content: space-between;
     grid-template-rows: 80%;
+}
+
+.skills-card-skills-line-container {
+    margin-bottom: 2px;
 }
 
 .skills-card-skills-line-container-header {
@@ -823,15 +831,62 @@ h2 {
     padding: 2px;
 }
 
-.skills-card-container {
+.skills-card-skills-line-container-button-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.rotes-card-container {
     display: grid;
     gap: 10px;
     padding: 2px;
 }
 
-.skills-card-skills-line-container-button-holder {
-    display: flex;
-    justify-content: center;
+.rotes-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.rotes-card-kami-details-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50px, auto));
+    gap: 10;
+}
+
+.rotes-card-rotes-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.rotes-card-rotes-line-contents-body {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.rotes-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.rotes-card-rotes-line-contents-stats {
+    display: grid;
+    grid-template-columns: minmax(50px, 4fr) minmax(50px, 3fr) minmax(50px, 1fr) minmax(50px, 1fr) 
+                            minmax(50px, 2fr) minmax(50px, 2fr) minmax(50px, 4fr);
+    gap: 2px;
+    padding: 2px;
+}
+
+.rotes-card-rotes-line-contents-details {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
 }
 
 .hider {
@@ -915,6 +970,24 @@ h2 {
 }
 
 .skills-line-hider:checked ~ .skills-card-skills-line-contents-body {
+    display:none;
+}
+
+.rotes-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.rotes-hider:checked ~ #rotes-card-contents {
+    display:none;
+}
+
+.rotes-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.rotes-line-hider:checked ~ .rotes-card-rotes-line-contents-body {
     display:none;
 }
 
