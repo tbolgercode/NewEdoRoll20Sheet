@@ -2031,7 +2031,7 @@
                 <div class="backgrounds-card-background-line-container">
                     <div class="backgrounds-card-contents-body">
                         <div class="backgrounds-card-background-line-container-header"><strong>Status:</strong></div>
-                        <div><input class="w-100" type="text" name="attr_contacts_score"></div>
+                        <div><input class="w-100" type="text" name="attr_status_score"></div>
                         <div><textarea class="lockwidth-background-textarea" style="height: 18px;" type="text" name="attr_status_description"></textarea></div>
                         <div class="backgrounds-card-background-line-container-button-holder">
                             <div>
@@ -2441,7 +2441,7 @@
             <h4>{{roll}}</h4>
         </div>
         <div class="">
-            <h4 style="color: rgb(20, 20, 20)">TN: {{tn}}</h4>
+            <h4 style="color: rgb(230, 230, 230)">TN: {{tn}}</h4>
         </div>
         <div class="sheet-rolltemplate-rote-details">
             <h4 style="color: white;">Effect:</h4>
@@ -2655,7 +2655,7 @@
         getAttrs(["contacts_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
             const roll = getBackgroundD10s(parseInt(values.contacts_score), values);
-
+            
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Contacts}}`, (results) => {
                 const total = results.results.roll.result
     
@@ -2727,7 +2727,7 @@
         getAttrs(["status_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
             const roll = getBackgroundD10s(parseInt(values.status_score));
-
+            console.log(values);
             startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Status}}`, (results) => {
                 const total = results.results.roll.result
     
@@ -2773,22 +2773,22 @@
     on("clicked:repeating_rotes-lines:roll-rote", (info) => {
         console.log("rolling rote....");
 
-
-        const roteNum = info.htmlAttributes.id.split("_")[2];
+        console.log(info);
+        const roteNum = info.sourceAttribute.split("_")[2];
 
         console.log(roteNum);
 
         const roteAttrNames = buildRoteAttrDependencyNames(roteNum);
-
+        console.log(roteAttrNames);
         getAttrs(roteAttrNames, (values) => {
 
 
             const valueMap = new Map(Object.entries(values));
             console.log(valueMap);
             //get skill name
-            const skillName = valueMap.get(`rote${roteNum}_casting_skill`);
-            const roteName = valueMap.get(`rote${roteNum}_name`) ? valueMap.get(`rote${roteNum}_name`) : "Rote";
-            const roteDetails = valueMap.get(`rote${roteNum}_details`) ? valueMap.get(`rote${roteNum}_details`) : "N/A";
+            const skillName = valueMap.get(`repeating_rotes-lines_rote_casting_skill`);
+            const roteName = valueMap.get(`repeating_rotes-lines_rote_name`) ? valueMap.get(`repeating_rotes-lines_rote_name`) : "Rote";
+            const roteDetails = valueMap.get(`repeating_rotes-lines_rote_details`) ? valueMap.get(`repeating_rotes-lines_rote_details`) : "N/A";
             console.log(values.character_name);
             console.log(skillName);
 
@@ -2822,7 +2822,7 @@
             //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
             if(parseInt(skillId) === 0){
                 roll = applyWounds(roll, values);
-                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${roteDetails}}}`, (results) => {
+                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${roteDetails}}}`, (results) => {
                     const total = results.results.roll.result
 
                     finishRoll(
@@ -2859,7 +2859,7 @@
 
             //check results and declare hit/miss
 
-            startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`rote${roteNum}_tn`)}}} {{roteDetails=${valueMap.get(`rote${roteNum}_details`)}}}`, (results) => {
+            startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${valueMap.get(`repeating_rotes-lines_rote_details`)}}}`, (results) => {
                 const total = results.results.roll.result
 
                 finishRoll(
@@ -3566,10 +3566,10 @@
         skillAttrNames.push(`perception`);
         skillAttrNames.push(`shinpi`);
         skillAttrNames.push(`character_name`);
-        skillAttrNames.push(`rote${roteNum}_name`);
-        skillAttrNames.push(`rote${roteNum}_tn`);
-        skillAttrNames.push(`rote${roteNum}_casting_skill`);
-        skillAttrNames.push(`rote${roteNum}_details`);
+        skillAttrNames.push(`repeating_rotes-lines_rote_name`);
+        skillAttrNames.push(`repeating_rotes-lines_rote_tn`);
+        skillAttrNames.push(`repeating_rotes-lines_rote_casting_skill`);
+        skillAttrNames.push(`repeating_rotes-lines_rote_details`);
         skillAttrNames.push("max_hp");
         skillAttrNames.push("hp_current");
         skillAttrNames.push("grazed");
