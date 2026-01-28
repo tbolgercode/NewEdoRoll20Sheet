@@ -538,6 +538,79 @@
         </div>
     </section>
 
+    <section id="armor-section">
+        <div class="border-thin bg-blue armor-card-container">
+            <div class="armor-card-header-container">
+                <div>
+                    
+                </div>
+                <div>
+                    <h3 class="no-underline">Armor</span>   
+                </div>
+                <div class="hider-holder">
+                    
+                </div>
+
+            </div>
+            <fieldset class="repeating_armor-lines" style="display: none;">
+
+                    <div class="armor-card-armor-line-container bg-ltblue border-thin mb-1" style="font-size:12px;">
+
+                        <div class="armor-card-armor-line-container-header">
+                            <div class="generic-roller">
+                                
+                            </div>
+                            <div>
+                                <span class="header-4"><input class="w-100" type="text" name="attr_armor_name" style="text-align: center;" readonly></span>  
+                            </div>
+                            <div class="hider-holder">
+                                <input type="checkbox" class="armor-hider" name="attr_armor_hidden"> 
+                            </div>
+                        </div>
+                        <input type="checkbox" class="armor-line-hider" name="attr_armor_hidden" hidden> 
+                        <div class="armor-card-armor-line-contents-body can-hide">
+                            <div class="pl-2px">
+                                Name
+                            </div>
+                            <div class="pl-2px">
+                                Quality
+                            </div>
+                            <div class="pl-2px">
+                                Soak Type(s) & Rating
+                            </div>
+                            <div>
+                                <input class="w-100" type="text" name="attr_armor_name" placeholder="">
+                            </div>
+                            <div>
+                                <input class="w-100" type="text" name="attr_armor_quality" placeholder="">
+                            </div>
+                            <div>
+                                <textarea type="text" class="w-98 lockwidth-armor-textarea" style="height: 18px;" placeholder="" name="attr_armor_soakTypeRating"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="armor-card-armor-line-details-body can-hide" style="padding-right: 4px;">
+                            <div class="pl-2px">
+                                Unlocks, Features, Upgrades and Notes
+                            </div>
+                            <textarea type="text" class="w-98 lockwidth-armor-details-textarea" style="height: 18px;" placeholder="" name="attr_armor_details"></textarea>
+                            <div style="text-align: center;">
+                                Filled Mod Slots 
+                                <input type="checkbox" name="attr_armor_mod_slot1">
+                                <input type="checkbox" name="attr_armor_mod_slot2">
+                                <input type="checkbox" name="attr_armor_mod_slot3">
+                                <input type="checkbox" name="attr_armor_mod_slot4">
+                                <input type="checkbox" name="attr_armor_mod_slot5">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </fieldset>
+        </div>
+    </section>
+
     <section id="augs-section">
         <div class="border-thin bg-cyan augments-card-container">
             <div class="augments-card-header-container">
@@ -610,1142 +683,119 @@
 
             </div>
 
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_1" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill1_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill1_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill1_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill1_name" id="skill1_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill1_focus1">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill1_focus2">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill1_focus3">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill1_focus4">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill1_focus5">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill1_mod">
-                        <select name="attr_skill1_trait" id="skill1_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px">
-                            Skill Ability Notes
+            <fieldset class="repeating_skills-lines" style="display: none;">
+                                <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
+                    <div class="skills-card-skills-line-container-header">
+                        <div class="generic-roller">
+                            <button id="roll_skill" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
                         </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill1_details"></textarea>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_2" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill2_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill2_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill2_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill2_name" id="skill2_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill2_focus1">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill2_focus2">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill2_focus3">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill2_focus4">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill2_focus5">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill2_mod">
-                        <select name="attr_skill2_trait" id="skill2_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px">
-                            Skill Ability Notes
+                        <div>
+                            <span class="header-4"><input class="w-100" type="text" name="attr_skill_name" style="text-align: center;" readonly></span>  
                         </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill2_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_3" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill3_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill3_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill3_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill3_name" id="skill3_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill3_focus1">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill3_focus2">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill3_focus3">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill3_focus4">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill3_focus5">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill3_mod">
-                        <select name="attr_skill3_trait" id="skill3_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px">
-                            Skill Ability Notes
+                        <div class="hider-holder">
+                            <input type="checkbox" class="skills-hider" name="attr_skill_hidden"> 
                         </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill3_details"></textarea>
                     </div>
-                </div>
-            </div>
+                    <input type="checkbox" class="skills-line-hider" name="attr_skill_hidden" hidden> 
+                    <div class="skills-card-skills-line-contents-body can-hide">
+                        <div class="skills-card-skills-line-contents-stats">
+                            <select name="attr_skill_name" id="skill_name" class="w-100" style="margin-bottom: 0px;">
+                                <option value="Archery">Archery</option>
+                                <option value="Arcana">Arcana</option>
+                                <option value="Athletics">Athletics</option>
+                                <option value="Banter">Banter</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Crafting">Crafting</option>
+                                <option value="Deception">Deception</option>
+                                <option value="Drive">Drive</option>
+                                <option value="Dodge">Dodge</option>
+                                <option value="Eloquence">Eloquence</option>
+                                <option value="Gambling">Gambling</option>
+                                <option value="Gunnery">Gunnery</option>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Heavy_melee">Heavy Melee</option>
+                                <option value="Intimidation">Intimidation</option>
+                                <option value="Intuition">Intuition</option>
+                                <option value="Investigation">Investigation</option>
+                                <option value="Light_melee">Light Melee</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Meditation">Meditation</option>
+                                <option value="Performance">Performance</option>
+                                <option value="Rally">Rally</option>
+                                <option value="Security">Security</option>
+                                <option value="Seduction">Seduction</option>
+                                <option value="Sleight of Hand">Sleight of Hand</option>
+                                <option value="Small_arms">Small Arms</option>
+                                <option value="Stealth">Stealth</option>
+                                <option value="Streetwise">Streetwise</option>
+                                <option value="Study">Study</option>
+                                <option value="Surveillance">Surveillance</option>
+                                <option value="Survival">Survival</option>
+                                <option value="Tactics">Tactics</option>
+                                <option value="Toxicology">Toxicology</option>
+                                <option value="Thrown">Thrown</option>
+                                <option value="Unarmed">Unarmed</option>
+                                <option value="Wetware">Wetware</option>
+                                <option value="" selected="selected">-</option>
+                            </select>
+                            <select class="m-0 no-select-arrow text-center" name="attr_skill_focus1">
+                                <option value="" selected="selected">-</option>
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d12">d12</option>
+                            </select>
+                            <select class="m-0 no-select-arrow text-center" name="attr_skill_focus2">
+                                <option value="" selected="selected">-</option>
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d12">d12</option>
+                            </select>
+                            <select class="m-0 no-select-arrow text-center" name="attr_skill_focus3">
+                                <option value="" selected="selected">-</option>
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d12">d12</option>
+                            </select>
+                            <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill_focus4">
+                                <option value="" selected="selected">-</option>
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d12">d12</option>
+                            </select>
+                            <select class="m-0 no-select-arrow text-center" name="attr_skill_focus5">
+                                <option value="" selected="selected">-</option>
+                                <option value="d4">d4</option>
+                                <option value="d6">d6</option>
+                                <option value="d8">d8</option>
+                                <option value="d12">d12</option>
+                            </select>
+                            <input type="text" class="text-center" placeholder="+" name="attr_skill_mod">
+                            <select name="attr_skill_trait" id="skill_trait" class="w-100" style="margin-bottom: 0px;" >
+                                <option value="" selected>-</option>  
+                                <option value="power">Power</option>
+                                <option value="reflex">Reflex</option>
+                                <option value="heart">Heart</option>
+                                <option value="savvy">Savvy</option>
+                                <option value="perception">Perception</option>
+                                <option value="presence">Presence</option>
+                                <option value="shinpi">Shinpi</option>                               
+                            </select> 
+                        </div>
+                        <div class="skills-card-skills-line-contents-details">
+                            <div class="pl-2px">
+                                Skill Ability Notes
+                            </div>
+                            <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill_details"></textarea>
+                        </div>
+                    </div>
 
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_4" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill4_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill4_hidden"> 
-                    </div>
                 </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill4_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill4_name" id="skill4_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill4_focus1">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill4_focus2">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill4_focus3">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill4_focus4">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill4_focus5">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill4_mod">
-                        <select name="attr_skill4_trait" id="skill4_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill4_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_5" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill5_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill5_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill5_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill5_name" id="skill5_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill5_focus1">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill5_focus2">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill5_focus3">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill5_focus4">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill5_focus5">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill5_mod">
-                        <select name="attr_skill5_trait" id="skill5_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill5_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_6" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill6_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill6_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill6_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill6_name" id="skill6_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill6_focus1">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill6_focus2">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill6_focus3">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 m-0 no-select-arrow text-center" name="attr_skill6_focus4">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill6_focus5">
-                            <option value="" selected="selected">-</option>
-                            <option value="d4">d4</option>
-                            <option value="d6">d6</option>
-                            <option value="d8">d8</option>
-                            <option value="d12">d12</option>
-                        </select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill6_mod">
-                        <select name="attr_skill6_trait" id="skill6_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill6_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_7" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill7_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill7_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill7_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill7_name" id="skill7_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill7_focus1"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill7_focus2"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill7_focus3"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill7_focus4"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill7_focus5"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill7_mod">
-                        <select name="attr_skill7_trait" id="skill7_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill7_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_8" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill8_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill8_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill8_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill8_name" id="skill8_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill8_focus1"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill8_focus2"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill8_focus3"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill8_focus4"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill8_focus5"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill8_mod">
-                        <select name="attr_skill8_trait" id="skill8_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill8_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_9" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill9_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill9_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill9_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill9_name" id="skill9_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill9_focus1"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill9_focus2"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill9_focus3"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill9_focus4"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill9_focus5"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill9_mod">
-                        <select name="attr_skill9_trait" id="skill9_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill9_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_10" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill10_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill10_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill10_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill10_name" id="skill10_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill10_focus1"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill10_focus2"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill10_focus3"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill10_focus4"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill10_focus5"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill10_mod">
-                        <select name="attr_skill10_trait" id="skill10_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill10_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_11" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill11_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill11_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill11_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill11_name" id="skill11_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill11_focus1"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill11_focus2"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill11_focus3"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill11_focus4"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill11_focus5"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill11_mod">
-                        <select name="attr_skill11_trait" id="skill11_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill11_details"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
-                <div class="skills-card-skills-line-container-header">
-                    <div class="generic-roller">
-                        <button id="roll_skill_12" name="act_roll-skill" type="action" class="m-0 roll-button-grid" ><span style="font-family:dicefontd20;">t</span></button>
-                    </div>
-                    <div>
-                        <span class="header-4"><input class="w-100" type="text" name="attr_skill12_name" style="text-align: center;" readonly></span>  
-                    </div>
-                    <div class="hider-holder">
-                        <input type="checkbox" class="skills-hider" name="attr_skill12_hidden"> 
-                    </div>
-                </div>
-                <input type="checkbox" class="skills-line-hider" name="attr_skill12_hidden" hidden> 
-                <div class="skills-card-skills-line-contents-body can-hide">
-                    <div class="skills-card-skills-line-contents-stats">
-                        <select name="attr_skill12_name" id="skill12_name" class="w-100" style="margin-bottom: 0px;">
-                            <option value="Archery">Archery</option>
-                            <option value="Arcana">Arcana</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Banter">Banter</option>
-                            <option value="Commerce">Commerce</option>
-                            <option value="Computers">Computers</option>
-                            <option value="Crafting">Crafting</option>
-                            <option value="Deception">Deception</option>
-                            <option value="Drive">Drive</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Eloquence">Eloquence</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Gunnery">Gunnery</option>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Heavy_melee">Heavy Melee</option>
-                            <option value="Intimidation">Intimidation</option>
-                            <option value="Intuition">Intuition</option>
-                            <option value="Investigation">Investigation</option>
-                            <option value="Light_melee">Light Melee</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Meditation">Meditation</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Rally">Rally</option>
-                            <option value="Security">Security</option>
-                            <option value="Seduction">Seduction</option>
-                            <option value="Sleight of Hand">Sleight of Hand</option>
-                            <option value="Small_arms">Small Arms</option>
-                            <option value="Stealth">Stealth</option>
-                            <option value="Streetwise">Streetwise</option>
-                            <option value="Study">Study</option>
-                            <option value="Surveillance">Surveillance</option>
-                            <option value="Survival">Survival</option>
-                            <option value="Tactics">Tactics</option>
-                            <option value="Toxicology">Toxicology</option>
-                            <option value="Thrown">Thrown</option>
-                            <option value="Unarmed">Unarmed</option>
-                            <option value="Wetware">Wetware</option>
-                            <option value="" selected="selected">-</option>
-                        </select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill12_focus1"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill12_focus2"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill12_focus3"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill12_focus4"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <select class="m-0 no-select-arrow text-center" name="attr_skill12_focus5"><option value="" selected>-</option><option value="d4">d4</option><option value="d6">d6</option><option value="d8">d8</option><option value="d12">d12</option></select>
-                        <input type="text" class="text-center" placeholder="+" name="attr_skill12_mod">
-                        <select name="attr_skill12_trait" id="skill12_trait" class="w-100" style="margin-bottom: 0px;" >
-                            <option value="" selected>-</option>  
-                            <option value="power">Power</option>
-                            <option value="reflex">Reflex</option>
-                            <option value="heart">Heart</option>
-                            <option value="savvy">Savvy</option>
-                            <option value="perception">Perception</option>
-                            <option value="presence">Presence</option>
-                            <option value="shinpi">Shinpi</option>                               
-                        </select> 
-                    </div>
-                    <div class="skills-card-skills-line-contents-details">
-                        <div class="pl-2px"> Skill Ability Notes </div>
-                        <textarea type="text" class="w-98 lockwidth-skill-textarea" style="height: 18px;" placeholder="" name="attr_skill12_details"></textarea>
-                    </div>
-                </div>
-            </div>
+            </fieldset>
 
             <div class="skills-card-header-container">
                 <div>
@@ -1759,6 +809,7 @@
                 </div>
 
             </div>
+
             <fieldset class="repeating_custskills-lines" style="display: none;">
 
                     <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
@@ -2190,86 +1241,136 @@
     });
 
 
-    on("clicked:repeating_equipment-lines:roll-wep", (info) => {
+    on("clicked:repeating_equipment-lines:roll-wep", async (info) => {
         
+        console.log(info);
         console.log("rolling weapon attack....");
 
-        const wepNum = info.htmlAttributes.id.split("_")[2];
+        const skillIds = [];
+        getSectionIDs("skills-lines", function(skillIdArray) {
 
-        console.log(wepNum);
+            console.log(skillIdArray);
+            skillids = skillIdArray;
 
-        const wepAttrNames = buildAttackAttrDependencyNames(wepNum);
+            const wepAttrNames = buildAttackAttrDependencyNames(skillIdArray);
 
-        console.log(wepAttrNames);
+            console.log(wepAttrNames);
 
-        getAttrs(wepAttrNames, (values) => {
+            getAttrs(wepAttrNames, (values) => {
 
-            const valueMap = new Map(Object.entries(values));
-            console.log(valueMap);
 
-            //get skill name
-            const skillName = valueMap.get(`repeating_equipment-lines_wep_skill_name`);
-            const wepName = valueMap.get(`repeating_equipment-lines_wep_name`) ? valueMap.get(`repeating_equipment-lines_wep_name`) : "Weapon";
+                const valueMap = new Map(Object.entries(values));
+                console.log(valueMap);
 
-            console.log(values.character_name);
+                //get skill name
+                const skillName = valueMap.get(`repeating_equipment-lines_wep_skill_name`);
+                const wepName = valueMap.get(`repeating_equipment-lines_wep_name`) ? valueMap.get(`repeating_equipment-lines_wep_name`) : "Weapon";
 
-            if(!skillName) return;
+                console.log(values.character_name);
 
-            console.log(skillName);
+                if(!skillName) return;
 
-            //SKILL CALC
-            const skillId = findSkillInValues(valueMap, skillName);
+                console.log(skillName);
 
-            const traitName = skillId === null || skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`skill${skillId}_trait`);
+                //SKILL CALC
+                const skillId = findSkillInValues(valueMap, skillName, skillids);
 
-            //get traitname
-            
-            //usee traitName to get value of corresponding trait
-            console.log(traitName);
+                const traitName = skillId === null || skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`repeating_skills-lines_${skillId}_skill_trait`);
 
-            const traitValue = valueMap.get(traitName);
+                //get traitname
+                
+                //usee traitName to get value of corresponding trait
+                const traitValue = valueMap.get(traitName);
 
-            //parse the trait
-            const traitValNum = parseInt(traitValue);
+                //parse the trait
+                const traitValNum = parseInt(traitValue);
 
-            //calculate d10s
-            const traitRoll = getTraitRollD10s(traitValNum);
+                //calculate d10s
+                const traitRoll = getTraitRollD10s(traitValNum);
 
-            const shortRange = valueMap.get(`repeating_equipment-lines_wep_short_range`) ? valueMap.get(`repeating_equipment-lines_wep_short_range`) : "-";
+                const shortRange = valueMap.get(`repeating_equipment-lines_wep_short_range`) ? valueMap.get(`repeating_equipment-lines_wep_short_range`) : "-";
 
-            const longRange = valueMap.get(`repeating_equipment-lines_wep_long_range`) ? valueMap.get(`repeating_equipment-lines_wep_long_range`) : "-";
+                const longRange = valueMap.get(`repeating_equipment-lines_wep_long_range`) ? valueMap.get(`repeating_equipment-lines_wep_long_range`) : "-";
 
-            const damageType = valueMap.get(`repeating_equipment-lines_wep_damage_type`);
+                const damageType = valueMap.get(`repeating_equipment-lines_wep_damage_type`);
 
-            //roll damage
-            let damageRoll = valueMap.get(`repeating_equipment-lines_wep_damage`)
+                //roll damage
+                let damageRoll = valueMap.get(`repeating_equipment-lines_wep_damage`)
 
-            if(valueMap.get(`repeating_equipment-lines_wep_damage_bonus`)){
-                damageRoll = damageRoll + ` + ${valueMap.get(`repeating_equipment-lines_wep_damage_bonus`)}`
-            }
+                if(valueMap.get(`repeating_equipment-lines_wep_damage_bonus`)){
+                    damageRoll = damageRoll + ` + ${valueMap.get(`repeating_equipment-lines_wep_damage_bonus`)}`
+                }
 
-            const longDamage = ""
+                const longDamage = ""
 
-            const shortDamage = ""
-            
+                const shortDamage = ""
+                
 
-            let roll = `${traitRoll}d10!`;
+                let roll = `${traitRoll}d10!`;
 
-            console.log(roll);
+                console.log(roll);
 
-            //add focus
-            
-            //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
-            //long/short range damage is calculated after roll completes, then displayed in finishRoll
-            if(parseInt(skillId) === 0){
+                //add focus
+                
+                //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
+                //long/short range damage is calculated after roll completes, then displayed in finishRoll
+                if(parseInt(skillId) === 0){
+                    console.log("Skill Id is 0");
+                    roll = applyWounds(roll, values);
+
+                    startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
+                        const shortMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`)) ? parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`)) : 1;
+                        const longMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`)) ? parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`)) : 1;
+                        const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod);
+                        const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod);
+                        console.log("calcShortDamage:");
+                        console.log(calcShortDamage);
+                        finishRoll(
+                            results.rollId,
+                            {
+                                shortDamage: calcShortDamage,
+                                longDamage: calcLongDamage
+                            }
+                        );
+                    });
+                    return;
+                }
+
+
+                for(let i = 1; i <= 5; i++){
+                    const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_focus${i}`);
+                    console.log("dice to add:" + diceToAdd);
+                    if(diceToAdd) {
+                        roll = roll + ' + ' + diceToAdd;
+                        console.log(roll);
+                    }
+                }
+
+                //add mod
+                const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_mod`);
+                if(diceToAdd) {
+                    roll = roll + ' + ' + diceToAdd;
+                }
+
+                //apply attack bonus
+                if(valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)){
+                    roll = roll + `+ ${valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)}`;
+                }
+
 
                 roll = applyWounds(roll, values);
 
+                console.log(roll);
+
+
+                //check results and declare hit/miss
+                //long/short range damage is calculated after roll completes, then displayed in finishRoll
                 startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
-                    const shortMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`)) ? parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`)) : 1;
-                    const longMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`)) ? parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`)) : 1;
-                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod);
-                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod);
+
+                    const shortMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`));
+                    const longMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`));
+                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod) ? Math.ceil(results.results.damageRoll.result * shortMod) : "N/A";
+                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod) ? Math.ceil(results.results.damageRoll.result * longMod) : "N/A";
                     console.log("calcShortDamage:");
                     console.log(calcShortDamage);
                     finishRoll(
@@ -2280,60 +1381,12 @@
                         }
                     );
                 });
-                return;
-            }
 
+                console.log("weapon attack roll(s) done.");
 
-            for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`skill${skillId}_focus${i}`);
-                if(diceToAdd) {
-                    roll = roll + ' + ' + diceToAdd;
-                    console.log(roll);
-                }
-            }
-
-            //add mod
-            const diceToAdd = valueMap.get(`skill${skillId}_mod`);
-            if(diceToAdd) {
-                roll = roll + ' + ' + diceToAdd;
-            }
-
-            //apply attack bonus
-            if(valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)){
-                roll = roll + `+ ${valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)}`;
-            }
-
-
-            roll = applyWounds(roll, values);
-
-            console.log(roll);
-
-
-            //check results and declare hit/miss
-            //long/short range damage is calculated after roll completes, then displayed in finishRoll
-            startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
-
-                const shortMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`));
-                const longMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`));
-                const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod) ? Math.ceil(results.results.damageRoll.result * shortMod) : "N/A";
-                const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod) ? Math.ceil(results.results.damageRoll.result * longMod) : "N/A";
-                console.log("calcShortDamage:");
-                console.log(calcShortDamage);
-                finishRoll(
-                    results.rollId,
-                    {
-                        shortDamage: calcShortDamage,
-                        longDamage: calcLongDamage
-                    }
-                );
             });
 
         });
-
-
-        console.log("weapon attack roll(s) done.");
-
-
 
     });
 
@@ -2467,51 +1520,91 @@
 
         console.log(roteNum);
 
-        const roteAttrNames = buildRoteAttrDependencyNames(roteNum);
-        console.log(roteAttrNames);
-        getAttrs(roteAttrNames, (values) => {
+        
+        const skillIds = [];
+
+        getSectionIDs("skills-lines", function(skillIdArray) {
+
+            const roteAttrNames = buildRoteAttrDependencyNames(skillIdArray);
+
+            console.log(roteAttrNames);
+
+            getAttrs(roteAttrNames, (values) => {
+
+                const valueMap = new Map(Object.entries(values));
+                console.log(valueMap);
+                //get skill name
+                const skillName = valueMap.get(`repeating_rotes-lines_rote_casting_skill`);
+                const roteName = valueMap.get(`repeating_rotes-lines_rote_name`) ? valueMap.get(`repeating_rotes-lines_rote_name`) : "Rote";
+                const roteDetails = valueMap.get(`repeating_rotes-lines_rote_details`) ? valueMap.get(`repeating_rotes-lines_rote_details`) : "N/A";
+                console.log(values.character_name);
+                console.log(skillName);
+
+                //SKILL CALC
+                const skillId = findSkillInValues(valueMap, skillName, skillIdArray);
+
+                console.log(skillId);
+
+                const traitName = "shinpi";
+                
+                //usee traitName to get value of corresponding trait
+                console.log(traitName);
+                const traitValue = valueMap.get(traitName);
+
+                //parse the trait
+                const traitValNum = parseInt(traitValue);
+
+                //calculate d10s
+                const traitRoll = getTraitRollD10s(traitValNum);
+                
+
+                let roll = `${traitRoll}d10!`;
+
+                console.log(roll);
+
+                //add focus
+                
+                //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
+                if(parseInt(skillId) === 0){
+                    roll = applyWounds(roll, values);
+                    startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${roteDetails}}}`, (results) => {
+                        const total = results.results.roll.result
+
+                        finishRoll(
+                            results.rollId,
+                            {
+                                roll: total
+                            }
+                        );
+                    });
+                    return;
+                }
 
 
-            const valueMap = new Map(Object.entries(values));
-            console.log(valueMap);
-            //get skill name
-            const skillName = valueMap.get(`repeating_rotes-lines_rote_casting_skill`);
-            const roteName = valueMap.get(`repeating_rotes-lines_rote_name`) ? valueMap.get(`repeating_rotes-lines_rote_name`) : "Rote";
-            const roteDetails = valueMap.get(`repeating_rotes-lines_rote_details`) ? valueMap.get(`repeating_rotes-lines_rote_details`) : "N/A";
-            console.log(values.character_name);
-            console.log(skillName);
+                for(let i = 1; i <= 5; i++){
+                    const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_focus${i}`);
+                    if(diceToAdd) {
+                        roll = roll + ' + ' + diceToAdd;
+                        console.log(roll);
+                    }
+                }
 
-            //SKILL CALC
-            const skillId = findSkillInValues(valueMap, skillName);
+                //add mod
+                const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_mod`);
+                if(diceToAdd) {
+                    roll = roll + ' + ' + diceToAdd;
+                    console.log(roll);
+                }
 
-            console.log(skillId);
 
-            const traitName = !skillId ? "shinpi" : valueMap.get(`skill${skillId}_trait`);
-
-            if(!traitName) traitName = "shinpi";
-            //get traitname
-            
-            //usee traitName to get value of corresponding trait
-            console.log(traitName);
-            const traitValue = valueMap.get(traitName);
-
-            //parse the trait
-            const traitValNum = parseInt(traitValue);
-
-            //calculate d10s
-            const traitRoll = getTraitRollD10s(traitValNum);
-            
-
-            let roll = `${traitRoll}d10!`;
-
-            console.log(roll);
-
-            //add focus
-            
-            //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
-            if(parseInt(skillId) === 0){
                 roll = applyWounds(roll, values);
-                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${roteDetails}}}`, (results) => {
+
+                console.log(roll);
+
+
+                //check results and declare hit/miss
+
+                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${valueMap.get(`repeating_rotes-lines_rote_details`)}}}`, (results) => {
                     const total = results.results.roll.result
 
                     finishRoll(
@@ -2521,47 +1614,13 @@
                         }
                     );
                 });
-                return;
-            }
 
+                console.log("rote roll done.");
 
-            for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`skill${skillId}_focus${i}`);
-                if(diceToAdd) {
-                    roll = roll + ' + ' + diceToAdd;
-                    console.log(roll);
-                }
-            }
-
-            //add mod
-            const diceToAdd = valueMap.get(`skill${skillId}_mod`);
-            if(diceToAdd) {
-                roll = roll + ' + ' + diceToAdd;
-                console.log(roll);
-            }
-
-
-            roll = applyWounds(roll, values);
-
-            console.log(roll);
-
-
-            //check results and declare hit/miss
-
-            startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${valueMap.get(`repeating_rotes-lines_rote_details`)}}}`, (results) => {
-                const total = results.results.roll.result
-
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
             });
 
         });
 
-        console.log("rote roll done.");
     });
 
     on("clicked:repeating_custskills-lines:roll-custskill", (info) => {
@@ -2636,25 +1695,27 @@
         });
     });
 
-    on("clicked:roll-skill", (info) => {
+    on("clicked:repeating_skills-lines:roll-skill", (info) => {
         console.log("rolling skill....");
         console.log(info);
 
-        const traitNum = info.htmlAttributes.id.split("roll_skill_")[1];
+        const skillId = info.sourceAttribute.split("_")[2];
 
-        getAttrs([`skill${traitNum}_trait`, `skill${traitNum}_name`, "character_name",
-        `skill${traitNum}_focus1`, `skill${traitNum}_focus2`, `skill${traitNum}_focus3`, `skill${traitNum}_focus4`, `skill${traitNum}_focus5`, 
-        `skill${traitNum}_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
+        console.log(skillId);
+
+        getAttrs([`repeating_skills-lines_skill_trait`, `repeating_skills-lines_skill_name`, "character_name",
+        `repeating_skills-lines_skill_focus1`, `repeating_skills-lines_skill_focus2`, `repeating_skills-lines_skill_focus3`, `repeating_skills-lines_skill_focus4`, `repeating_skills-lines_skill_focus5`, 
+        `repeating_skills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
         "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
 
 
             const valueMap = new Map(Object.entries(values));
             console.log(valueMap);
             //error check
-            if(!valueMap.get(`skill${traitNum}_trait`) === null) return;
+            if(!valueMap.get(`repeating_skills-lines_skill_trait`) === null) return;
 
             //get traitname
-            const traitName = valueMap.get(`skill${traitNum}_trait`);
+            const traitName = valueMap.get(`repeating_skills-lines_skill_trait`);
             console.log(traitName);
             //use traitName to get value of corresponding trait
             const traitValue = valueMap.get(traitName);
@@ -2670,7 +1731,7 @@
 
             //add focus
             for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`skill${traitNum}_focus${i}`);
+                const diceToAdd = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
                 if(diceToAdd) {
                     roll = roll + ' + ' + diceToAdd;
                     console.log(roll);
@@ -2678,7 +1739,7 @@
             }
 
             //add mod
-            const diceToAdd = valueMap.get(`skill${traitNum}_mod`);
+            const diceToAdd = valueMap.get(`repeating_skills-lines_skill_mod`);
             if(diceToAdd) {
                 roll = roll + ' + ' + diceToAdd;
             }
@@ -2688,7 +1749,7 @@
 
             console.log(roll);
 
-            const skillName = valueMap.get(`skill${traitNum}_name`);
+            const skillName = valueMap.get(`repeating_skills-lines_skill_name`);
 
             startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
                 const total = results.results.roll.result
@@ -2704,53 +1765,6 @@
 
             console.log("skill roll done.");
         });
-    });
-
-    on("clicked:roll_fate", (info) => {
-        console.log("rolling fate....");
-
-        getSectionIDs("fate-lines", function(fateLineIds) {
-
-            const fateAttrs = getFateAttrArray(fateLineIds);
-
-            fateAttrs.push("character_name");
-
-            getAttrs(fateAttrs, (values) => {
-                console.log(values);
-
-                const charName = !values.character_name ? "" : values.character_name;
-                
-                const roll = Math.floor(Math.random() * 100) + 1;
-                
-                const effect = (roll >= 1 && roll <= 3) ? "BOTCH!" : getFateEffect(roll, values);
-
-                startRoll(`&{template:fate} {{characterName=${charName}}} {{roll=[[${roll}]]}} {{effect=${effect}}}`, (results) => {
-                    const total = results.results.roll.result
-
-                    finishRoll(
-                        results.rollId,
-                        {
-                            roll: total
-                        }
-                    );
-                });
-
-            });
-
-        });
-
-
-        console.log("fate roll done.");
-    });
-
-    on("change:repeating_fate-lines:fateminpercent", function(eventInfo) {
-   //Do something here
-   // eventInfo.sourceAttribute is the full name (including repeating ID) of the attribute 
-   // that originally triggered this event, 
-   // however the entire string will have been translated into lowercase and thus might not be 
-   // suitable for being fed directly
-   // into getAttrs() or other uses without being devandalized first.
-        console.log(eventInfo);
     });
 
     on("clicked:roll_power", (info) => {
@@ -3234,19 +2248,19 @@
         return traits;
     }
 
-    const buildRoteAttrDependencyNames = (roteNum) => {
+    const buildRoteAttrDependencyNames = (skillIdArray) => {
         const skillAttrNames = [];
-        for(let i = 1; i <= 12; i++){
-            skillAttrNames.push(`skill${i}_trait`);
-            skillAttrNames.push(`skill${i}_name`);
-            skillAttrNames.push(`skill${i}_focus1`);
-            skillAttrNames.push(`skill${i}_focus2`);
-            skillAttrNames.push(`skill${i}_focus3`);
-            skillAttrNames.push(`skill${i}_focus4`);
-            skillAttrNames.push(`skill${i}_focus5`);
-            skillAttrNames.push(`skill${i}_mod`);
-            skillAttrNames.push(`skill${i}_trait`);
-        };
+        for(var i=0; i < skillIdArray.length; i++) {
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_trait`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_name`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus1`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus2`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus3`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus4`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus5`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_mod`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_trait`);
+        }
         skillAttrNames.push("power");
         skillAttrNames.push(`reflex`);
         skillAttrNames.push(`heart`);
@@ -3270,19 +2284,22 @@
         return skillAttrNames;
     }
 
-    const buildAttackAttrDependencyNames = (weaponId) => {
+
+    const buildAttackAttrDependencyNames = (skillIdArray) => {
         const skillAttrNames = [];
-        for(let i = 1; i <= 12; i++){
-            skillAttrNames.push(`skill${i}_trait`);
-            skillAttrNames.push(`skill${i}_name`);
-            skillAttrNames.push(`skill${i}_focus1`);
-            skillAttrNames.push(`skill${i}_focus2`);
-            skillAttrNames.push(`skill${i}_focus3`);
-            skillAttrNames.push(`skill${i}_focus4`);
-            skillAttrNames.push(`skill${i}_focus5`);
-            skillAttrNames.push(`skill${i}_mod`);
-            skillAttrNames.push(`skill${i}_trait`);
-        };
+
+        for(var i=0; i < skillIdArray.length; i++) {
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_trait`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_name`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus1`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus2`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus3`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus4`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_focus5`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_mod`);
+            skillAttrNames.push(`repeating_skills-lines_${skillIdArray[i]}_skill_trait`);
+        }
+        skillAttrNames.push(`repeating_skills-lines_trait`);
         skillAttrNames.push("power");
         skillAttrNames.push(`reflex`);
         skillAttrNames.push(`heart`);
@@ -3302,7 +2319,7 @@
         skillAttrNames.push(`repeating_equipment-lines_wep_skill_name`);
         skillAttrNames.push(`repeating_equipment-lines_wep_short_range`);
         skillAttrNames.push(`repeating_equipment-lines_wep_long_range`);
-        skillAttrNames.push(`repeating_equipment-lines_wep$_damage_type`);
+        skillAttrNames.push(`repeating_equipment-lines_wep_damage_type`);
         skillAttrNames.push(`repeating_equipment-lines_wep_damage`);
         skillAttrNames.push(`repeating_equipment-lines_wep_burst_roll`);
         skillAttrNames.push(`repeating_equipment-lines_wep_short_modifier`);
@@ -3310,6 +2327,8 @@
         skillAttrNames.push(`repeating_equipment-lines_wep_attack_bonus`);
         skillAttrNames.push(`repeating_equipment-lines_wep_damage_bonus`);
         skillAttrNames.push(`repeating_equipment-lines_wep_name`);
+        skillAttrNames.push(`character_id`);
+        skillAttrNames.push(`_reporder_repeating_skills-lines`);
 
         return skillAttrNames;
     }
@@ -3358,17 +2377,25 @@
     }
 
 
-    const findSkillInValues = (valueMap, nameToFind) => {
+    const findSkillInValues = (valueMap, nameToFind, skillIds) => {
         console.log(nameToFind);
         if(!nameToFind) return null;
-        //TODO: Rework getting skills
-        for(let i = 1; i <= 12; i++){
-            console.log("comparing map and " + nameToFind);
-            if(valueMap.get(`skill${i}_name`).toLowerCase() === nameToFind.toLowerCase()) return i;
-        };
+        console.log(skillIds);
+        const skillValue = skillIds.find(skillId => {
+            
+            if(valueMap.get(`repeating_skills-lines_${skillId}_skill_name`).toLowerCase() === nameToFind.toLowerCase()) return skillId;
+            return false;
+        });       
+
+        if(skillValue) return skillValue;
+
         console.log("Not found, returning default...");
         
         return null;
+    }
+
+    const getSkillLineIds = () => {
+
     }
 
     const getWoundDeficit = (values) => {
