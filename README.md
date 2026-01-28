@@ -17,3 +17,5 @@ A Roll20 character sheet for the New Edo system by Salty Games
 - Add More space to fate card descriptions
 - (fixed) The two custom skills sections maintain the same root attribute
 - (fixed) The last custom skills column truncates the width of the last addition column (fixed).
+- Skills section now completely dynamic
+- Rotes now always use shinpi
