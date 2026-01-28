@@ -538,6 +538,79 @@
         </div>
     </section>
 
+    <section id="armor-section">
+        <div class="border-thin bg-blue armor-card-container">
+            <div class="armor-card-header-container">
+                <div>
+                    
+                </div>
+                <div>
+                    <h3 class="no-underline">Armor</span>   
+                </div>
+                <div class="hider-holder">
+                    
+                </div>
+
+            </div>
+            <fieldset class="repeating_armor-lines" style="display: none;">
+
+                    <div class="armor-card-armor-line-container bg-ltblue border-thin mb-1" style="font-size:12px;">
+
+                        <div class="armor-card-armor-line-container-header">
+                            <div class="generic-roller">
+                                
+                            </div>
+                            <div>
+                                <span class="header-4"><input class="w-100" type="text" name="attr_armor_name" style="text-align: center;" readonly></span>  
+                            </div>
+                            <div class="hider-holder">
+                                <input type="checkbox" class="armor-hider" name="attr_armor_hidden"> 
+                            </div>
+                        </div>
+                        <input type="checkbox" class="armor-line-hider" name="attr_armor_hidden" hidden> 
+                        <div class="armor-card-armor-line-contents-body can-hide">
+                            <div class="pl-2px">
+                                Name
+                            </div>
+                            <div class="pl-2px">
+                                Quality
+                            </div>
+                            <div class="pl-2px">
+                                Soak Type(s) & Rating
+                            </div>
+                            <div>
+                                <input class="w-100" type="text" name="attr_armor_name" placeholder="">
+                            </div>
+                            <div>
+                                <input class="w-100" type="text" name="attr_armor_quality" placeholder="">
+                            </div>
+                            <div>
+                                <textarea type="text" class="w-98 lockwidth-armor-textarea" style="height: 18px;" placeholder="" name="attr_armor_soakTypeRating"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="armor-card-armor-line-details-body can-hide" style="padding-right: 4px;">
+                            <div class="pl-2px">
+                                Unlocks, Features, Upgrades and Notes
+                            </div>
+                            <textarea type="text" class="w-98 lockwidth-armor-details-textarea" style="height: 18px;" placeholder="" name="attr_armor_details"></textarea>
+                            <div style="text-align: center;">
+                                Filled Mod Slots 
+                                <input type="checkbox" name="attr_armor_mod_slot1">
+                                <input type="checkbox" name="attr_armor_mod_slot2">
+                                <input type="checkbox" name="attr_armor_mod_slot3">
+                                <input type="checkbox" name="attr_armor_mod_slot4">
+                                <input type="checkbox" name="attr_armor_mod_slot5">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </fieldset>
+        </div>
+    </section>
+
     <section id="augs-section">
         <div class="border-thin bg-cyan augments-card-container">
             <div class="augments-card-header-container">
@@ -1471,11 +1544,8 @@
                 const skillId = findSkillInValues(valueMap, skillName, skillIdArray);
 
                 console.log(skillId);
-                //TODO: is this always shinpi?
-                const traitName = !skillId ? "shinpi" : valueMap.get(`repeating_skills-lines_${skillId}_skill_trait`);
 
-                if(!traitName) traitName = "shinpi";
-                //get traitname
+                const traitName = "shinpi";
                 
                 //usee traitName to get value of corresponding trait
                 console.log(traitName);

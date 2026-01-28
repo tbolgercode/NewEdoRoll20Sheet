@@ -787,6 +787,47 @@ h2 {
     padding: 2px;
 }
 
+.armor-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
+.armor-card-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, auto));
+    justify-content: space-between;
+    grid-template-rows: 80%;
+}
+
+.armor-card-armor-line-container-header {
+    display: grid;
+    grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
+    grid-template-rows: minmax(28px, auto);
+    justify-content: space-between;
+    padding:2px;
+}
+
+.armor-card-armor-line-contents-body {
+    display: grid;
+    grid-template-columns: minmax(50px, 3fr) minmax(50px, 1fr) minmax(50px, 7fr);
+    gap: 10px;
+    padding: 2px;
+}
+
+.armor-card-armor-line-details-body {
+    display: grid;
+    grid-template-columns: minmax(50px, auto);
+    gap: 10px;
+    padding: 2px;
+}
+
+.armor-card-container {
+    display: grid;
+    gap: 10px;
+    padding: 2px;
+}
+
 .skills-card-container {
     display: grid;
     gap: 2px;
@@ -955,6 +996,28 @@ h2 {
     display:none;
 }
 
+.armor-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.armor-hider:checked ~ #armor-card-contents {
+    display:none;
+}
+
+.armor-line-hider {
+    aspect-ratio: 1 / 1;
+    grid-area:auto;
+}
+
+.armor-line-hider:checked ~ .armor-card-armor-line-contents-body {
+    display:none;
+}
+
+.armor-line-hider:checked ~ .armor-card-armor-line-details-body {
+    display:none;
+}
+
 .skills-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
@@ -1041,6 +1104,22 @@ h2 {
 .lockwidth-augments-textarea {
     max-width: 98%; 
     min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-armor-textarea {
+    max-width: 98%; 
+    min-width: 98%;
+    min-height: 18px;
+    resize: vertical;
+    margin-bottom: 0px;
+}
+
+.lockwidth-armor-details-textarea {
+    max-width: 99%; 
+    min-width: 99%;
     min-height: 18px;
     resize: vertical;
     margin-bottom: 0px;
