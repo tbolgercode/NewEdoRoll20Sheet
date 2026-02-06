@@ -77,8 +77,6 @@ option {
     align-items: center;
 }
 
-
-
 .roll-button:active {
     transform: scale(0.95) !important;
 }
@@ -90,8 +88,6 @@ option {
     align-items: center;
     align-content: center;
 }
-
-
 
 section {
     padding: 5px;
