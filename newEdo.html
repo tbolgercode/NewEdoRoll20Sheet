@@ -1205,7 +1205,7 @@
     <div class="container">
         <h3 style="margin-bottom: 0.3rem; color: white;">{{characterName}} rolls Fate:</h3>
         <div class="">
-            <div style="margin-bottom: 0.3rem;">
+            <div style="margin-bottom: 0.4rem;">
                 <h4>{{roll}}</h4>
             </div>
             <div class="sheet-rolltemplate-rote-details">
@@ -1220,811 +1220,275 @@
 </rolltemplate>
 
 <script type="text/worker">
+        /**
+     * New Edo Roll20 Character Sheet - Sheet Worker Scripts
+     * Handles roll buttons, derived stats (HP, resolve, defence, etc.), and utility helpers.
+     */
 
-    //TODO: Make the attribute manipulation easier?
+    // ---------------------------------------------------------------------------
+    // CONSTANTS – attribute names used across roll and calc logic
+    // ---------------------------------------------------------------------------
 
-    ///BUTTON CLICKS
+    /** Attributes needed for wound penalties and character name on rolls */
+    const WOUND_ATTRS = ["max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"];
 
-    on("clicked:roll_initiative", (info) => {
-        console.log("Adding initiative.");
+    /**
+     * Run a single trait roll (e.g. Power, Reflex). Uses trait attr, applies wounds, template:trait.
+     * @param {string} traitAttr - Attribute name (e.g. "power", "reflex")
+     * @param {string} traitLabel - Display name for roll output (e.g. "Power", "Reflex")
+     */
+    const doTraitRoll = (traitAttr, traitLabel) => {
+        getAttrs([traitAttr, ...WOUND_ATTRS], (values) => {
+            if (!values[traitAttr]) return;
+            const val = parseInt(values[traitAttr], 10);
+            if (Number.isNaN(val)) return;
+            const d10s = getTraitRollD10s(val);
+            let roll = `${d10s}d10!`;
+            roll = applyWounds(roll, values);
+            const charName = values.character_name || "";
+            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=${traitLabel}}} {{roll=[[${roll}]]}}`, (results) => {
+                finishRoll(results.rollId, { roll: results.results.roll.result });
+            });
+        });
+    };
 
+    /**
+     * Run a background roll (Contacts, Followers, Soul, Status, Wealth). Uses score attr, applies wounds, template:trait.
+     * @param {string} scoreAttr - Attribute name (e.g. "contacts_score")
+     * @param {string} traitLabel - Display name (e.g. "Contacts")
+     */
+    const doBackgroundRoll = (scoreAttr, traitLabel) => {
+        getAttrs([scoreAttr, ...WOUND_ATTRS], (values) => {
+            const score = parseInt(values[scoreAttr], 10) || 0;
+            const numDice = getBackgroundD10s(score);
+            const rollExpr = applyWounds(`${numDice}d10!`, values);
+            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${rollExpr}]]}} {{traitName=${traitLabel}}}`, (results) => {
+                finishRoll(results.rollId, { roll: results.results.roll.result });
+            });
+        });
+    };
+
+    // ---------------------------------------------------------------------------
+    // BUTTON CLICKS – Roll20 event handlers
+    // ---------------------------------------------------------------------------
+
+    /** Initiative: roll initiative and add to tracker */
+    on("clicked:roll_initiative", () => {
         getAttrs(["character_name", "initiative", "initiative_base"], (values) => {
-
-            var initiative = values.initiative_base;
-            if(parseInt(values.initiative)) initiative = values.initiative;
-
+            let initiative = values.initiative_base;
+            if (parseInt(values.initiative, 10)) initiative = values.initiative;
             startRoll(`&{template:init} {{characterName=${values.character_name}}} {{initiative=[[${initiative} &{tracker}]]}}`, (results) => {
                 finishRoll(results.rollId, {});
             });
         });
-
     });
 
 
-    on("clicked:repeating_equipment-lines:roll-wep", async (info) => {
-        
-        console.log(info);
-        console.log("rolling weapon attack....");
-
-        const skillIds = [];
-        getSectionIDs("skills-lines", function(skillIdArray) {
-
-            console.log(skillIdArray);
-            skillids = skillIdArray;
-
+    /** Weapon attack: build roll from weapon + linked skill, apply focus/mod/wounds, then damage modifiers */
+    on("clicked:repeating_equipment-lines:roll-wep", (info) => {
+        getSectionIDs("skills-lines", (skillIdArray) => {
             const wepAttrNames = buildAttackAttrDependencyNames(skillIdArray);
-
-            console.log(wepAttrNames);
-
             getAttrs(wepAttrNames, (values) => {
-
-
                 const valueMap = new Map(Object.entries(values));
-                console.log(valueMap);
+                const skillName = valueMap.get("repeating_equipment-lines_wep_skill_name");
+                const wepName = valueMap.get("repeating_equipment-lines_wep_name") || "Weapon";
 
-                //get skill name
-                const skillName = valueMap.get(`repeating_equipment-lines_wep_skill_name`);
-                const wepName = valueMap.get(`repeating_equipment-lines_wep_name`) ? valueMap.get(`repeating_equipment-lines_wep_name`) : "Weapon";
+                if (!skillName) return;
 
-                console.log(values.character_name);
+                const skillId = findSkillInValues(valueMap, skillName, skillIdArray);
 
-                if(!skillName) return;
-
-                console.log(skillName);
-
-                //SKILL CALC
-                const skillId = findSkillInValues(valueMap, skillName, skillids);
-
-                const traitName = skillId === null || skillId === 0 ? getSkillDefault(skillName) : valueMap.get(`repeating_skills-lines_${skillId}_skill_trait`);
-
-                //get traitname
-                
-                //usee traitName to get value of corresponding trait
-                const traitValue = valueMap.get(traitName);
-
-                //parse the trait
-                const traitValNum = parseInt(traitValue);
-
-                //calculate d10s
+                const traitName = (skillId === null || skillId === 0) ? getSkillDefault(skillName) : valueMap.get(`repeating_skills-lines_${skillId}_skill_trait`);
+                const traitValue = traitName ? valueMap.get(traitName) : undefined;
+                const traitValNum = parseInt(traitValue, 10) || 0;
                 const traitRoll = getTraitRollD10s(traitValNum);
 
-                const shortRange = valueMap.get(`repeating_equipment-lines_wep_short_range`) ? valueMap.get(`repeating_equipment-lines_wep_short_range`) : "-";
+                const shortRange = valueMap.get("repeating_equipment-lines_wep_short_range") || "-";
+                const longRange = valueMap.get("repeating_equipment-lines_wep_long_range") || "-";
+                const damageType = valueMap.get("repeating_equipment-lines_wep_damage_type") || "";
 
-                const longRange = valueMap.get(`repeating_equipment-lines_wep_long_range`) ? valueMap.get(`repeating_equipment-lines_wep_long_range`) : "-";
-
-                const damageType = valueMap.get(`repeating_equipment-lines_wep_damage_type`);
-
-                //roll damage
-                let damageRoll = valueMap.get(`repeating_equipment-lines_wep_damage`)
-
-                if(valueMap.get(`repeating_equipment-lines_wep_damage_bonus`)){
-                    damageRoll = damageRoll + ` + ${valueMap.get(`repeating_equipment-lines_wep_damage_bonus`)}`
-                }
-
-                const longDamage = ""
-
-                const shortDamage = ""
-                
+                let damageRoll = valueMap.get("repeating_equipment-lines_wep_damage") || "0";
+                const damageBonus = valueMap.get("repeating_equipment-lines_wep_damage_bonus");
+                if (damageBonus) damageRoll = `${damageRoll} + ${damageBonus}`;
 
                 let roll = `${traitRoll}d10!`;
 
-                console.log(roll);
-
-                //add focus
-                
-                //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
-                //long/short range damage is calculated after roll completes, then displayed in finishRoll
-                if(parseInt(skillId) === 0){
-                    console.log("Skill Id is 0");
+                /* No matching skill in sheet: roll trait + wounds only; damage computed in finishRoll */
+                if (parseInt(skillId, 10) === 0 || skillId === null) {
                     roll = applyWounds(roll, values);
 
                     startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
-                        const shortMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`)) ? parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`)) : 1;
-                        const longMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`)) ? parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`)) : 1;
+                        const shortMod = parseFloat(valueMap.get("repeating_equipment-lines_wep_short_modifier")) || 1;
+                        const longMod = parseFloat(valueMap.get("repeating_equipment-lines_wep_long_modifier")) || 1;
                         const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod);
                         const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod);
-                        console.log("calcShortDamage:");
-                        console.log(calcShortDamage);
-                        finishRoll(
-                            results.rollId,
-                            {
-                                shortDamage: calcShortDamage,
-                                longDamage: calcLongDamage
-                            }
-                        );
+                        finishRoll(results.rollId, { shortDamage: calcShortDamage, longDamage: calcLongDamage });
                     });
                     return;
                 }
 
-
-                for(let i = 1; i <= 5; i++){
+                for (let i = 1; i <= 5; i++) {
                     const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_focus${i}`);
-                    console.log("dice to add:" + diceToAdd);
-                    if(diceToAdd) {
-                        roll = roll + ' + ' + diceToAdd;
-                        console.log(roll);
-                    }
+                    if (diceToAdd) roll = `${roll} + ${diceToAdd}`;
                 }
-
-                //add mod
-                const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_mod`);
-                if(diceToAdd) {
-                    roll = roll + ' + ' + diceToAdd;
-                }
-
-                //apply attack bonus
-                if(valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)){
-                    roll = roll + `+ ${valueMap.get(`repeating_equipment-lines_wep_attack_bonus`)}`;
-                }
-
+                const skillMod = valueMap.get(`repeating_skills-lines_${skillId}_skill_mod`);
+                if (skillMod) roll = `${roll} + ${skillMod}`;
+                const attackBonus = valueMap.get("repeating_equipment-lines_wep_attack_bonus");
+                if (attackBonus) roll = `${roll} + ${attackBonus}`;
 
                 roll = applyWounds(roll, values);
 
-                console.log(roll);
-
-
-                //check results and declare hit/miss
-                //long/short range damage is calculated after roll completes, then displayed in finishRoll
                 startRoll(`&{template:wep} {{characterName=${values.character_name}}} {{attackRoll=[[${roll}]]}} {{wepName=${wepName}}} {{damageRoll=[[${damageRoll}]]}} {{shortRange=${shortRange}}} {{damageType=${damageType}}} {{longRange=${longRange}}} {{shortDamage=[[0]]}} {{longDamage=[[0]]}}`, (results) => {
-
-                    const shortMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_short_modifier`));
-                    const longMod = parseFloat(valueMap.get(`repeating_equipment-lines_wep_long_modifier`));
-                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod) ? Math.ceil(results.results.damageRoll.result * shortMod) : "N/A";
-                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod) ? Math.ceil(results.results.damageRoll.result * longMod) : "N/A";
-                    console.log("calcShortDamage:");
-                    console.log(calcShortDamage);
-                    finishRoll(
-                        results.rollId,
-                        {
-                            shortDamage: calcShortDamage,
-                            longDamage: calcLongDamage
-                        }
-                    );
+                    const shortMod = parseFloat(valueMap.get("repeating_equipment-lines_wep_short_modifier")) || 1;
+                    const longMod = parseFloat(valueMap.get("repeating_equipment-lines_wep_long_modifier")) || 1;
+                    const calcShortDamage = Math.ceil(results.results.damageRoll.result * shortMod);
+                    const calcLongDamage = Math.ceil(results.results.damageRoll.result * longMod);
+                    finishRoll(results.rollId, { shortDamage: calcShortDamage, longDamage: calcLongDamage });
                 });
-
-                console.log("weapon attack roll(s) done.");
-
             });
-
         });
-
     });
 
-    //TODO: Change background rolls to use the map method
-    on("clicked:roll_contacts", (info) => {
-        console.log("rolling contacts....");
+    /** Background rolls: Contacts, Followers, Soul, Status, Wealth */
+    on("clicked:roll_contacts", () => doBackgroundRoll("contacts_score", "Contacts"));
+    on("clicked:roll_followers", () => doBackgroundRoll("followers_score", "Followers"));
+    on("clicked:roll_soul", () => doBackgroundRoll("soul_score", "Soul"));
+    on("clicked:roll_status", () => doBackgroundRoll("status_score", "Status"));
+    on("clicked:roll_wealth", () => doBackgroundRoll("wealth_score", "Wealth"));
 
-        getAttrs(["contacts_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
+    /** Fate: roll 1d100 and resolve effect from fate-lines min/max percent ranges, template:fate */
+    on("clicked:roll_fate", () => {
+        getSectionIDs("fate-lines", (fateLineIds) => {
+            const attrs = getFateAttrArray(fateLineIds);
+            getAttrs(attrs, (values) => {
 
-            const roll = getBackgroundD10s(parseInt(values.contacts_score), values);
-            
-            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Contacts}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
+                const charName = !values.character_name ? "" : values.character_name;
+                const roll = Math.floor(Math.random() * 100) + 1;
+                const effect = (roll >= 1 && roll <= 3) ? "BOTCH!" : getFateEffect(roll, values);
+
+                startRoll(`&{template:fate} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{effect=${effect}}}`, (results) => {
+                    const roll = results.results.roll.result;
+                    finishRoll(results.rollId, { roll: roll });
+                });
             });
-
-            console.log("contacts roll done.");
         });
-
-
-    });
-    
-    on("clicked:roll_followers", (info) => {
-        console.log("rolling followers....");
-
-        getAttrs(["followers_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            const roll = getBackgroundD10s(parseInt(values.followers_score));
-
-            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Followers}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-            console.log("followers roll done.");
-        });
-
-
-    });    
-
-    on("clicked:roll_soul", (info) => {
-        console.log("rolling soul....");
-
-        getAttrs(["soul_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            const roll = getBackgroundD10s(parseInt(values.soul_score));
-
-            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Soul}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-            console.log("soul roll done.");
-        });
-
-
-    });   
-
-    on("clicked:roll_status", (info) => {
-        console.log("rolling status....");
-
-        getAttrs(["status_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            const roll = getBackgroundD10s(parseInt(values.status_score));
-            console.log(values);
-            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{traitName=Status}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-            console.log("status roll done.");
-        });
-
-
-    }); 
-
-    on("clicked:roll_wealth", (info) => {
-        console.log("rolling wealth....");
-
-        getAttrs(["wealth_score", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            const roll = getBackgroundD10s(parseInt(values.wealth_score));
-
-            startRoll(`&{template:trait} {{characterName=${values.character_name}}} {{roll=[[${roll}d10!]]}} {{skillName=Wealth}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-            console.log("wealth roll done.");
-        });
-
-
     });
 
-
+    /** Rote: roll using Shinpi + casting skill focus/mod, template:rote */
     on("clicked:repeating_rotes-lines:roll-rote", (info) => {
-        console.log("rolling rote....");
-
-        console.log(info);
-        const roteNum = info.sourceAttribute.split("_")[2];
-
-        console.log(roteNum);
-
-        
-        const skillIds = [];
-
-        getSectionIDs("skills-lines", function(skillIdArray) {
-
+        getSectionIDs("skills-lines", (skillIdArray) => {
             const roteAttrNames = buildRoteAttrDependencyNames(skillIdArray);
-
-            console.log(roteAttrNames);
-
             getAttrs(roteAttrNames, (values) => {
-
                 const valueMap = new Map(Object.entries(values));
-                console.log(valueMap);
-                //get skill name
-                const skillName = valueMap.get(`repeating_rotes-lines_rote_casting_skill`);
-                const roteName = valueMap.get(`repeating_rotes-lines_rote_name`) ? valueMap.get(`repeating_rotes-lines_rote_name`) : "Rote";
-                const roteDetails = valueMap.get(`repeating_rotes-lines_rote_details`) ? valueMap.get(`repeating_rotes-lines_rote_details`) : "N/A";
-                console.log(values.character_name);
-                console.log(skillName);
+                const skillName = valueMap.get("repeating_rotes-lines_rote_casting_skill");
+                const roteName = valueMap.get("repeating_rotes-lines_rote_name") || "Rote";
+                const roteDetails = valueMap.get("repeating_rotes-lines_rote_details") || "N/A";
+                const tn = valueMap.get("repeating_rotes-lines_rote_tn");
 
-                //SKILL CALC
                 const skillId = findSkillInValues(valueMap, skillName, skillIdArray);
-
-                console.log(skillId);
-
-                const traitName = "shinpi";
-                
-                //usee traitName to get value of corresponding trait
-                console.log(traitName);
-                const traitValue = valueMap.get(traitName);
-
-                //parse the trait
-                const traitValNum = parseInt(traitValue);
-
-                //calculate d10s
+                const traitValNum = parseInt(valueMap.get("shinpi"), 10) || 0;
                 const traitRoll = getTraitRollD10s(traitValNum);
-                
-
                 let roll = `${traitRoll}d10!`;
 
-                console.log(roll);
-
-                //add focus
-                
-                //If there is no skill id (found skill in skills table), no focus/bonuses to add... Roll and exit.
-                if(parseInt(skillId) === 0){
+                if (parseInt(skillId, 10) === 0 || skillId === null) {
                     roll = applyWounds(roll, values);
-                    startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${roteDetails}}}`, (results) => {
-                        const total = results.results.roll.result
-
-                        finishRoll(
-                            results.rollId,
-                            {
-                                roll: total
-                            }
-                        );
+                    startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${tn}}} {{roteDetails=${roteDetails}}}`, (results) => {
+                        finishRoll(results.rollId, { roll: results.results.roll.result });
                     });
                     return;
                 }
 
-
-                for(let i = 1; i <= 5; i++){
+                for (let i = 1; i <= 5; i++) {
                     const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_focus${i}`);
-                    if(diceToAdd) {
-                        roll = roll + ' + ' + diceToAdd;
-                        console.log(roll);
-                    }
+                    if (diceToAdd) roll = `${roll} + ${diceToAdd}`;
                 }
-
-                //add mod
-                const diceToAdd = valueMap.get(`repeating_skills-lines_${skillId}_skill_mod`);
-                if(diceToAdd) {
-                    roll = roll + ' + ' + diceToAdd;
-                    console.log(roll);
-                }
-
+                const skillMod = valueMap.get(`repeating_skills-lines_${skillId}_skill_mod`);
+                if (skillMod) roll = `${roll} + ${skillMod}`;
 
                 roll = applyWounds(roll, values);
-
-                console.log(roll);
-
-
-                //check results and declare hit/miss
-
-                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${valueMap.get(`repeating_rotes-lines_rote_tn`)}}} {{roteDetails=${valueMap.get(`repeating_rotes-lines_rote_details`)}}}`, (results) => {
-                    const total = results.results.roll.result
-
-                    finishRoll(
-                        results.rollId,
-                        {
-                            roll: total
-                        }
-                    );
+                startRoll(`&{template:rote} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{roteName=${roteName}}} {{tn=${tn}}} {{roteDetails=${roteDetails}}}`, (results) => {
+                    finishRoll(results.rollId, { roll: results.results.roll.result });
                 });
-
-                console.log("rote roll done.");
-
             });
-
         });
-
     });
 
+    /** Custom skill: roll from repeating_custskills-lines trait + focus/mod, template:skill */
     on("clicked:repeating_custskills-lines:roll-custskill", (info) => {
-        console.log("rolling skill....");
-        console.log(info);
-
-        const skillId = info.sourceAttribute.split("_")[2];
-
-        console.log(skillId);
-
-        getAttrs([`repeating_custskills-lines_skill_trait`, `repeating_custskills-lines_skill_name`, "character_name",
-        `repeating_custskills-lines_skill_focus1`, `repeating_custskills-lines_skill_focus2`, `repeating_custskills-lines_skill_focus3`, `repeating_custskills-lines_skill_focus4`, `repeating_custskills-lines_skill_focus5`, 
-        `repeating_custskills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
-        "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-
+        const attrs = [
+            "repeating_custskills-lines_skill_trait", "repeating_custskills-lines_skill_name",
+            "repeating_custskills-lines_skill_focus1", "repeating_custskills-lines_skill_focus2", "repeating_custskills-lines_skill_focus3",
+            "repeating_custskills-lines_skill_focus4", "repeating_custskills-lines_skill_focus5", "repeating_custskills-lines_skill_mod",
+            ...WOUND_ATTRS, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi"
+        ];
+        getAttrs(attrs, (values) => {
             const valueMap = new Map(Object.entries(values));
-            console.log(valueMap);
-            //error check
-            if(!valueMap.get(`repeating_custskills-lines_skill_trait`) === null) return;
+            const traitName = valueMap.get("repeating_custskills-lines_skill_trait");
+            if (!traitName) return;
 
-            //get traitname
-            const traitName = valueMap.get(`repeating_custskills-lines_skill_trait`);
-            console.log(traitName);
-            //use traitName to get value of corresponding trait
-            const traitValue = valueMap.get(traitName);
-            console.log(traitValue);
-            //parse the trait
-            const traitValNum = traitValue ? parseInt(traitValue) : 0;
-            //calculate d10s
-            const traitRoll = getTraitRollD10s(traitValNum);
-
-            let roll = `${traitRoll}d10!`;
-
-            console.log(roll);
-
-            //add focus
-            for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`repeating_custskills-lines_skill_focus${i}`);
-                if(diceToAdd) {
-                    roll = roll + ' + ' + diceToAdd;
-                    console.log(roll);
-                }
+            const traitValNum = parseInt(valueMap.get(traitName), 10) || 0;
+            let roll = `${getTraitRollD10s(traitValNum)}d10!`;
+            for (let i = 1; i <= 5; i++) {
+                const d = valueMap.get(`repeating_custskills-lines_skill_focus${i}`);
+                if (d) roll = `${roll} + ${d}`;
             }
-
-            //add mod
-            const diceToAdd = valueMap.get(`repeating_custskills-lines_skill_mod`);
-            if(diceToAdd) {
-                roll = roll + ' + ' + diceToAdd;
-            }
-
-
+            const mod = valueMap.get("repeating_custskills-lines_skill_mod");
+            if (mod) roll = `${roll} + ${mod}`;
             roll = applyWounds(roll, values);
 
-            console.log(roll);
-
-            const skillName = valueMap.get(`repeating_custskills-lines_skill_name`);
-            console.log(skillName);
-            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
+            const skillName = (valueMap.get("repeating_custskills-lines_skill_name") || "").replaceAll("_", " ");
+            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName}}}`, (results) => {
+                finishRoll(results.rollId, { roll: results.results.roll.result });
             });
-
-
-            console.log("custom skill roll done.");
         });
     });
 
+    /** Repeating skills: roll from repeating_skills-lines trait + focus/mod, template:skill */
     on("clicked:repeating_skills-lines:roll-skill", (info) => {
-        console.log("rolling skill....");
-        console.log(info);
-
-        const skillId = info.sourceAttribute.split("_")[2];
-
-        console.log(skillId);
-
-        getAttrs([`repeating_skills-lines_skill_trait`, `repeating_skills-lines_skill_name`, "character_name",
-        `repeating_skills-lines_skill_focus1`, `repeating_skills-lines_skill_focus2`, `repeating_skills-lines_skill_focus3`, `repeating_skills-lines_skill_focus4`, `repeating_skills-lines_skill_focus5`, 
-        `repeating_skills-lines_skill_mod`, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi", 
-        "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-
+        const attrs = [
+            "repeating_skills-lines_skill_trait", "repeating_skills-lines_skill_name",
+            "repeating_skills-lines_skill_focus1", "repeating_skills-lines_skill_focus2", "repeating_skills-lines_skill_focus3",
+            "repeating_skills-lines_skill_focus4", "repeating_skills-lines_skill_focus5", "repeating_skills-lines_skill_mod",
+            ...WOUND_ATTRS, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi"
+        ];
+        getAttrs(attrs, (values) => {
             const valueMap = new Map(Object.entries(values));
-            console.log(valueMap);
-            //error check
-            if(!valueMap.get(`repeating_skills-lines_skill_trait`) === null) return;
+            const traitName = valueMap.get("repeating_skills-lines_skill_trait");
+            if (!traitName) return;
 
-            //get traitname
-            const traitName = valueMap.get(`repeating_skills-lines_skill_trait`);
-            console.log(traitName);
-            //use traitName to get value of corresponding trait
-            const traitValue = valueMap.get(traitName);
-            console.log(traitValue);
-            //parse the trait
-            const traitValNum = traitValue ? parseInt(traitValue) : 0;
-            //calculate d10s
-            const traitRoll = getTraitRollD10s(traitValNum);
-
-            let roll = `${traitRoll}d10!`;
-
-            console.log(roll);
-
-            //add focus
-            for(let i = 1; i <= 5; i++){
-                const diceToAdd = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
-                if(diceToAdd) {
-                    roll = roll + ' + ' + diceToAdd;
-                    console.log(roll);
-                }
+            const traitValNum = parseInt(valueMap.get(traitName), 10) || 0;
+            let roll = `${getTraitRollD10s(traitValNum)}d10!`;
+            for (let i = 1; i <= 5; i++) {
+                const d = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
+                if (d) roll = `${roll} + ${d}`;
             }
-
-            //add mod
-            const diceToAdd = valueMap.get(`repeating_skills-lines_skill_mod`);
-            if(diceToAdd) {
-                roll = roll + ' + ' + diceToAdd;
-            }
-
-
+            const mod = valueMap.get("repeating_skills-lines_skill_mod");
+            if (mod) roll = `${roll} + ${mod}`;
             roll = applyWounds(roll, values);
 
-            console.log(roll);
-
-            const skillName = valueMap.get(`repeating_skills-lines_skill_name`);
-
-            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName.replaceAll("_", " ")}}}`, (results) => {
-                const total = results.results.roll.result
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
+            const skillName = (valueMap.get("repeating_skills-lines_skill_name") || "").replaceAll("_", " ");
+            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName}}}`, (results) => {
+                finishRoll(results.rollId, { roll: results.results.roll.result });
             });
-
-
-            console.log("skill roll done.");
         });
     });
 
-    on("clicked:roll_power", (info) => {
-        console.log("POWAAAAAAA! -LeMillion");
-        console.log("rolling power....");
-        getAttrs(["power", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.power) return;
-
-            const power = parseInt(values.power);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(power === NaN) return;
-            
-            const d10s = getTraitRollD10s(power);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Power}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("power roll done.");
-    });
-
-    on("clicked:roll_reflex", (info) => {
-
-        console.log("rolling reflex....");
-        getAttrs(["reflex", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.reflex) return;
-
-            const reflex = parseInt(values.reflex);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(reflex === NaN) return;
-            
-            const d10s = getTraitRollD10s(reflex);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Reflex}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("reflex roll done.");
-    });
-
-    on("clicked:roll_heart", (info) => {
-
-        console.log("rolling heart....");
-        getAttrs(["heart", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.heart) return;
-
-            const heart = parseInt(values.heart);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(heart === NaN) return;
-            
-            const d10s = getTraitRollD10s(heart);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Heart}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("heart roll done.");
-    });
-
-
-    on("clicked:roll_savvy", (info) => {
-
-        console.log("rolling savvy....");
-        getAttrs(["savvy", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.savvy) return;
-
-            const savvy = parseInt(values.savvy);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(savvy === NaN) return;
-            
-            const d10s = getTraitRollD10s(savvy);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Savvy}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("savvy roll done.");
-    });
-
-    on("clicked:roll_presence", (info) => {
-
-        console.log("rolling presence....");
-        getAttrs(["presence", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.presence) return;
-
-            const presence = parseInt(values.presence);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(presence === NaN) return;
-            
-            const d10s = getTraitRollD10s(presence);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Presence}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("presence roll done.");
-    });
-
-    on("clicked:roll_perception", (info) => {
-
-        console.log("rolling perception....");
-        getAttrs(["perception", "character_name", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.perception) return;
-
-            const perception = parseInt(values.perception);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(perception === NaN) return;
-            
-            const d10s = getTraitRollD10s(perception);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Perception}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("perception roll done.");
-    });
-
-    on("clicked:roll_shinpi", (info) => {
-
-        console.log("rolling shinpi....");
-        getAttrs(["shinpi", "max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend", "character_name"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.shinpi) return;
-
-            const shinpi = parseInt(values.shinpi);
-            const charName = !values.character_name ? "" : values.character_name;
-
-            //if either value is NaN, return
-            if(shinpi === NaN) return;
-            
-            const d10s = getTraitRollD10s(shinpi);
-            console.log(d10s);
-
-            let roll = `${d10s}d10!`;
-
-            roll = applyWounds(roll, values);
-
-            startRoll(`&{template:trait} {{characterName=${charName}}} {{traitName=Shinpi}} {{roll=[[${roll}]]}}`, (results) => {
-                const total = results.results.roll.result
-
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: total
-                    }
-                );
-            });
-
-        });
-        console.log("shinpi roll done.");
-    });
-
-    ///BUTTON CLICKS - END
-
-
-    ///AUTOMATIC VALUE ADJUSTMENTS
+    /** Core trait rolls: Power, Reflex, Heart, Savvy, Presence, Perception, Shinpi */
+    on("clicked:roll_power", () => doTraitRoll("power", "Power"));
+    on("clicked:roll_reflex", () => doTraitRoll("reflex", "Reflex"));
+    on("clicked:roll_heart", () => doTraitRoll("heart", "Heart"));
+    on("clicked:roll_savvy", () => doTraitRoll("savvy", "Savvy"));
+    on("clicked:roll_presence", () => doTraitRoll("presence", "Presence"));
+    on("clicked:roll_perception", () => doTraitRoll("perception", "Perception"));
+    on("clicked:roll_shinpi", () => doTraitRoll("shinpi", "Shinpi"));
+
+    // ---------------------------------------------------------------------------
+    // BUTTON CLICKS – END
+    // ---------------------------------------------------------------------------
+
+
+    // ---------------------------------------------------------------------------
+    // AUTOMATIC VALUE ADJUSTMENTS – derived stats on attribute change
+    // ---------------------------------------------------------------------------
 
     on("change:heart", () => {
         calcMaxHp();
@@ -2053,188 +1517,104 @@
         calcDefence();
     });
 
-    ///AUTOMATIC VALUE ADJUSTMENTS - END
+    // ---------------------------------------------------------------------------
+    // UTIL FNS – calculations and roll helpers
+    // ---------------------------------------------------------------------------
 
-
-    ///UTIL FNS
-
+    /** Max HP and wound thresholds from Heart × hp_multiplier */
     const calcMaxHp = () => {
-        console.log("calculating max HP....");
         getAttrs(["heart", "hp_multiplier"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.heart || !values.hp_multiplier) return;
-
-            const heart = parseInt(values.heart);
+            if (!values.heart || !values.hp_multiplier) return;
+            const heart = parseInt(values.heart, 10);
             const hp_multiplier = parseFloat(values.hp_multiplier);
-
-            //if either value is NaN, return
-            if(heart === NaN || hp_multiplier === NaN) return;
-            
+            if (Number.isNaN(heart) || Number.isNaN(hp_multiplier)) return;
 
             const max_hp = roundUp(heart * hp_multiplier);
-
             setAttrs({
-                "max_hp": max_hp,
-                "grazed": Math.floor(max_hp * 0.9),
-                "flesh_wound": Math.floor(max_hp * 0.75),
-                "banged_up": Math.floor(max_hp * 0.25),
-                "hurt_bad": Math.floor(max_hp * 0.1)
+                max_hp,
+                grazed: Math.floor(max_hp * 0.9),
+                flesh_wound: Math.floor(max_hp * 0.75),
+                banged_up: Math.floor(max_hp * 0.25),
+                hurt_bad: Math.floor(max_hp * 0.1)
             });
-
         });
-        console.log("max HP calculation done.");
-    }
+    };
 
+    /** Resolve (base) = round up (Heart + Presence) × 0.4 */
     const calcResolve = () => {
-        console.log("calculating resolve....");
         getAttrs(["heart", "presence"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.heart || !values.presence) return;
-
-            const heart = parseInt(values.heart);
-            const presence = parseInt(values.presence);
-
-            //if either value is NaN, return
-            if(heart === NaN || presence === NaN) return;
-            
-
-            const resolve = roundUp((heart + presence) * 0.4);
-
-            setAttrs({
-                "resolve_base": resolve
-            });
-
+            if (!values.heart || !values.presence) return;
+            const heart = parseInt(values.heart, 10);
+            const presence = parseInt(values.presence, 10);
+            if (Number.isNaN(heart) || Number.isNaN(presence)) return;
+            setAttrs({ resolve_base: roundUp((heart + presence) * 0.4) });
         });
-        console.log("resolve calculation done.");
-    }
+    };
 
+    /** Initiative (base) = Reflex + Savvy */
     const calcInitiative = () => {
-        console.log("calculating initiative....");
         getAttrs(["reflex", "savvy"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.reflex || !values.savvy) return;
-
-            const reflex = parseInt(values.reflex);
-            const savvy = parseInt(values.savvy);
-
-            //if either value is NaN, return
-            if(reflex === NaN || savvy === NaN) return;
-            
-
-            const initiative = roundUp(reflex + savvy);
-
-            setAttrs({
-                "initiative_base": initiative
-            });
-
+            if (!values.reflex || !values.savvy) return;
+            const reflex = parseInt(values.reflex, 10);
+            const savvy = parseInt(values.savvy, 10);
+            if (Number.isNaN(reflex) || Number.isNaN(savvy)) return;
+            setAttrs({ initiative_base: roundUp(reflex + savvy) });
         });
-        console.log("initiative calculation done.");
-    }
+    };
 
+    /** Defence (base) = round up (Reflex + Power) × 0.4 */
     const calcDefence = () => {
-        console.log("calculating defence....");
         getAttrs(["power", "reflex"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.reflex || !values.power) return;
-
-            const reflex = parseInt(values.reflex);
-            const power = parseInt(values.power);
-
-            //if either value is NaN, return
-            if(reflex === NaN || power === NaN) return;
-
-            const defence = roundUp((reflex + power) * 0.4);
-
-            setAttrs({
-                "defence_base": defence
-            });
-
+            if (!values.reflex || !values.power) return;
+            const reflex = parseInt(values.reflex, 10);
+            const power = parseInt(values.power, 10);
+            if (Number.isNaN(reflex) || Number.isNaN(power)) return;
+            setAttrs({ defence_base: roundUp((reflex + power) * 0.4) });
         });
-        console.log("defence calculation done.");
-    }
+    };
 
+    /** Move (base) = round up (Reflex + Heart) / Size */
     const calcMove = () => {
-        console.log("calculating move....");
         getAttrs(["reflex", "heart", "size"], (values) => {
-
-            //if either value is not populated, do nothing.
-            if(!values.heart || !values.reflex || !values.size) return;
-
-            const reflex = parseInt(values.reflex);
-            const heart = parseInt(values.heart);
-            const size = parseInt(values.size);
-
-            //if either value is NaN, return
-            if(heart === NaN || reflex === NaN || size === NaN) return;            
-
-            const move = roundUp((reflex + heart) / size);
-
-            setAttrs({
-                "move_base": move
-            });
-
+            if (!values.heart || !values.reflex || !values.size) return;
+            const reflex = parseInt(values.reflex, 10);
+            const heart = parseInt(values.heart, 10);
+            const size = parseInt(values.size, 10);
+            if (Number.isNaN(heart) || Number.isNaN(reflex) || Number.isNaN(size)) return;
+            setAttrs({ move_base: roundUp((reflex + heart) / size) });
         });
-        console.log("move calculation done.");
-    }
+    };
 
-    //TODO - Extend prototype?
-    const roundUp = (float) => {
-        return Math.ceil(float);
-    }
+    const roundUp = (n) => Math.ceil(n);
 
-    const getTraitRollD10s = (score) => {
-        if (score < 10) return 1;
-        return Math.floor(score / 10);
-    }
+    /** Number of d10s for a trait roll from trait score (e.g. 10→1, 25→2). */
+    const getTraitRollD10s = (score) => (score < 10 ? 1 : Math.floor(score / 10));
 
 
-        const getFateAttrArray = (fateLineIds) => {
+    /** Build attribute list for fate repeating section + wound attrs */
+    const getFateAttrArray = (fateLineIds) => {
         const columns = [];
-        for(let i = 0; i < fateLineIds.length; i++){
-            columns.push(`repeating_fate-lines_${fateLineIds[i]}_minpercent`);
-            columns.push(`repeating_fate-lines_${fateLineIds[i]}_maxpercent`);
-            columns.push(`repeating_fate-lines_${fateLineIds[i]}_desc`);
-
-        };
-            columns.push("max_hp");
-            columns.push("hp_current");
-            columns.push("grazed");
-            columns.push("flesh_wound");
-            columns.push("banged_up");
-            columns.push("hurt_bad");
-            columns.push("burning_legend");
-        return columns;
-    }
-
-    const getFateEffect = (roll, values) => {
-
-        const effectMap = new Map(Object.entries(values));
-        console.log(effectMap);
-
-        var fateIds = getSectionIdsFromPrefix(effectMap, "repeating_fate-lines");
-        console.log(fateIds);
-
-        for (let i = 0; i < fateIds.length; i++){
-            if(parseInt(effectMap.get(`repeating_fate-lines_${fateIds[i]}_minpercent`)) !== NaN && 
-            parseInt(effectMap.get(`repeating_fate-lines_${fateIds[i]}_maxpercent`)) !== NaN &&
-            effectMap.get(`repeating_fate-lines_${fateIds[i]}_desc`) &&
-            parseInt(effectMap.get(`repeating_fate-lines_${fateIds[i]}_minpercent`)) <= roll &&
-            parseInt(effectMap.get(`repeating_fate-lines_${fateIds[i]}_maxpercent`)) >= roll)
-
-            return effectMap.get(`repeating_fate-lines_${fateIds[i]}_desc`);
-
+        for (let i = 0; i < fateLineIds.length; i++) {
+            columns.push(`repeating_fate-lines_${fateLineIds[i]}_minpercent`, `repeating_fate-lines_${fateLineIds[i]}_maxpercent`, `repeating_fate-lines_${fateLineIds[i]}_desc`);
         }
+        columns.push("max_hp", "hp_current", "grazed", "flesh_wound", "banged_up", "hurt_bad", "burning_legend");
+        return columns;
+    };
 
+    /** Resolve fate effect text from roll value and fate line min/max ranges */
+    const getFateEffect = (roll, values) => {
+        const effectMap = new Map(Object.entries(values));
+        const fateIds = getSectionIdsFromPrefix(effectMap, "repeating_fate-lines");
+        for (let i = 0; i < fateIds.length; i++) {
+            const minP = parseInt(effectMap.get(`repeating_fate-lines_${fateIds[i]}_minpercent`));
+            const maxP = parseInt(effectMap.get(`repeating_fate-lines_${fateIds[i]}_maxpercent`));
+            const desc = effectMap.get(`repeating_fate-lines_${fateIds[i]}_desc`);
+            if (!Number.isNaN(minP) && !Number.isNaN(maxP) && desc && minP <= roll && maxP >= roll) return desc;
+        }
         return "None";
-    }
+    };
 
-    const getSkillValue = (skillNum) => {
-        return document.getElementById(`skill${skillNum}_trait`).value;
-    }
+    const getSkillValue = (skillNum) => document.getElementById(`skill${skillNum}_trait`)?.value;
 
     const buildTraitMap = (values) => {
         const traits = new Map();
@@ -2244,10 +1624,11 @@
         traits.set("savvy", values.savvy);
         traits.set("presence", values.presence);
         traits.set("shinpi", values.shinpi);
-        traits.set("", 0)
+        traits.set("", 0);
         return traits;
-    }
+    };
 
+    /** Attribute names needed for rote roll (repeating rotes + skills + traits + wounds). */
     const buildRoteAttrDependencyNames = (skillIdArray) => {
         const skillAttrNames = [];
         for(var i=0; i < skillIdArray.length; i++) {
@@ -2285,6 +1666,7 @@
     }
 
 
+    /** Attribute names needed for weapon attack roll (repeating skills + equipment line + wounds). */
     const buildAttackAttrDependencyNames = (skillIdArray) => {
         const skillAttrNames = [];
 
@@ -2333,6 +1715,7 @@
         return skillAttrNames;
     }
 
+    /** Default trait for a skill when not in repeating skills (e.g. "athletics" → "power"). */
     const getSkillDefault = (nameToFind) => {
         const map = new Map();
         map.set("crafting", "heart");
@@ -2377,111 +1760,72 @@
     }
 
 
+    /** Find repeating_skills-lines row id whose skill_name matches (case-insensitive). Returns null if not found. */
     const findSkillInValues = (valueMap, nameToFind, skillIds) => {
-        console.log(nameToFind);
-        if(!nameToFind) return null;
-        console.log(skillIds);
-        const skillValue = skillIds.find(skillId => {
-            
-            if(valueMap.get(`repeating_skills-lines_${skillId}_skill_name`).toLowerCase() === nameToFind.toLowerCase()) return skillId;
-            return false;
-        });       
-
-        if(skillValue) return skillValue;
-
-        console.log("Not found, returning default...");
-        
-        return null;
-    }
+        if (!nameToFind) return null;
+        const found = skillIds.find((skillId) => {
+            const name = valueMap.get(`repeating_skills-lines_${skillId}_skill_name`);
+            return name && name.toLowerCase() === nameToFind.toLowerCase();
+        });
+        return found !== undefined ? found : null;
+    };
 
     const getSkillLineIds = () => {
 
     }
 
+    /** Wound penalty string from current HP vs thresholds (e.g. "(-3)" for flesh wound). Empty string if no penalty. */
     const getWoundDeficit = (values) => {
-        console.log(values);
-        console.log("get wound deficit");
-        const currentHp = parseInt(values.hp_current);
-        console.log(currentHp);
-        if(currentHp >= Math.ceil(parseInt(values.max_hp) * 0.9)){
-            return "";
-        }
-        console.log("deficit found");
-        let deficit = 0;
-        if(currentHp <= parseInt(values.burning_legend)) return "(-10)";
-        if(currentHp <= parseInt(values.hurt_bad)) return "(-7)";
-        if(currentHp <= parseInt(values.banged_up)) return "(-5)";
-        if(currentHp <= parseInt(values.flesh_wound)) return "(-3)";
-        if(currentHp <= parseInt(values.grazed)) return "(-1)";
+        const currentHp = parseInt(values.hp_current, 10);
+        const maxHp = parseInt(values.max_hp, 10);
+        if (Number.isNaN(currentHp) || Number.isNaN(maxHp) || currentHp >= Math.ceil(maxHp * 0.9)) return "";
+        if (currentHp <= parseInt(values.burning_legend, 10)) return "(-10)";
+        if (currentHp <= parseInt(values.hurt_bad, 10)) return "(-7)";
+        if (currentHp <= parseInt(values.banged_up, 10)) return "(-5)";
+        if (currentHp <= parseInt(values.flesh_wound, 10)) return "(-3)";
+        if (currentHp <= parseInt(values.grazed, 10)) return "(-1)";
+        return "";
+    };
 
-        return null;
-
-    }
-
+    /** Append wound penalty to roll expression if applicable */
     const applyWounds = (roll, values) => {
-        console.log("apply wounds");
         const woundDeficit = getWoundDeficit(values);
-        console.log("wound deficit:" + woundDeficit);
-        return woundDeficit ? roll + `+ ${woundDeficit}` : roll;
-    }
+        return woundDeficit ? `${roll} + ${woundDeficit}` : roll;
+    };
 
+    /** Number of d10s for a background roll from score (e.g. Contacts). */
     const getBackgroundD10s = (value) => {
-
-        if(value <= 10) return 1;
-        if(value <= 30) return 2;
-        if(value <= 65) return 3;
-        if(value <= 90) return 4;
-        if(value <= 100) return 5;
-        
+        if (value <= 10) return 1;
+        if (value <= 30) return 2;
+        if (value <= 65) return 3;
+        if (value <= 90) return 4;
+        if (value <= 100) return 5;
         return 1;
-    }
+    };
 
     const getLegendD10s = (value) => {
-
-        if(value <= 45) return 1;
-        if(value <= 75) return 2;
-        if(value <= 110) return 3;
-        if(value <= 160) return 4;
-        
+        if (value <= 45) return 1;
+        if (value <= 75) return 2;
+        if (value <= 110) return 3;
+        if (value <= 160) return 4;
         return 5;
-    }
+    };
 
-    const getKeysWithPrefix = (map, prefix) => {
-        const allKeysIterator = map.keys();
+    const getKeysWithPrefix = (map, prefix) => Array.from(map.keys()).filter((key) => key.startsWith(prefix));
 
-        // 2. Convert the iterator to an array
-        const allKeysArray = Array.from(allKeysIterator);
-
-        // 3. Filter the keys based on the prefix
-        const prefixedKeys = allKeysArray.filter(key => key.startsWith(prefix));
-
-        return prefixedKeys;
-    }
-
+    /** Extract unique repeating section row IDs from a map's keys (e.g. repeating_fate-lines_ABC_def → ABC). */
     const getSectionIdsFromPrefix = (map, sectionPrefix) => {
         const results = [];
-
         for (const key of map.keys()) {
-            // Check if the key starts with the specified prefix
             if (key.startsWith(sectionPrefix)) {
-                // Split the key by underscore
-                const parts = key.split('_');
-                
-                // Ensure the second position (index 1) exists before adding
-                if (parts.length > 2) {
-                    results.push(parts[2]);
-                }
+                const parts = key.split("_");
+                if (parts.length > 2) results.push(parts[2]);
             }
         }
-
         return [...new Set(results)];
-    }
+    };
 
-
-    ///UTIL FNS - END
-
-    //TODO LIST:
-    //Combat
-    //Equipment/Weapons - damage rolls
-    
+    // ---------------------------------------------------------------------------
+    // UTIL FNS – END
+    // ---------------------------------------------------------------------------
 </script>
