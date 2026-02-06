@@ -928,6 +928,8 @@ h2 {
 
 .hider {
     aspect-ratio: 1 / 1;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .hider:checked ~ .can-hide {
@@ -941,6 +943,8 @@ h2 {
 .fate-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .fate-hider:checked ~ #fate-card-contents {
@@ -950,6 +954,8 @@ h2 {
 .background-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .background-hider:checked ~ #background-card-contents {
@@ -959,6 +965,8 @@ h2 {
 .equipment-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .equipment-hider:checked ~ #equipment-card-contents {
@@ -968,6 +976,8 @@ h2 {
 .equipment-line-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .equipment-line-hider:checked ~ .equipment-card-equipment-line-contents-body {
@@ -977,6 +987,8 @@ h2 {
 .augments-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .augments-hider:checked ~ #equipment-card-contents {
@@ -986,6 +998,8 @@ h2 {
 .augments-line-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .augments-line-hider:checked ~ .augments-card-augments-line-contents-body {
@@ -995,6 +1009,8 @@ h2 {
 .armor-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .armor-hider:checked ~ #armor-card-contents {
@@ -1004,6 +1020,8 @@ h2 {
 .armor-line-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .armor-line-hider:checked ~ .armor-card-armor-line-contents-body {
@@ -1017,6 +1035,8 @@ h2 {
 .skills-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .skills-hider:checked ~ #skills-card-contents {
@@ -1035,6 +1055,8 @@ h2 {
 .rotes-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .rotes-hider:checked ~ #rotes-card-contents {
@@ -1044,6 +1066,8 @@ h2 {
 .rotes-line-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .rotes-line-hider:checked ~ .rotes-card-rotes-line-contents-body {
