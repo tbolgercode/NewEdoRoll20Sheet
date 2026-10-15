@@ -30,10 +30,6 @@ input {
     background-size: 100% 100%;
 }
 
-.sheetform {
-
-}
-
 .sheet-header {
     height: 72px;
     width: 100%;
@@ -99,46 +95,13 @@ section {
     text-align: center;
 }
 
-.multi-column {
-    display: flex;
-    justify-content: space-between;
-}
-
-.two-column {
-    display: flex;
-    justify-content: space-between;
-}
-
 .three-column {
     display: flex;
     justify-content: space-between;
 }
 
-.four-column {
-    display: flex;
-    justify-content: space-between;
-}
-
-.column {
-    width: 48%;
-}
-
-.equipment-column {
-    width: 50%;
-}
-
-.equipment {
-    padding: 8px;
-    padding-top: 0px;
-}
-
-
 .column-3 {
     width: 32%;
-}
-
-.column-4 {
-    width: 24%;
 }
 
 h2 {
@@ -149,179 +112,36 @@ h2 {
     width: 100%;
 }
 
-.sheet-w-100 {
-    width: 100%wep;
-}
-
 .w-90 {
     width: 90%;
-}
-
-.w-88 {
-    width: 88%;
 }
 
 .w-85 {
     width: 85%;
 }
 
-.w-79 {
-    width: 79%;
-}
-
 .w-75 {
     width: 75%;
-}
-
-.w-70 {
-    width: 70%;
-}
-
-.w-69 {
-    width: 69%;
-}
-
-
-.w-64 {
-    width: 64%;
-}
-
-.w-60 {
-    width: 60%;
-}
-
-.w-50 {
-    width: 50%;
-}
-
-.w-49 {
-    width: 49%;
-}
-
-.w-44 {
-    width: 44%;
-}
-
-.w-42 {
-    width: 42%;
-}
-
-.w-40 {
-    width: 40%;
-}
-
-
-.w-34 {
-    width: 34%;
-}
-.w-30 {
-    width: 30%;
-}
-
-.w-29 {
-    width: 29%;
-}
-
-.w-25 {
-    width: 25%;
-}
-
-.w-20 {
-    width: 20%;
-}
-
-.w-19 {
-    width: 19%;
-}
-
-.w-16 {
-    width: 16%;
-}
-
-.w-15 {
-    width: 15%;
-}
-
-.w-14 {
-    width: 14%;
 }
 
 .w-10 {
     width: 10%;
 }
 
-.w-9 {
-    width: 9%;
-}
-
-.w-7 {
-    width: 7%;
-}
-
-.w-6 {
-    width: 6%;
-}
-
 .w-5 {
     width: 5%;
-}
-
-.w-4 {
-    width: 4%;
-}
-
-.w-3 {
-    width: 3%;
-}
-
-.w-2 {
-    width: 2%;
-}
-
-.h-98 {
-    height: 96% !important;
-}
-
-.h-90 {
-    height: 90% !important;
-}
-
-
-.w-auto {
-    width: auto;
 }
 
 .mb-2px {
     margin-bottom: 2px !important;
 }
 
-.mr-2px {
-    margin-right: 2px !important;
-}
-
 .m-0 {
     margin: 0px !important;
 }
 
-.mv-0 {
-    margin-bottom: 0px !important;
-    margin-top: 0px !important;
-}
-
-.m-1 {
-    margin: 1rem !important;
-}
-
 .mb-1 {
     margin-bottom: 1rem;
-}
-
-.mb-2 {
-    margin-bottom: 2rem;
-}
-
-.p-2px {
-    padding: 2px;
 }
 
 .pl-2px {
@@ -341,10 +161,6 @@ h2 {
 
 .can-hide {
     display:flex;
-}
-
-.can-hide-block {
-    display:block;
 }
 
 .no-select-arrow {
@@ -405,10 +221,6 @@ h2 {
     background-color: #dae6dcee;
 }
 
-.bg-red {
-    background-color: #3d010146;
-}
-
 .bg-black {
     background-color: #0300007c;
 }
@@ -420,11 +232,6 @@ h2 {
 .bg-orange {
     background-color: #b86e0046;
 }
-
-.border-bottom-thin {
-    border-bottom: solid 1px black;
-}
-
 
 /* NEW SHIT STARTS HERE */
 
@@ -495,14 +302,6 @@ h2 {
     color: #eeeeee;
     border: solid 2px #eeeeee;
     background: #2a2249;
-    padding: 1rem;
-}
-
-.sheet-rolltemplate-background,
-.sheet-rolltemplate-background {
-    border: solid 2px #202020;
-    background: #34163a;
-    text-align: center;
     padding: 1rem;
 }
 
@@ -584,17 +383,6 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(75px, 1fr));
     gap: 10px;
-}
-
-.status-effects-section-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-}
-
-.status-effects-section-container > textarea {
-    min-height: 94%;
-    max-width: 97.5%;
 }
 
 .stats-container {
@@ -691,22 +479,6 @@ h2 {
     grid-template-rows: 80%;
 }
 
-.equipment-card-contents-container {
-    display: grid;
-}
-
-.equipment-card-content-header {
-    display: grid;
-    grid-template-columns: 3fr 2fr 16fr 1fr;
-    justify-content: space-apart;
-}
-
-.equipment-card-contents-body {
-    display: grid;
-    grid-template-columns: 3fr 2fr 16fr 1fr;
-    justify-content: space-apart;
-}
-
 .equipment-card-container {
     display: grid;
     gap: 10px;
@@ -724,11 +496,6 @@ h2 {
     grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
     grid-template-rows: minmax(28px, auto);
     justify-content: space-between;
-}
-
-.equipment-card-equipment-line-container-button-holder {
-    display: flex;
-    justify-content: center;
 }
 
 .equipment-card-equipment-line-contents-body {
@@ -868,11 +635,6 @@ h2 {
     padding: 2px;
 }
 
-.skills-card-skills-line-container-button-holder {
-    display: flex;
-    justify-content: center;
-}
-
 .rotes-card-container {
     display: grid;
     gap: 10px;
@@ -926,102 +688,50 @@ h2 {
     padding: 2px;
 }
 
-.hider {
-    aspect-ratio: 1 / 1;
-    height: 100% !important;
-    width: 100% !important;
-}
-
-.hider:checked ~ .can-hide {
-    display:none;
-}
-
-.hider:checked ~ .can-hide-block {
-    display:none;
-}
-
-.fate-hider {
+.fate-hider,
+.background-hider,
+.equipment-hider,
+.augments-hider,
+.armor-hider,
+.skills-hider,
+.rotes-hider {
     aspect-ratio: 1 / 1;
     grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
+    box-sizing: border-box;
+    height: 28px !important;
+    width: 28px !important;
+}
+
+.section-contents {
+    display: block;
 }
 
 .fate-hider:checked ~ #fate-card-contents {
     display:none;
 }
 
-.background-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
-}
-
 .background-hider:checked ~ #background-card-contents {
     display:none;
-}
-
-.equipment-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
 }
 
 .equipment-hider:checked ~ #equipment-card-contents {
     display:none;
 }
 
-.equipment-line-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
-}
-
 .equipment-line-hider:checked ~ .equipment-card-equipment-line-contents-body {
     display:none;
 }
 
-.augments-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
-}
-
-.augments-hider:checked ~ #equipment-card-contents {
+.augments-hider:checked ~ #augments-card-contents {
     display:none;
-}
-
-.augments-line-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
 }
 
 .augments-line-hider:checked ~ .augments-card-augments-line-contents-body {
     display:none;
 }
 
-.armor-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
-}
-
 .armor-hider:checked ~ #armor-card-contents {
     display:none;
-}
-
-.armor-line-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
 }
 
 .armor-line-hider:checked ~ .armor-card-armor-line-contents-body {
@@ -1032,42 +742,16 @@ h2 {
     display:none;
 }
 
-.skills-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
-}
-
 .skills-hider:checked ~ #skills-card-contents {
     display:none;
-}
-
-.skills-line-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
 }
 
 .skills-line-hider:checked ~ .skills-card-skills-line-contents-body {
     display:none;
 }
 
-.rotes-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
-}
-
 .rotes-hider:checked ~ #rotes-card-contents {
     display:none;
-}
-
-.rotes-line-hider {
-    aspect-ratio: 1 / 1;
-    grid-area:auto;
-    height: 100% !important;
-    width: 100% !important;
 }
 
 .rotes-line-hider:checked ~ .rotes-card-rotes-line-contents-body {
@@ -1151,12 +835,6 @@ h2 {
     min-height: 18px;
     resize: vertical;
     margin-bottom: 0px;
-}
-
-.fate-button-holder {
-    display: flex;
-    justify-content: end; /* Centers horizontally */
-    align-items: center;
 }
 
 .roll-button-grid {

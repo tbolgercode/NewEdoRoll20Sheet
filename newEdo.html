@@ -345,12 +345,13 @@
                     <h3 class="no-underline">Equipment</span>   
                 </div>
                 <div class="hider-holder">
-                    
+                    <input type="checkbox" class="equipment-hider" name="attr_equipment_hidden">
                 </div>
 
             </div>
             <input type="checkbox" class="equipment-hider" name="attr_equipment_hidden" hidden> 
 
+            <div id="equipment-card-contents" class="section-contents">
                 <fieldset class="repeating_equipment-lines" style="display: none;">
 
                     <div class="equipment-card-equipment-line-container bg-ltblue border-thin mb-1" style="font-size:12px;">
@@ -533,6 +534,7 @@
 
                     </div>
                 </fieldset>
+            </div>
 
             </div>
         </div>
@@ -548,10 +550,12 @@
                     <h3 class="no-underline">Armor</span>   
                 </div>
                 <div class="hider-holder">
-                    
+                    <input type="checkbox" class="armor-hider" name="attr_armor_section_hidden">
                 </div>
 
             </div>
+            <input type="checkbox" class="armor-hider" name="attr_armor_section_hidden" hidden>
+            <div id="armor-card-contents" class="section-contents">
             <fieldset class="repeating_armor-lines" style="display: none;">
 
                     <div class="armor-card-armor-line-container bg-ltblue border-thin mb-1" style="font-size:12px;">
@@ -608,6 +612,7 @@
 
                     </div>
                 </fieldset>
+            </div>
         </div>
     </section>
 
@@ -621,10 +626,12 @@
                     <h3 class="no-underline">Augs</span>   
                 </div>
                 <div class="hider-holder">
-                    
+                    <input type="checkbox" class="augments-hider" name="attr_augment_section_hidden">
                 </div>
 
             </div>
+            <input type="checkbox" class="augments-hider" name="attr_augment_section_hidden" hidden>
+            <div id="augments-card-contents" class="section-contents">
             <fieldset class="repeating_augment-lines" style="display: none;">
 
                     <div class="augments-card-augments-line-container bg-ltcyan border-thin mb-1" style="font-size:12px;">
@@ -665,6 +672,7 @@
 
                     </div>
                 </fieldset>
+            </div>
         </div>
     </section>
 
@@ -678,11 +686,13 @@
                     <h3 class="no-underline">Skills</span>   
                 </div>
                 <div class="hider-holder">
-                    
+                    <input type="checkbox" class="skills-hider" name="attr_skills_section_hidden">
                 </div>
 
             </div>
 
+            <input type="checkbox" class="skills-hider" name="attr_skills_section_hidden" hidden>
+            <div id="skills-card-contents" class="section-contents">
             <fieldset class="repeating_skills-lines" style="display: none;">
                                 <div class="skills-card-skills-line-container bg-ltgreen border-thin mb-1" style="font-size:12px;">
                     <div class="skills-card-skills-line-container-header">
@@ -886,6 +896,7 @@
 
                     </div>
             </fieldset>
+            </div>
         </div>
     </section>
 
@@ -899,10 +910,12 @@
                     <h3 class="no-underline">Rotes</span>   
                 </div>
                 <div class="hider-holder">
-                    
+                    <input type="checkbox" class="rotes-hider" name="attr_rotes_section_hidden">
                 </div>
 
             </div>
+            <input type="checkbox" class="rotes-hider" name="attr_rotes_section_hidden" hidden>
+            <div id="rotes-card-contents" class="section-contents">
             <div class="rotes-card-kami-details-container">
                 <div class="pl-2px">
                     Mikata Kami and bonus:
@@ -1000,6 +1013,7 @@
 
                     </div>
                 </fieldset>
+            </div>
         </div>
     </section>
 
