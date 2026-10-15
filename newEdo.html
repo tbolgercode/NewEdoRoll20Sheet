@@ -1282,6 +1282,35 @@
         });
     };
 
+    const doSkillRoll = (sectionPrefix) => {
+        const focusAttrs = Array.from({ length: 5 }, (_, index) => `${sectionPrefix}_skill_focus${index + 1}`);
+        const attrs = [
+            `${sectionPrefix}_skill_trait`, `${sectionPrefix}_skill_name`, ...focusAttrs,
+            `${sectionPrefix}_skill_mod`, ...WOUND_ATTRS,
+            "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi"
+        ];
+
+        getAttrs(attrs, (values) => {
+            const traitName = values[`${sectionPrefix}_skill_trait`];
+            if (!traitName) return;
+
+            const traitValue = parseInt(values[traitName], 10) || 0;
+            let roll = `${getTraitRollD10s(traitValue)}d10!`;
+            for (let focusIndex = 1; focusIndex <= 5; focusIndex++) {
+                const focus = values[`${sectionPrefix}_skill_focus${focusIndex}`];
+                if (focus) roll = `${roll} + ${focus}`;
+            }
+            const modifier = values[`${sectionPrefix}_skill_mod`];
+            if (modifier) roll = `${roll} + ${modifier}`;
+            roll = applyWounds(roll, values);
+
+            const skillName = (values[`${sectionPrefix}_skill_name`] || "").replaceAll("_", " ");
+            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName}}}`, (results) => {
+                finishRoll(results.rollId, { roll: results.results.roll.result });
+            });
+        });
+    };
+
     // ---------------------------------------------------------------------------
     // BUTTON CLICKS – Roll20 event handlers
     // ---------------------------------------------------------------------------
@@ -1426,65 +1455,8 @@
         });
     });
 
-    /** Custom skill: roll from repeating_custskills-lines trait + focus/mod, template:skill */
-    on("clicked:repeating_custskills-lines:roll-custskill", (info) => {
-        const attrs = [
-            "repeating_custskills-lines_skill_trait", "repeating_custskills-lines_skill_name",
-            "repeating_custskills-lines_skill_focus1", "repeating_custskills-lines_skill_focus2", "repeating_custskills-lines_skill_focus3",
-            "repeating_custskills-lines_skill_focus4", "repeating_custskills-lines_skill_focus5", "repeating_custskills-lines_skill_mod",
-            ...WOUND_ATTRS, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi"
-        ];
-        getAttrs(attrs, (values) => {
-            const valueMap = new Map(Object.entries(values));
-            const traitName = valueMap.get("repeating_custskills-lines_skill_trait");
-            if (!traitName) return;
-
-            const traitValNum = parseInt(valueMap.get(traitName), 10) || 0;
-            let roll = `${getTraitRollD10s(traitValNum)}d10!`;
-            for (let i = 1; i <= 5; i++) {
-                const d = valueMap.get(`repeating_custskills-lines_skill_focus${i}`);
-                if (d) roll = `${roll} + ${d}`;
-            }
-            const mod = valueMap.get("repeating_custskills-lines_skill_mod");
-            if (mod) roll = `${roll} + ${mod}`;
-            roll = applyWounds(roll, values);
-
-            const skillName = (valueMap.get("repeating_custskills-lines_skill_name") || "").replaceAll("_", " ");
-            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName}}}`, (results) => {
-                finishRoll(results.rollId, { roll: results.results.roll.result });
-            });
-        });
-    });
-
-    /** Repeating skills: roll from repeating_skills-lines trait + focus/mod, template:skill */
-    on("clicked:repeating_skills-lines:roll-skill", (info) => {
-        const attrs = [
-            "repeating_skills-lines_skill_trait", "repeating_skills-lines_skill_name",
-            "repeating_skills-lines_skill_focus1", "repeating_skills-lines_skill_focus2", "repeating_skills-lines_skill_focus3",
-            "repeating_skills-lines_skill_focus4", "repeating_skills-lines_skill_focus5", "repeating_skills-lines_skill_mod",
-            ...WOUND_ATTRS, "power", "reflex", "heart", "savvy", "presence", "perception", "shinpi"
-        ];
-        getAttrs(attrs, (values) => {
-            const valueMap = new Map(Object.entries(values));
-            const traitName = valueMap.get("repeating_skills-lines_skill_trait");
-            if (!traitName) return;
-
-            const traitValNum = parseInt(valueMap.get(traitName), 10) || 0;
-            let roll = `${getTraitRollD10s(traitValNum)}d10!`;
-            for (let i = 1; i <= 5; i++) {
-                const d = valueMap.get(`repeating_skills-lines_skill_focus${i}`);
-                if (d) roll = `${roll} + ${d}`;
-            }
-            const mod = valueMap.get("repeating_skills-lines_skill_mod");
-            if (mod) roll = `${roll} + ${mod}`;
-            roll = applyWounds(roll, values);
-
-            const skillName = (valueMap.get("repeating_skills-lines_skill_name") || "").replaceAll("_", " ");
-            startRoll(`&{template:skill} {{characterName=${values.character_name}}} {{roll=[[${roll}]]}} {{skillName=${skillName}}}`, (results) => {
-                finishRoll(results.rollId, { roll: results.results.roll.result });
-            });
-        });
-    });
+    on("clicked:repeating_custskills-lines:roll-custskill", () => doSkillRoll("repeating_custskills-lines"));
+    on("clicked:repeating_skills-lines:roll-skill", () => doSkillRoll("repeating_skills-lines"));
 
     /** Core trait rolls: Power, Reflex, Heart, Savvy, Presence, Perception, Shinpi */
     on("clicked:roll_power", () => doTraitRoll("power", "Power"));
@@ -1715,6 +1687,8 @@
         return skillAttrNames;
     }
 
+    const normalizeSkillName = (name) => (name || "").toLowerCase().replace(/[\s_-]+/g, "_");
+
     /** Default trait for a skill when not in repeating skills (e.g. "athletics" → "power"). */
     const getSkillDefault = (nameToFind) => {
         const map = new Map();
@@ -1756,16 +1730,17 @@
         map.set("toxicology", "savvy");
         map.set("wetware", "savvy");
 
-        return map.get(nameToFind);
+        return map.get(normalizeSkillName(nameToFind));
     }
 
 
-    /** Find repeating_skills-lines row id whose skill_name matches (case-insensitive). Returns null if not found. */
+    /** Find a repeating skill row by its normalized skill name. Returns null if not found. */
     const findSkillInValues = (valueMap, nameToFind, skillIds) => {
-        if (!nameToFind) return null;
+        const normalizedName = normalizeSkillName(nameToFind);
+        if (!normalizedName) return null;
         const found = skillIds.find((skillId) => {
             const name = valueMap.get(`repeating_skills-lines_${skillId}_skill_name`);
-            return name && name.toLowerCase() === nameToFind.toLowerCase();
+            return normalizeSkillName(name) === normalizedName;
         });
         return found !== undefined ? found : null;
     };
