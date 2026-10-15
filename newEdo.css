@@ -15,11 +15,6 @@
     --sheet-bg-black: #0300007c;
     --sheet-bg-cyan: #005e5e52;
     --sheet-bg-orange: #b86e0046;
-    --roll-template-border: #202020;
-    --roll-template-background: #34163a;
-    --roll-result-background: #63296e;
-    --roll-details-text: #eeeeee;
-    --roll-details-background: #2a2249;
 }
 
 body {
@@ -255,8 +250,8 @@ h2 {
 .sheet-rolltemplate-skill,
 .sheet-rolltemplate-rote,
 .sheet-rolltemplate-wep {
-    border: solid 2px var(--roll-template-border);
-    background: var(--roll-template-background);
+    border: solid 2px #202020;
+    background: #34163a;
     text-align: center;
     padding: 1rem;
 }
@@ -267,15 +262,15 @@ h2 {
 .sheet-rolltemplate-skill .inlinerollresult,
 .sheet-rolltemplate-rote .inlinerollresult,
 .sheet-rolltemplate-wep .inlinerollresult {
-    background-color: var(--roll-result-background);
+    background-color: #63296e;
     border: 2px solid black;
     color: white;
 }
 
 .sheet-rolltemplate-rote-details {
-    color: var(--roll-details-text);
-    border: solid 2px var(--roll-details-text);
-    background: var(--roll-details-background);
+    color: #eeeeee;
+    border: solid 2px #eeeeee;
+    background: #2a2249;
     padding: 1rem;
 }
 
