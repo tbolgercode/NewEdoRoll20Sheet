@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-
 :root {
     --sheet-bg-lpink: #31001a46;
     --sheet-bg-ltcyan: #dfececda;
@@ -37,10 +35,9 @@ input[type="text"] {
 }
 
 .newedo-logo-svg {
-    width: auto;
+    display: block;
+    width: 100%;
     height: 70px;
-    background-image: url(https://raw.githubusercontent.com/tbolgercode/NewEdoRoll20Sheet/a874b9b0a48a612671ad5ee1423dd7f5070d3059/NewEdoLogo.svg);
-    background-size: 100% 100%;
 }
 
 .sheet-header {
@@ -241,8 +238,6 @@ h2 {
 .bg-orange {
     background-color: var(--sheet-bg-orange);
 }
-
-/* NEW SHIT STARTS HERE */
 
 .sheet-rolltemplate-init,
 .sheet-rolltemplate-trait,
@@ -743,4 +738,3 @@ h2 {
     color: white;
     border-radius: 5px;
 }
-
