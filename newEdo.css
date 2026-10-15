@@ -1,6 +1,26 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
+:root {
+    --sheet-bg-lpink: #31001a46;
+    --sheet-bg-ltcyan: #dfececda;
+    --sheet-bg-grey: #49494946;
+    --sheet-bg-purple: #44005846;
+    --sheet-bg-ltpurple: #eeeceef3;
+    --sheet-bg-brown: #612e1f46;
+    --sheet-bg-blue: #00367e46;
+    --sheet-bg-ltblue: #d6dbe4;
+    --sheet-bg-green: #004b1346;
+    --sheet-bg-ltgreen: #dae6dcee;
+    --sheet-bg-black: #0300007c;
+    --sheet-bg-cyan: #005e5e52;
+    --sheet-bg-orange: #b86e0046;
+    --roll-template-border: #202020;
+    --roll-template-background: #34163a;
+    --roll-result-background: #63296e;
+    --roll-details-text: #eeeeee;
+    --roll-details-background: #2a2249;
+}
 
 body {
     font-family: Orbitron, system-ui;
@@ -17,11 +37,9 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
-input {
-    width: 100%
+input[type="text"] {
+    width: 100%;
 }
-
-
 
 .newedo-logo-svg {
     width: auto;
@@ -54,7 +72,6 @@ input[type="checkbox"] {
 
 select {
     background-color: #f7f7f7;
-
 }
 
 option {
@@ -164,6 +181,7 @@ h2 {
 }
 
 .no-select-arrow {
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
@@ -178,55 +196,55 @@ h2 {
 }
 
 .bg-lpink {
-    background-color: #31001a46;
+    background-color: var(--sheet-bg-lpink);
 }
 
 .bg-ltcyan {
-    background-color: #dfececda;
+    background-color: var(--sheet-bg-ltcyan);
 }
 
 .bg-grey {
-    background-color: #49494946;
+    background-color: var(--sheet-bg-grey);
 }
 
 .bg-purple {
-    background-color: #44005846;
+    background-color: var(--sheet-bg-purple);
 }
 
 .bg-ltpurple {
-    background-color: #eeeceef3;
+    background-color: var(--sheet-bg-ltpurple);
 }
 
 .bg-brown {
-    background-color: #612e1f46;
+    background-color: var(--sheet-bg-brown);
 }
 
 .bg-blue {
-    background-color: #00367e46;
+    background-color: var(--sheet-bg-blue);
 }
 
 .bg-ltblue {
-    background-color: #d6dbe4 !important;
+    background-color: var(--sheet-bg-ltblue) !important;
 }
 
 .bg-green {
-    background-color: #004b1346;
+    background-color: var(--sheet-bg-green);
 }
 
 .bg-ltgreen {
-    background-color: #dae6dcee;
+    background-color: var(--sheet-bg-ltgreen);
 }
 
 .bg-black {
-    background-color: #0300007c;
+    background-color: var(--sheet-bg-black);
 }
 
 .bg-cyan {
-    background-color: #005e5e52;
+    background-color: var(--sheet-bg-cyan);
 }
 
 .bg-orange {
-    background-color: #b86e0046;
+    background-color: var(--sheet-bg-orange);
 }
 
 /* NEW SHIT STARTS HERE */
@@ -237,8 +255,8 @@ h2 {
 .sheet-rolltemplate-skill,
 .sheet-rolltemplate-rote,
 .sheet-rolltemplate-wep {
-    border: solid 2px #202020;
-    background: #34163a;
+    border: solid 2px var(--roll-template-border);
+    background: var(--roll-template-background);
     text-align: center;
     padding: 1rem;
 }
@@ -249,15 +267,15 @@ h2 {
 .sheet-rolltemplate-skill .inlinerollresult,
 .sheet-rolltemplate-rote .inlinerollresult,
 .sheet-rolltemplate-wep .inlinerollresult {
-    background-color: #63296e;
+    background-color: var(--roll-result-background);
     border: 2px solid black;
     color: white;
 }
 
 .sheet-rolltemplate-rote-details {
-    color: #eeeeee;
-    border: solid 2px #eeeeee;
-    background: #2a2249;
+    color: var(--roll-details-text);
+    border: solid 2px var(--roll-details-text);
+    background: var(--roll-details-background);
     padding: 1rem;
 }
 
@@ -274,17 +292,23 @@ h2 {
 .main-container{
     padding: 0px;
     display: grid;
-    grid-template-columns: minmax(600px, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     max-width: 1920px;
     margin: 0 auto;
 }
 
 .character-details-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 10px;
     padding-left: 0px;
     padding-right: 0px;
+}
+
+@media (max-width: 640px) {
+    .character-details-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 .character-name-container {
@@ -295,13 +319,13 @@ h2 {
 
 .legend-wounds-container {
     display: grid;
-    grid-template-columns: minmax(300px, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
 }
 
 .xp-wounds-container {
     display: grid;
-    grid-template-columns: minmax(300px, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
     padding: 2px;
 }
@@ -342,13 +366,24 @@ h2 {
     padding: 2px;
 }
 
-.fate-card-container {
+.fate-card-container,
+.backgrounds-card-container,
+.equipment-card-container,
+.augments-card-container,
+.armor-card-container,
+.rotes-card-container {
     display: grid;
     gap: 10px;
     padding: 2px;
 }
 
-.fate-card-header-container {
+.fate-card-header-container,
+.backgrounds-card-header-container,
+.equipment-card-header-container,
+.augments-card-header-container,
+.armor-card-header-container,
+.skills-card-header-container,
+.rotes-card-header-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(50px, auto));
     grid-template-rows: minmax(28px, auto);
@@ -365,13 +400,6 @@ h2 {
     width: 100%;
 }
 
-.backgrounds-card-header-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, auto));
-    grid-template-rows: minmax(28px, auto);
-    justify-content: space-between;
-}
-
 .backgrounds-card-contents-container {
     display: grid;
 }
@@ -384,12 +412,6 @@ h2 {
 .backgrounds-card-contents-body {
     display: grid;
     grid-template-columns: 3fr 2fr 16fr 1fr;
-}
-
-.backgrounds-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
 }
 
 .backgrounds-card-background-line-container {
@@ -407,19 +429,6 @@ h2 {
 .backgrounds-card-background-line-container-button-holder {
     display: flex;
     justify-content: center;
-}
-
-.equipment-card-header-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, auto));
-    justify-content: space-between;
-    grid-template-rows: 80%;
-}
-
-.equipment-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
 }
 
 .equipment-card-equipment-line-container {
@@ -453,19 +462,6 @@ h2 {
     gap:5px;
 }
 
-.augments-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
-}
-
-.augments-card-header-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, auto));
-    justify-content: space-between;
-    grid-template-rows: 80%;
-}
-
 .augments-card-augments-line-container-header {
     display: grid;
     grid-template-columns: minmax(50px, auto) minmax(50px, 50%) minmax(50px, auto);
@@ -479,25 +475,6 @@ h2 {
     grid-template-columns: minmax(50px, 3fr) minmax(50px, 1fr) minmax(50px, 7fr);
     gap: 10px;
     padding: 2px;
-}
-
-.augments-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
-}
-
-.armor-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
-}
-
-.armor-card-header-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, auto));
-    justify-content: space-between;
-    grid-template-rows: 80%;
 }
 
 .armor-card-armor-line-container-header {
@@ -522,23 +499,10 @@ h2 {
     padding: 2px;
 }
 
-.armor-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
-}
-
 .skills-card-container {
     display: grid;
     gap: 2px;
     padding: 2px;
-}
-
-.skills-card-header-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, auto));
-    justify-content: space-between;
-    grid-template-rows: 80%;
 }
 
 .skills-card-skills-line-container {
@@ -572,23 +536,10 @@ h2 {
     padding: 2px;
 }
 
-.rotes-card-container {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
-}
-
-.rotes-card-header-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, auto));
-    justify-content: space-between;
-    grid-template-rows: 80%;
-}
-
 .rotes-card-kami-details-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(50px, auto));
-    gap: 10;
+    gap: 10px;
 }
 
 .rotes-card-rotes-line-container-header {
@@ -600,12 +551,6 @@ h2 {
 }
 
 .rotes-card-rotes-line-contents-body {
-    display: grid;
-    gap: 10px;
-    padding: 2px;
-}
-
-.rotes-card-container {
     display: grid;
     gap: 10px;
     padding: 2px;
