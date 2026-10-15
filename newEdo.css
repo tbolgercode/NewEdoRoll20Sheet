@@ -181,10 +181,6 @@ h2 {
     background-color: #31001a46;
 }
 
-.bg-cyan {
-    background-color: #00d4d446;
-}
-
 .bg-ltcyan {
     background-color: #dfececda;
 }
@@ -237,62 +233,22 @@ h2 {
 
 .sheet-rolltemplate-init,
 .sheet-rolltemplate-trait,
-.sheet-rolltemplate-trait {
-    border: solid 2px #202020;
-    background: #34163a;
-    text-align: center;
-    padding: 1rem;
-}
-
-.sheet-rolltemplate-init .inlinerollresult  {
-    background-color: #63296e;
-    border: 2px solid black;
-    color: white;
-}
-
 .sheet-rolltemplate-fate,
-.sheet-rolltemplate-fate {
-    border: solid 2px #202020;
-    background: #34163a;
-    text-align: center;
-    padding: 1rem;
-}
-
-.sheet-rolltemplate-fate .inlinerollresult  {
-    background-color: #63296e;
-    border: 2px solid black;
-    color: white;
-}
-
 .sheet-rolltemplate-skill,
-.sheet-rolltemplate-skill {
-    border: solid 2px #202020;
-    background: #34163a;
-    text-align: center;
-    padding: 1rem;
-}
-
-.sheet-rolltemplate-skill .inlinerollresult  {
-    background-color: #63296e;
-    border: 2px solid black;
-    color: white;
-}
-
 .sheet-rolltemplate-rote,
-.sheet-rolltemplate-rote {
+.sheet-rolltemplate-wep {
     border: solid 2px #202020;
     background: #34163a;
     text-align: center;
     padding: 1rem;
 }
 
-.sheet-rolltemplate-rote .inlinerollresult  {
-    background-color: #63296e;
-    border: 2px solid black;
-    color: white;
-}
-
-.sheet-rolltemplate-trait .inlinerollresult  {
+.sheet-rolltemplate-init .inlinerollresult,
+.sheet-rolltemplate-trait .inlinerollresult,
+.sheet-rolltemplate-fate .inlinerollresult,
+.sheet-rolltemplate-skill .inlinerollresult,
+.sheet-rolltemplate-rote .inlinerollresult,
+.sheet-rolltemplate-wep .inlinerollresult {
     background-color: #63296e;
     border: 2px solid black;
     color: white;
@@ -305,25 +261,9 @@ h2 {
     padding: 1rem;
 }
 
-.sheet-rolltemplate-wep,
-.sheet-rolltemplate-wep {
-    border: solid 2px #202020;
-    background: #34163a;
-    text-align: center;
-    padding: 1rem;
-}
-
 .sheet-rolltemplate-wep h4 {
     color: white;
 }
-
-.sheet-rolltemplate-wep .inlinerollresult  {
-    background-color: #63296e;
-    border: 2px solid black;
-    color: white;
-}
-
-
 
 .generic-content-column {
     display: grid;
@@ -335,7 +275,6 @@ h2 {
     padding: 0px;
     display: grid;
     grid-template-columns: minmax(600px, 1fr);
-    grid-template-rows: repeat(7);
     max-width: 1920px;
     margin: 0 auto;
 }
@@ -440,13 +379,11 @@ h2 {
 .backgrounds-card-content-header {
     display: grid;
     grid-template-columns: 3fr 2fr 16fr 1fr;
-    justify-content: space-apart;
 }
 
 .backgrounds-card-contents-body {
     display: grid;
     grid-template-columns: 3fr 2fr 16fr 1fr;
-    justify-content: space-apart;
 }
 
 .backgrounds-card-container {

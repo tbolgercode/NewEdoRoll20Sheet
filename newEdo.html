@@ -1628,20 +1628,6 @@
         return "None";
     };
 
-    const getSkillValue = (skillNum) => document.getElementById(`skill${skillNum}_trait`)?.value;
-
-    const buildTraitMap = (values) => {
-        const traits = new Map();
-        traits.set("heart", values.heart);
-        traits.set("power", values.power);
-        traits.set("reflex", values.reflex);
-        traits.set("savvy", values.savvy);
-        traits.set("presence", values.presence);
-        traits.set("shinpi", values.shinpi);
-        traits.set("", 0);
-        return traits;
-    };
-
     /** Attribute names needed for rote roll (repeating rotes + skills + traits + wounds). */
     const buildRoteAttrDependencyNames = (skillIdArray) => {
         const skillAttrNames = [];
@@ -1784,10 +1770,6 @@
         return found !== undefined ? found : null;
     };
 
-    const getSkillLineIds = () => {
-
-    }
-
     /** Wound penalty string from current HP vs thresholds (e.g. "(-3)" for flesh wound). Empty string if no penalty. */
     const getWoundDeficit = (values) => {
         const currentHp = parseInt(values.hp_current, 10);
@@ -1816,16 +1798,6 @@
         if (value <= 100) return 5;
         return 1;
     };
-
-    const getLegendD10s = (value) => {
-        if (value <= 45) return 1;
-        if (value <= 75) return 2;
-        if (value <= 110) return 3;
-        if (value <= 160) return 4;
-        return 5;
-    };
-
-    const getKeysWithPrefix = (map, prefix) => Array.from(map.keys()).filter((key) => key.startsWith(prefix));
 
     /** Extract unique repeating section row IDs from a map's keys (e.g. repeating_fate-lines_ABC_def → ABC). */
     const getSectionIdsFromPrefix = (map, sectionPrefix) => {
